@@ -5,6 +5,7 @@
  */
 package service;
 
+import entity.Domain;
 import entity.Subscriber;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +20,7 @@ import utils.DataSource;
  *
  * @author ihebc_000
  */
-public class SubscriberService implements InterfaceService<Subscriber>{
+public class SubscriberService implements InterfaceService<Subscriber> {
 
     @Override
     public void insert(Subscriber o) {
@@ -36,7 +37,7 @@ public class SubscriberService implements InterfaceService<Subscriber>{
 
     @Override
     public void delete(Subscriber o) {
-         try {
+        try {
             String req = "Delete from subscriber where id_subscriber=?  ";
             PreparedStatement ps = DataSource.getInstance().getCnx().prepareStatement(req);
             ps.setInt(1, o.getIdSubscriber());
@@ -51,7 +52,7 @@ public class SubscriberService implements InterfaceService<Subscriber>{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-     @Override
+    @Override
     public ObservableList<Subscriber> DisplayAll() {
         ObservableList<Subscriber> subscribers = FXCollections.observableArrayList();
         String req = "SELECT * FROM subscriber ";
@@ -72,5 +73,23 @@ public class SubscriberService implements InterfaceService<Subscriber>{
     public Subscriber DisplayById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    public ObservableList<Subscriber> DisplayByName(String email, Domain d) {
+        DomainService ds = new DomainService();
+        ObservableList<Subscriber> subs = FXCollections.observableArrayList();
+        String req = "SELECT * FROM subscriber where email_subscriber like '%" + email + "%'";
+        if (d != null) {
+            req = req + " and domain_id="+d.getIdDomain();
+        }
+        try {
+            PreparedStatement s = DataSource.getInstance().getCnx().prepareStatement(req);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                subs.add(new Subscriber(rs.getInt("id_subscriber"), rs.getString("email_subscriber"), ds.DisplayById(rs.getInt("domain_id"))));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return subs;
+    }
 }

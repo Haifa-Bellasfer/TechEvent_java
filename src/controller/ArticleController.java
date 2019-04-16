@@ -51,6 +51,8 @@ public class ArticleController implements Initializable {
     @FXML
     private Label label_article;
     @FXML
+    private Label label_subscriber;
+    @FXML
     private JFXListView lv_article;
     @FXML
     private JFXButton btn_add;
@@ -142,6 +144,18 @@ public class ArticleController implements Initializable {
                 stage.show();
             } catch (IOException ex) {
                 Logger.getLogger(ArticleController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        label_subscriber.setOnMouseClicked((MouseEvent e) -> {
+            try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/Subscriber.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.setResizable(false);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(DomainController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
 

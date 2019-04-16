@@ -46,6 +46,13 @@ public class Subscriber {
     public void setDomain(Domain domain) {
         this.domain = domain;
     }
+
+    @Override
+    public String toString() {
+        return "Email : " + email + "\nDomain : " + domain;
+    }
+    
+    
     
     
 }

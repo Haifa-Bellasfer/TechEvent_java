@@ -1,6 +1,7 @@
 package utils;
 
 import entity.Article;
+import entity.User;
 
 /**
  *
@@ -8,4 +9,5 @@ import entity.Article;
  */
 public class Session {
     public static Article selected_article = null;
+    public static User current_user = null;
 }
