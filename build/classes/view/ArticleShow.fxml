@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ArticleShowController">
+    <children>
+        <VBox prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #214a48;">
+            <children>
+                <Label alignment="CENTER" prefHeight="100.0" prefWidth="250.0" text="Admin Dashborad" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Cambria Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Label fx:id="label_news" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="News" textAlignment="CENTER" textFill="#dad5d5">
+                    <font>
+                        <Font name="Cambria" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+        <VBox layoutX="250.0" prefHeight="600.0" prefWidth="750.0">
+            <children>
+                <HBox prefHeight="50.0" prefWidth="750.0" style="-fx-background-color: #33726f;">
+                    <children>
+                        <VBox prefHeight="100.0" prefWidth="187.5">
+                            <children>
+                                <Label fx:id="label_domain" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Domain">
+                                    <font>
+                                        <Font name="Comic Sans MS" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="100.0" prefWidth="187.5">
+                            <children>
+                                <Label fx:id="label_article" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Article">
+                                    <font>
+                                        <Font name="Comic Sans MS" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="100.0" prefWidth="187.5" />
+                        <VBox prefHeight="100.0" prefWidth="187.5" />
+                    </children>
+                </HBox>
+            <HBox prefHeight="550.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;">
+               <children>
+                  <AnchorPane prefHeight="550.0" prefWidth="750.0">
+                     <children>
+                        <Label fx:id="txtTitle" layoutX="35.0" layoutY="15.0" prefHeight="37.0" prefWidth="687.0" text="title">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="imageV" fitHeight="358.0" fitWidth="302.0" layoutX="35.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" />
+                        <Pane fx:id="paneBtn" layoutX="133.0" layoutY="470.0" prefHeight="53.0" prefWidth="197.0">
+                           <children>
+                              <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="20.0" layoutY="11.0" style="-fx-background-color: #F6D55C;" text="Update" />
+                              <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="112.0" layoutY="11.0" style="-fx-background-color: #ED553B;" text="Delete" />
+                           </children>
+                        </Pane>
+                        <Label fx:id="txtContent" layoutX="375.0" layoutY="60.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="351.0" text="content" />
+                        <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="64.0" layoutY="481.0" prefHeight="31.0" prefWidth="63.0" style="-fx-background-color: #8bcbc8;" text="Back" />
+                     </children></AnchorPane>
+               </children></HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
