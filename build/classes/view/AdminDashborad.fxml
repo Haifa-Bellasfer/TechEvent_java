@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="518.0" prefWidth="933.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashborad">
+    <children>
+        <VBox prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #214a48;">
+            <children>
+                <Label alignment="CENTER" prefHeight="100.0" prefWidth="250.0" text="Admin Dashborad" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Cambria Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Label fx:id="txt" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Statistical" textAlignment="CENTER" textFill="#dad5d5">
+                    <font>
+                        <Font name="Cambria" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+        <VBox layoutX="250.0" prefHeight="600.0" prefWidth="769.0">
+            <children>
+                <HBox prefHeight="50.0" prefWidth="750.0" style="-fx-background-color: #33726f;">
+                    <children>
+                        <VBox prefHeight="100.0" prefWidth="187.5" />
+                        <VBox prefHeight="100.0" prefWidth="187.5" />
+                        <VBox prefHeight="100.0" prefWidth="187.5" />
+                        <VBox prefHeight="100.0" prefWidth="187.5" />
+                    </children>
+                </HBox>
+            <HBox prefHeight="550.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;">
+               <children>
+                  <AnchorPane prefHeight="550.0" prefWidth="750.0">
+                     <children>
+                        <Label fx:id="stat" layoutX="35.0" layoutY="15.0" prefHeight="37.0" prefWidth="687.0" text="statistical">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Pane fx:id="paneBtn" layoutX="133.0" layoutY="470.0" prefHeight="53.0" prefWidth="197.0">
+
+                        </Pane>
+                        <Label fx:id="txtContent" layoutX="375.0" layoutY="60.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="351.0" />
+                        <Button fx:id="btnstat" layoutX="30.0" layoutY="66.0" mnemonicParsing="false"  prefHeight="25.0" prefWidth="103.0" text="Show Stat" />
+                     </children></AnchorPane>
+               </children></HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
