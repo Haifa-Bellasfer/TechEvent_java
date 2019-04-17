@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.Objects;
+
 /**
  *
  * @author Ihèb
@@ -35,6 +37,22 @@ public class Domain {
     @Override
     public String toString() {
         return nameDomain;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Domain other = (Domain) obj;
+        if (!Objects.equals(this.nameDomain, other.nameDomain)) {
+            return false;
+        }
+        return true;
     }
     
     

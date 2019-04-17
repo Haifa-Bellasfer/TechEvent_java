@@ -5,7 +5,13 @@
  */
 package utils;
 
+import entity.Article;
+import entity.Domain;
+import entity.Newsletter;
+import entity.NewsletterSubscriber;
 import entity.Subscriber;
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -15,6 +21,11 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import service.ArticleService;
+import service.DomainService;
+import service.NewsletterService;
+import service.NewsletterSubscriberService;
+import service.SubscriberService;
 
 public class Mail {
 
@@ -29,7 +40,7 @@ public class Mail {
     }
 
     public void SendWelcomeMail(Subscriber s) {
-        
+
         final String username = "pi.phoenix.2019@gmail.com";
         final String password = "phoenixpi2019";
 
@@ -42,6 +53,7 @@ public class Mail {
         // Get the Session object.
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
+                    @Override
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(username, password);
                     }
@@ -116,4 +128,37 @@ public class Mail {
         }
     }
 
+    public void SendNewsletter() {
+        ArrayList<Subscriber> subscribers = new ArrayList<>();
+        subscribers.addAll(SubscriberService.getInstance().DisplayAll());
+        ArrayList<Domain> domains = new ArrayList<>();
+        domains.addAll(DomainService.getInstance().DisplayAll());
+        for (Domain domain : domains) {
+            ArrayList<Article> articles = new ArrayList<>();
+            articles.addAll(ArticleService.getInstance().getArticleByDomain(domain));
+            if (articles.size() > 0) {
+                Newsletter newsletter = new Newsletter();
+                newsletter.setCreationDate(new Date(System.currentTimeMillis()));
+                newsletter.setIdNewsletter(NewsletterService.getInstance().create(newsletter));
+                for (Subscriber sub : subscribers) {
+                    if (sub.getDomain().equals(domain)) {
+                        //$this -> sendEmail($s, $articles_by_domain, $newsletter);
+                        System.out.println(sub.getEmail());
+                        System.out.println(articles.size());
+                        System.out.println(newsletter.getIdNewsletter());
+                        NewsletterSubscriber ns = new NewsletterSubscriber();
+                        ns.setNewsletter(newsletter);
+                        ns.setSubscriber(sub);
+                        NewsletterSubscriberService.getInstance().insert(ns);
+                    }
+                }
+                for (Article article : articles) {
+                    article.setNewsletter(newsletter);
+                    ArticleService.getInstance().updateNewsletter(article);
+                }
+            }
+        }
+
+    }
+    
 }

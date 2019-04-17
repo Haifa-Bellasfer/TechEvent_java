@@ -50,6 +50,7 @@ public class ArticleController implements Initializable {
     private Label label_domain;
     @FXML
     private Label label_article;
+    @FXML
     private Label label_subscriber;
     @FXML
     private JFXListView lv_article;
@@ -144,7 +145,7 @@ public class ArticleController implements Initializable {
                 stage.setResizable(false);
                 stage.show();
             } catch (IOException ex) {
-                Logger.getLogger(ArticleController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("article label - ac");
             }
         });
         label_subscriber.setOnMouseClicked((MouseEvent e) -> {
@@ -156,7 +157,7 @@ public class ArticleController implements Initializable {
                 stage.setResizable(false);
                 stage.show();
             } catch (IOException ex) {
-                Logger.getLogger(DomainController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("subscriber label - ac");
             }
         });
 

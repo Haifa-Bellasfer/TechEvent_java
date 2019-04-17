@@ -9,31 +9,31 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
-   <children>
-      <VBox prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #214a48;">
-         <children>
-            <Label alignment="CENTER" prefHeight="100.0" prefWidth="250.0" text="Admin Dashborad" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Cambria Bold" size="24.0" />
-               </font>
-            </Label>
-            <Label fx:id="label_news" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="BackOffice" textAlignment="CENTER" textFill="#dad5d5">
-               <font>
-                  <Font name="Cambria" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="label_visitor" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Visitor interface" textAlignment="CENTER" textFill="#dad5d5">
-               <font>
-                  <Font name="Cambria" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="label_user" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="User interface" textAlignment="CENTER" textFill="#dad5d5">
-               <font>
-                  <Font name="Cambria" size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
-      <VBox layoutX="250.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;" />
-   </children>
+    <children>
+        <VBox prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #214a48;">
+            <children>
+                <Label alignment="CENTER" prefHeight="100.0" prefWidth="250.0" text="Admin Dashborad" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Cambria Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Label fx:id="label_news" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="BackOffice" textAlignment="CENTER" textFill="#dad5d5">
+                    <font>
+                        <Font name="Cambria" size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="label_visitor" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Visitor interface" textAlignment="CENTER" textFill="#dad5d5">
+                    <font>
+                        <Font name="Cambria" size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="label_user" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="User interface" textAlignment="CENTER" textFill="#dad5d5">
+                    <font>
+                        <Font name="Cambria" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+        <VBox layoutX="250.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;" />
+    </children>
 </AnchorPane>

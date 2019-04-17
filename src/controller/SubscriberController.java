@@ -102,7 +102,7 @@ public class SubscriberController implements Initializable {
                 stage.setResizable(false);
                 stage.show();
             } catch (IOException ex) {
-                Logger.getLogger(DomainController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("article label - sc ");
             }
         });
         label_subscriber.setOnMouseClicked((MouseEvent e) -> {

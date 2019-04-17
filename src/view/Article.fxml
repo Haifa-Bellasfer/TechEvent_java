@@ -47,13 +47,14 @@
                             </children>
                         </VBox>
                         <VBox prefHeight="100.0" prefWidth="187.5">
-                     <children>
-                        <Label fx:id="label_subscriber" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Subscribers">
-                           <font>
-                              <Font name="Comic Sans MS" size="20.0" />
-                           </font>
-                        </Label>
-                     </children></VBox>
+                            <children>
+                                <Label fx:id="label_subscriber" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Subscribers">
+                                    <font>
+                                        <Font name="Comic Sans MS" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
                         <VBox prefHeight="100.0" prefWidth="187.5">
                             <children>
                                 <Label fx:id="label_newsletter" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Send newsletters">
@@ -66,26 +67,27 @@
                     </children>
                 </HBox>
                 <HBox prefHeight="100.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;">
-               <children>
-                  <AnchorPane prefHeight="100.0" prefWidth="766.0">
-                     <children>
-                        <JFXButton fx:id="btn_add" buttonType="RAISED" layoutX="676.0" layoutY="35.0" prefHeight="31.0" prefWidth="65.0" style="-fx-background-color: #8bcbc8;" text="Add" />
-                        <JFXTextField fx:id="txtKeyword" layoutX="14.0" layoutY="35.0" prefHeight="31.0" prefWidth="165.0" style="-fx-background-color: #FFFFFF;" />
-                        <ChoiceBox fx:id="chDomain" layoutX="186.0" layoutY="35.0" prefHeight="31.0" prefWidth="172.0" style="-fx-background-color: #ffffff;" />
-                        <ChoiceBox fx:id="chOrderBy" layoutX="364.0" layoutY="35.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" />
-                        <JFXButton fx:id="btnSearch" buttonType="RAISED" layoutX="526.0" layoutY="35.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #F6D55C;" text="Search" />
-                        <Label layoutX="14.0" layoutY="14.0" text="Keyword" />
-                        <Label layoutX="186.0" layoutY="14.0" text="Domain" />
-                        <Label layoutX="364.0" layoutY="14.0" text="Order by" />
-                        <JFXButton fx:id="btnReset" buttonType="RAISED" layoutX="608.0" layoutY="35.0" style="-fx-background-color: #ED553B;" text="Reset" />
-                     </children>
-                  </AnchorPane>
-               </children></HBox>
-            <HBox prefHeight="450.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;">
-               <children>
-                  <JFXListView fx:id="lv_article" prefHeight="450.0" prefWidth="750.0" />
-               </children>
-            </HBox>
+                    <children>
+                        <AnchorPane prefHeight="100.0" prefWidth="766.0">
+                            <children>
+                                <JFXButton fx:id="btn_add" buttonType="RAISED" layoutX="676.0" layoutY="35.0" prefHeight="31.0" prefWidth="65.0" style="-fx-background-color: #8bcbc8;" text="Add" />
+                                <JFXTextField fx:id="txtKeyword" layoutX="14.0" layoutY="35.0" prefHeight="31.0" prefWidth="165.0" style="-fx-background-color: #FFFFFF;" />
+                                <ChoiceBox fx:id="chDomain" layoutX="186.0" layoutY="35.0" prefHeight="31.0" prefWidth="172.0" style="-fx-background-color: #ffffff;" />
+                                <ChoiceBox fx:id="chOrderBy" layoutX="364.0" layoutY="35.0" prefWidth="150.0" style="-fx-background-color: #ffffff;" />
+                                <JFXButton fx:id="btnSearch" buttonType="RAISED" layoutX="526.0" layoutY="35.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #F6D55C;" text="Search" />
+                                <Label layoutX="14.0" layoutY="14.0" text="Keyword" />
+                                <Label layoutX="186.0" layoutY="14.0" text="Domain" />
+                                <Label layoutX="364.0" layoutY="14.0" text="Order by" />
+                                <JFXButton fx:id="btnReset" buttonType="RAISED" layoutX="608.0" layoutY="35.0" style="-fx-background-color: #ED553B;" text="Reset" />
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </HBox>
+                <HBox prefHeight="450.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;">
+                    <children>
+                        <JFXListView fx:id="lv_article" prefHeight="450.0" prefWidth="750.0" />
+                    </children>
+                </HBox>
             </children>
         </VBox>
     </children>

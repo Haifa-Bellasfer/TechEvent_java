@@ -25,6 +25,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import service.DomainService;
+import utils.Mail;
 
 /**
  *
@@ -104,7 +105,8 @@ public class DomainController implements Initializable {
                 stage.setResizable(false);
                 stage.show();
             } catch (IOException ex) {
-                Logger.getLogger(DomainController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("article label"+ex.getMessage()+" ");
+                ex.printStackTrace();
             }
         });
         label_subscriber.setOnMouseClicked((MouseEvent e) -> {
@@ -119,6 +121,10 @@ public class DomainController implements Initializable {
                 Logger.getLogger(DomainController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+        label_newsletter.setOnMouseClicked(e -> {
+            Mail.getInstance().SendNewsletter();
+        });
+        
 
         DomainService ds = new DomainService();
         btn_update.setVisible(false);

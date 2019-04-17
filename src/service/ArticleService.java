@@ -22,6 +22,15 @@ import utils.DataSource;
  */
 public class ArticleService implements InterfaceService<Article> {
     
+    private static ArticleService instance;
+
+    public static ArticleService getInstance() {
+        if (instance == null) {
+            instance = new ArticleService();
+        }
+        return instance;
+    }
+    
     @Override
     public void insert(Article o) {
         String req = "insert into article(title_article, content_article, views_number, date_of_publish, image, domain_id) "
@@ -169,6 +178,31 @@ public class ArticleService implements InterfaceService<Article> {
         sql = "SELECT * FROM article where title_article like '%"+keyword+"%' "+sql;
         try {
             PreparedStatement s = DataSource.getInstance().getCnx().prepareStatement(sql);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                Article a = new Article();
+                a.setIdArticle(rs.getInt("id_article"));
+                a.setTitreArticle(rs.getString("title_article"));
+                a.setContentArticle(rs.getString("content_article"));
+                a.setDateOfPublish(rs.getDate("date_of_publish"));
+                DomainService ds = new DomainService();
+                a.setDomain(ds.DisplayById(rs.getInt("domain_id")));
+                a.setImage(rs.getString("image"));
+                a.setViewsNumber(rs.getInt("views_number"));
+                articles.add(a);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return articles;
+    }
+    
+    
+    public ObservableList<Article> getArticleByDomain(Domain d) {
+        ObservableList<Article> articles = FXCollections.observableArrayList();
+        String req = "SELECT * FROM article where domain_id='"+d.getIdDomain()+"'";
+        try {
+            PreparedStatement s = DataSource.getInstance().getCnx().prepareStatement(req);
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 Article a = new Article();
