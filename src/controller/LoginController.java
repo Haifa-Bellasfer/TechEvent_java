@@ -51,6 +51,62 @@ public class LoginController implements Initializable {
     ResultSet resultSet2 = null;
     ResultSet resultSet3 = null;
 
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        if (con == null) {
+            lblErrors.setTextFill(Color.TOMATO);
+            lblErrors.setText("Server Error : Check");
+        } else {
+            lblErrors.setTextFill(Color.GREEN);
+            lblErrors.setText("Server is up : Good to go");
+        }
+    }
+
+    public LoginController() {
+        con = DataSource.getInstance().getCnx();
+
+    }
+
+    public boolean logIn() {
+
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
+        boolean bool=false;
+      
+
+        UserService ud = UserService.getInstance();
+       String passw=ud.getPass(username);
+        
+    
+if(passw!=null){
+            if 
+            (MyBCrypt.checkpw(password, passw.replaceFirst("2y", "2a")))
+            {
+                System.out.println("It matches");
+      
+              id= ud.getId(username);
+              Session.current_user = new User();
+                Session.current_user.setId_user(id);
+                System.out.println("yoooo");
+                bool=true;
+            }     
+            
+            
+            else {
+               lblErrors.setTextFill(Color.TOMATO);
+                lblErrors.setText("Enter Correct Email/Password");
+                System.err.println("Wrong Logins --///");}}
+            else {
+               lblErrors.setTextFill(Color.TOMATO);
+                lblErrors.setText("Enter Correct Email/Password");
+                System.err.println("Wrong Logins --///");}
+
+      
+        return bool;
+
+    }
+    
     @FXML
     public void handleButtonAction(MouseEvent event) {
 
@@ -62,7 +118,7 @@ public class LoginController implements Initializable {
                     Node node = (Node) event.getSource();
                     Stage stage = (Stage) node.getScene().getWindow();
                     stage.close();
-                    if (udao.isAdmin(Session.current_user)==true){
+                    if (udao.isAdmin(Session.current_user.getId_user())==true){
                     Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/UsersList.fxml")));
                       stage.setScene(scene);
                     stage.show();}
@@ -108,61 +164,6 @@ public class LoginController implements Initializable {
         
         
         
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        if (con == null) {
-            lblErrors.setTextFill(Color.TOMATO);
-            lblErrors.setText("Server Error : Check");
-        } else {
-            lblErrors.setTextFill(Color.GREEN);
-            lblErrors.setText("Server is up : Good to go");
-        }
-    }
-
-    public LoginController() {
-        con = DataSource.getInstance().getCnx();
-
-    }
-
-    public boolean logIn() {
-
-        String username = txtUsername.getText();
-        String password = txtPassword.getText();
-        boolean bool=false;
-      
-
-        UserService ud = UserService.getInstance();
-       String passw=ud.getPass(username);
-        
-    
-if(passw!=null){
-            if 
-            (MyBCrypt.checkpw(password, passw.replaceFirst("2y", "2a")))
-            {
-                System.out.println("It matches");
-      
-              id= ud.getId(username);
-                
-
-                Session.current_user = id;
-                bool=true;
-            }     
-            
-            
-            else {
-               lblErrors.setTextFill(Color.TOMATO);
-                lblErrors.setText("Enter Correct Email/Password");
-                System.err.println("Wrong Logins --///");}}
-            else {
-               lblErrors.setTextFill(Color.TOMATO);
-                lblErrors.setText("Enter Correct Email/Password");
-                System.err.println("Wrong Logins --///");}
-
-      
-        return bool;
-
     }
 
 }

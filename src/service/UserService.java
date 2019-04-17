@@ -119,7 +119,7 @@ String pw_hash = MyBCrypt.hashpw(user.getPassword(), MyBCrypt.gensalt());
      }
      try {
          for (; rs.next();) {
-             id =  ((Number) rs.getObject(1)).intValue();
+             id =  rs.getInt(1);
          }    } catch (SQLException ex) {
          Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
      }
@@ -144,6 +144,7 @@ String pw_hash = MyBCrypt.hashpw(user.getPassword(), MyBCrypt.gensalt());
                user.setUsername(rs.getString("username"));
                user.setLast_name(rs.getString("last_name"));
                user.setStatus(rs.getString("status"));
+               user.setPhone(rs.getString("phone"));
                list.add(user);
                
               
@@ -163,7 +164,7 @@ String pw_hash = MyBCrypt.hashpw(user.getPassword(), MyBCrypt.gensalt());
     }
 
     @Override
-    public ObservableList<String> DisplayById(int id) {
+    public User DisplayById(int id) {
         
         
         
@@ -182,39 +183,34 @@ String pw_hash = MyBCrypt.hashpw(user.getPassword(), MyBCrypt.gensalt());
                user.setAddress(rs.getString("address"));
                user.setPhone(rs.getString("phone"));
                
-               list.add(user.getUsername());
-               list.add(user.getFirst_name());
-               list.add(user.getLast_name());
-               list.add(user.getEmail());
-               list.add(user.getAddress());
-               list.add(String.valueOf(user.getPhone()));
               
             }  
         } catch (SQLException ex) {
             Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
         }
-    return list;
+    return user;
    }
 
     
-  int hi;  
+  int id;  
   String bo;
     
     public int getIdByUsername (String username){
         String req="select * from fos_user where username='"+username+"'";
-        
+        id=0;
                    
         try {
             rs=st.executeQuery(req);
             while(rs.next()){
-                hi =  ((Number) rs.getObject(1)).intValue();
+                id =  ((Number) rs.getObject(1)).intValue();
+               
             }
             
         } catch (SQLException ex) {
             Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
             
-        }
-        return hi;
+        }System.out.println("idddddddddd"+id);
+        return id;
         
     } 
             

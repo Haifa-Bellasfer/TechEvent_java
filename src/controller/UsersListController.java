@@ -51,6 +51,7 @@ public class UsersListController implements Initializable {
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colFirstname.setCellValueFactory(new PropertyValueFactory<>("first_name"));
+        colPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
         colLastname.setCellValueFactory(new PropertyValueFactory<>("last_name"));
         
      UserService ud=UserService.getInstance();

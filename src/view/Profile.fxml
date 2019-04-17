@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -9,15 +11,26 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@darktheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../styling/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileController">
    <children>
-          <Button fx:id="btnUpdate" mnemonicParsing="false" onMouseClicked="#HandleEvents" text="Update" />
-      <Button fx:id="btnPublish" layoutX="449.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" text="Publish" />
-      <TextField fx:id="txtPublish" layoutX="221.0" layoutY="89.0" />
-      <ListView fx:id="listView" layoutX="258.0" layoutY="157.0" prefHeight="78.0" prefWidth="200.0" />
-      <ListView fx:id="listProfile" layoutX="33.0" layoutY="91.0" prefHeight="161.0" prefWidth="45.0" />
-      <JFXTextField fx:id="txtSearch" layoutX="403.0" layoutY="8.0" />
-      <Label fx:id="lblError" layoutX="330.0" layoutY="37.0" />
-      <JFXListView fx:id="listShared" layoutX="249.0" layoutY="271.0" prefHeight="78.0" prefWidth="200.0" />
+          <Button fx:id="btnUpdate" layoutX="25.0" layoutY="452.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" prefHeight="40.0" prefWidth="135.0" stylesheets="@../styling/fullpackstyling.css" text="Update Profile">
+         <font>
+            <Font size="17.0" />
+         </font></Button>
+      <Button fx:id="btnPublish" layoutX="710.0" layoutY="116.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" prefHeight="34.0" prefWidth="65.0" text="Publish" />
+      <TextField fx:id="txtPublish" layoutX="378.0" layoutY="109.0" prefHeight="54.0" prefWidth="307.0" />
+      <ListView fx:id="listView" layoutX="378.0" layoutY="208.0" prefHeight="157.0" prefWidth="397.0" styleClass="liststories" />
+      <ListView fx:id="listProfile" fixedCellSize="0.0" layoutX="80.0" layoutY="275.0" prefHeight="174.0" prefWidth="142.0" styleClass="listprofile" />
+      <JFXTextField fx:id="txtSearch" layoutX="843.0" layoutY="23.0" />
+      <Label fx:id="lblError" layoutX="685.0" layoutY="27.0" prefHeight="17.0" prefWidth="142.0" text="Search for user" />
+      <JFXListView fx:id="listShared" layoutX="378.0" layoutY="400.0" prefHeight="165.0" prefWidth="397.0" styleClass="liststories" />
+      <Label layoutX="25.0" layoutY="307.0" text="FirstName" />
+      <Label layoutX="25.0" layoutY="332.0" text="LastName" />
+      <Label layoutX="25.0" layoutY="359.0" text="Email" />
+      <Label layoutX="25.0" layoutY="383.0" text="Address" />
+      <Label layoutX="25.0" layoutY="408.0" text="Phone" />
+      <Label layoutX="25.0" layoutY="282.0" text="Username" />
+      <Label layoutX="382.0" layoutY="178.0" styleClass="stories" text="Published Stories :" />
+      <Label layoutX="378.0" layoutY="375.0" styleClass="stories" text="Shared Stories :" />
    </children>
 </AnchorPane>

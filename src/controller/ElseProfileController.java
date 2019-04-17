@@ -10,11 +10,14 @@ import service.UserService;
 import service.UserStoryService;
 import entity.UserStory;
 import com.jfoenix.controls.JFXButton;
+import entity.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -48,6 +51,7 @@ public class ElseProfileController implements Initializable{
            
              if (event.getSource() == btnReturn) {
             
+   Session.searched_user.setId_user(0);
              try {
                  Node node = (Node) event.getSource();
                  Stage stage = (Stage) node.getScene().getWindow();
@@ -69,7 +73,7 @@ public class ElseProfileController implements Initializable{
         
          StoryService strdao=StoryService.getInstance();
         int id=strdao.getIdByContent(content);
-        UserStory us = new UserStory(Session.current_user, id);
+        UserStory us = new UserStory(Session.current_user.getId_user(), id);
         usd.insert(us);
            }
              
@@ -84,10 +88,23 @@ public class ElseProfileController implements Initializable{
         
         
          StoryService strdao=StoryService.getInstance();
-     listView.setItems(strdao.DisplayAllById(Session.searched_user));
+     listView.setItems(strdao.DisplayAllById(Session.searched_user.getId_user()));
      UserService udao=UserService.getInstance();
-     listProfile.setItems(udao.DisplayById(Session.searched_user));
-     Session.searched_user=0;
+     User user = new User();
+     
+     
+      user = udao.DisplayById(Session.searched_user.getId_user());
+     
+     ObservableList<String> list=FXCollections.observableArrayList();
+     
+               list.add(user.getUsername());
+               list.add(user.getFirst_name());
+               list.add(user.getLast_name());
+               list.add(user.getEmail());
+               list.add(user.getAddress());
+               list.add(String.valueOf(user.getPhone()));
+         
+         listProfile.setItems(list);
     
     
     }

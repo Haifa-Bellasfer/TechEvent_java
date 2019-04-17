@@ -13,6 +13,7 @@ import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
+import entity.User;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -70,12 +71,12 @@ public class ProfileController implements Initializable{
         if (!txtPublish.getText().isEmpty()) {       
      String ymd="2019-01-01";
         Date date =Date.valueOf(ymd);
-        Story str = new Story(Session.current_user,txtPublish.getText(),date);
+        Story str = new Story(Session.current_user.getId_user(),txtPublish.getText(),date);
         StoryService strdao=StoryService.getInstance();
         strdao.insert(str);
         txtPublish.clear();
         listView.<String>setItems(null);
-        listView.<String>setItems(strdao.DisplayAllById(Session.current_user));
+        listView.<String>setItems(strdao.DisplayAllById(Session.current_user.getId_user()));
         }
         
         
@@ -103,31 +104,39 @@ public class ProfileController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
     
      StoryService strdao=StoryService.getInstance();
-     listView.setItems(strdao.DisplayAllById(Session.current_user));
+     listView.setItems(strdao.DisplayAllById(Session.current_user.getId_user()));
+     
+              Session.searched_user = new User();
+   Session.searched_user.setId_user(0);
      UserService udao=UserService.getInstance();
-     listProfile.setItems(udao.DisplayById(Session.current_user));
+     
+    
+     User user = new User();
+     
+      user = udao.DisplayById(Session.current_user.getId_user());
+     ObservableList<String> list=FXCollections.observableArrayList();
+     
+               list.add(user.getUsername());
+               list.add(user.getFirst_name());
+               list.add(user.getLast_name());
+               list.add(user.getEmail());
+               list.add(user.getAddress());
+               list.add(String.valueOf(user.getPhone()));
+         
+         listProfile.setItems(list);
      UserStoryService usdao=UserStoryService.getInstance();
-      listShared.setItems(strdao.DisplayByIds(usdao.DisplayByIdUser(Session.current_user)));
-     
-     
-     
-     
-     
-     
-     
-     
-     txtSearch.setOnKeyPressed(event -> {
+      listShared.setItems(strdao.DisplayByIds(usdao.DisplayByIdUser(Session.current_user.getId_user())));
+      ids=0;
+      
+  txtSearch.setOnKeyPressed(event -> {
+      System.out.println("ooo");
+    if(event.getCode() == KeyCode.ENTER){
+        
     ids = udao.getIdByUsername(txtSearch.getText());
-    
-  if( ids!=0 && ids!=Session.current_user){
-     if(event.getCode() == KeyCode.ENTER){
-       
-    
-    
-    
-       
+  if( ids!=0 && ids!=Session.current_user.getId_user()){
      
-   Session.searched_user = ids;
+       
+   Session.searched_user.setId_user(ids);
    
        try {
                  Node node = (Node) event.getSource();
@@ -137,14 +146,14 @@ public class ProfileController implements Initializable{
                  stage.setScene(scene);
                  stage.show();
              } catch (IOException ex) {
-                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+                 Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE, null, ex);
              }
    
-   }}
-  else {
+   }  else {
             lblError.setTextFill(Color.TOMATO);
             lblError.setText("enter valid username");
-  }
+  }}
+
 }); 
     
       

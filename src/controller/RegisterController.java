@@ -73,6 +73,14 @@ public class RegisterController  {
              lblStatus.setTextFill(Color.TOMATO);
             lblStatus.setText("passwords don't match");
         }
+         else if (!txtPhone.getText().matches("[0-9]")){
+             lblStatus.setTextFill(Color.TOMATO);
+            lblStatus.setText("Enter valid phone number");
+        }
+         else if (!txtEmail.getText().contains("@"+".")){
+             lblStatus.setTextFill(Color.TOMATO);
+            lblStatus.setText("Enter valid Email");
+        }
         else {
             
      UserService udao=UserService.getInstance();

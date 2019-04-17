@@ -100,7 +100,7 @@ public class UpdateController implements Initializable{
      
  pw_hash = MyBCrypt.hashpw(txtPassword.getText(), MyBCrypt.gensalt());
             
-     udao.UpdatePassword(pw_hash,Session.current_user);
+     udao.UpdatePassword(pw_hash,Session.current_user.getId_user());
      }
      
      
@@ -108,7 +108,7 @@ public class UpdateController implements Initializable{
            
            
             
-     udao.UpdateUser(user,Session.current_user);
+     udao.UpdateUser(user,Session.current_user.getId_user());
        lblStatus.setTextFill(Color.GREEN);
             lblStatus.setText("Updated Successfully");
             lblNew.setVisible(false);         
@@ -145,19 +145,17 @@ public class UpdateController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         
     
-        
-        ObservableList<String> list=FXCollections.observableArrayList();
-        
      UserService udao=UserService.getInstance();
-     list=udao.DisplayById(Session.current_user);
-         
-     list=udao.DisplayById(Session.current_user);
-     txtUsername.setText(list.get(0));
-     txtFirstname.setText(list.get(1));
-     txtLastname.setText(list.get(2));
-     txtEmail.setText(list.get(3));
-     txtAddress.setText(list.get(4));
-     txtPhone.setText(list.get(5));
+        User user = new User();
+        
+     user=udao.DisplayById(Session.current_user.getId_user());
+            
+     txtUsername.setText(user.getUsername());
+     txtFirstname.setText(user.getFirst_name());
+     txtLastname.setText(user.getLast_name());
+     txtEmail.setText(user.getEmail());
+     txtAddress.setText(user.getAddress());
+     txtPhone.setText(user.getPhone());
      
      
      

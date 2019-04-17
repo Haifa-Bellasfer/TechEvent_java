@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -9,11 +10,21 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@darktheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ElseProfileController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../styling/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ElseProfileController">
    <children>
-      <ListView fx:id="listView" layoutX="224.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
-      <ListView fx:id="listProfile" layoutX="41.0" layoutY="100.0" prefHeight="161.0" prefWidth="45.0" />
-      <JFXButton fx:id="btnReturn" layoutX="424.0" layoutY="50.0" onMouseClicked="#HandleEvents" text="Return" />
-      <Button fx:id="btnShare" layoutX="470.0" layoutY="218.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" text="Share" />
+      <ListView fx:id="listView" layoutX="378.0" layoutY="208.0" prefHeight="251.0" prefWidth="397.0" styleClass="liststories" />
+       <JFXButton fx:id="btnReturn" layoutX="544.0" layoutY="488.0" onMouseClicked="#HandleEvents" prefHeight="41.0" prefWidth="99.0" text="Return" />
+      <Button fx:id="btnShare" layoutX="413.0" layoutY="488.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" prefHeight="41.0" prefWidth="93.0" text="Share" />
+      <Label layoutX="35.0" layoutY="292.0" text="Username" />
+      <Label layoutX="35.0" layoutY="418.0" text="Phone" />
+      <Label layoutX="35.0" layoutY="393.0" text="Address" />
+      <Label layoutX="35.0" layoutY="369.0" text="Email" />
+      <Label layoutX="35.0" layoutY="342.0" text="LastName" />
+      <Label layoutX="35.0" layoutY="317.0" text="FirstName" />
+      <ListView fx:id="listProfile" fixedCellSize="0.0" layoutX="90.0" layoutY="285.0" prefHeight="174.0" prefWidth="142.0" styleClass="listprofile">
+         <effect>
+            <Blend />
+         </effect>
+      </ListView>
    </children>
 </AnchorPane>

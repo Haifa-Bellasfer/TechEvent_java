@@ -12,7 +12,7 @@ import entity.User;
  * @author Dalli
  */
 public class Session {
-    public static int current_user=0;
-    public static int searched_user=0;
+    public static User current_user=null;
+    public static User searched_user=null;
 }
 
