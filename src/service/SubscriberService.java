@@ -21,6 +21,15 @@ import utils.DataSource;
  * @author ihebc_000
  */
 public class SubscriberService implements InterfaceService<Subscriber> {
+    
+    private static SubscriberService instance;
+
+    public static SubscriberService getInstance() {
+        if (instance == null) {
+            instance = new SubscriberService();
+        }
+        return instance;
+    }
 
     @Override
     public void insert(Subscriber o) {
@@ -91,5 +100,40 @@ public class SubscriberService implements InterfaceService<Subscriber> {
             e.printStackTrace();
         }
         return subs;
+    }
+    
+    
+    
+    public ObservableList<Subscriber> DisplayByName(String email) {
+        DomainService ds = new DomainService();
+        ObservableList<Subscriber> subs = FXCollections.observableArrayList();
+        String req = "SELECT * FROM subscriber where email_subscriber = " + email ;
+        try {
+            PreparedStatement s = DataSource.getInstance().getCnx().prepareStatement(req);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                subs.add(new Subscriber(rs.getInt("id_subscriber"), rs.getString("email_subscriber"), ds.DisplayById(rs.getInt("domain_id"))));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return subs;
+    }
+    
+    
+    public boolean isSubsribed(String email) {
+        int nb = 0;
+        String req = "SELECT * FROM subscriber where email_subscriber = ? ";
+        try {
+            PreparedStatement s = DataSource.getInstance().getCnx().prepareStatement(req);
+            s.setString(1, email);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                nb++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return nb != 0;
     }
 }

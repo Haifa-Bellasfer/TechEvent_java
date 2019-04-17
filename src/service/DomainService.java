@@ -16,6 +16,15 @@ import utils.DataSource;
  */
 public class DomainService implements InterfaceService<Domain> {
 
+    private static DomainService instance;
+
+    public static DomainService getInstance() {
+        if (instance == null) {
+            instance = new DomainService();
+        }
+        return instance;
+    }
+
     @Override
     public void insert(Domain domain) {
         String req = "insert into domain(name_domain) values(?)";
@@ -88,11 +97,10 @@ public class DomainService implements InterfaceService<Domain> {
         }
         return i != 0;
     }
-    
-    
+
     public ObservableList<Domain> DisplayByName(String name) {
         ObservableList<Domain> domains = FXCollections.observableArrayList();
-        String req = "SELECT * FROM domain where name_domain like '%"+name+"%'";
+        String req = "SELECT * FROM domain where name_domain like '%" + name + "%'";
         try {
             PreparedStatement s = DataSource.getInstance().getCnx().prepareStatement(req);
             ResultSet rs = s.executeQuery();
@@ -104,8 +112,8 @@ public class DomainService implements InterfaceService<Domain> {
         }
         return domains;
     }
-    
-    public boolean hasArticles (Domain d) {
+
+    public boolean hasArticles(Domain d) {
         int nb = 0;
         String req = "SELECT * FROM article where domain_id = ? ";
         try {
@@ -118,6 +126,6 @@ public class DomainService implements InterfaceService<Domain> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return nb!=0;
+        return nb != 0;
     }
 }

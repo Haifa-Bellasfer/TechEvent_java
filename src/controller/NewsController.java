@@ -23,6 +23,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import service.ArticleService;
 import service.DomainService;
@@ -69,7 +71,21 @@ public class NewsController implements Initializable {
                 stage.setResizable(false);
                 stage.show();
             } catch (IOException ex) {
-                System.out.println("news controller, label artilce action "+ex.getMessage());
+                System.out.println("news controller, label artilce action " + ex.getMessage());
+            }
+        });
+        label_subscriber.setOnMouseClicked(e -> {
+            try {
+                Stage stage = new Stage();
+                Parent root = FXMLLoader.load(getClass().getResource("/view/Subs.fxml"));
+                stage.setScene(new Scene(root));
+                stage.setTitle("Subscribe to our newsletter");
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(((Node) e.getSource()).getScene().getWindow());
+                stage.setResizable(false);
+                stage.show();
+            } catch (IOException ex) {
+                System.out.println("news controller, label artilce action " + ex.getMessage());
             }
         });
         ArticleService as = new ArticleService();
@@ -116,7 +132,7 @@ public class NewsController implements Initializable {
                     stage.setResizable(false);
                     stage.show();
                 } catch (IOException ex) {
-                    System.out.println("news controller, double click action "+ex.getMessage());
+                    System.out.println("news controller, double click action " + ex.getMessage());
                 }
             }
         });
