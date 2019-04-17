@@ -52,9 +52,19 @@
                                         <Separator layoutX="40.0" layoutY="292.0" prefWidth="200.0" />
                                         <JFXButton fx:id="btnBookmarks" layoutX="40.0" layoutY="302.0" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: #8bcbc8;" text="My bookmarks">
                                             <font>
-                                                <Font name="Serif Regular" size="20.0" />
+                                                <Font name="System Bold" size="18.0" />
                                             </font>
                                         </JFXButton>
+                              <JFXButton fx:id="btnlogout" layoutX="40.0" layoutY="498.0" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: #8bc;" text="Logout">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="btnlogin" layoutX="40.0" layoutY="498.0" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: #8bc;" text="Login">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </JFXButton>
                                     </children>
                                 </AnchorPane>
                                 <HBox prefHeight="550.0" prefWidth="720.0" style="-fx-background-color: #D9E3DA;">

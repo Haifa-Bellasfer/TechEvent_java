@@ -40,7 +40,7 @@ public class SavedService implements InterfaceService<Saved> {
             PreparedStatement ps = DataSource.getInstance().getCnx().prepareStatement(req);
             ps.setDate(1, o.getDateSave());
             ps.setInt(2, o.getArticle().getIdArticle());
-            ps.setInt(3, o.getUser().getId());
+            ps.setInt(3, o.getUser().getId_user());
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(SavedService.class.getName()).log(Level.SEVERE, null, ex);
@@ -80,7 +80,7 @@ public class SavedService implements InterfaceService<Saved> {
         try {
             PreparedStatement s = DataSource.getInstance().getCnx().prepareStatement(req);
             s.setInt(1, article.getIdArticle());
-            s.setInt(2, user.getId());
+            s.setInt(2, user.getId_user());
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 isSaved = true;
@@ -97,7 +97,7 @@ public class SavedService implements InterfaceService<Saved> {
         try {
             PreparedStatement s = DataSource.getInstance().getCnx().prepareStatement(req);
             s.setInt(1, article.getIdArticle());
-            s.setInt(2, user.getId());
+            s.setInt(2, user.getId_user());
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 saved.setIdSaved(rs.getInt("id_saved"));

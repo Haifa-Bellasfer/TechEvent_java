@@ -56,6 +56,10 @@ public class NewsController implements Initializable {
     private JFXListView<Article> lv_article;
     @FXML
     private JFXButton btnBookmarks;
+    @FXML
+    private JFXButton btnlogout;
+    @FXML
+    private JFXButton btnlogin;
 
     /**
      * Initializes the controller class.
@@ -136,13 +140,22 @@ public class NewsController implements Initializable {
                 }
             }
         });
+        btnlogout.setVisible(false);
+        btnlogin.setOnAction(e -> {
+            
+        });
         btnBookmarks.setVisible(false);
         if (Session.current_user != null) {
             btnBookmarks.setVisible(true);
             btnBookmarks.setOnAction(e -> {
                 lv_article.getItems().clear();
-                lv_article.setItems(SavedService.getInstance().DisplayByIdUser(Session.current_user.getId()));
+                lv_article.setItems(SavedService.getInstance().DisplayByIdUser(Session.current_user.getId_user()));
 
+            });
+            btnlogin.setVisible(false);
+            btnlogout.setVisible(true);
+            btnlogout.setOnAction(e -> {
+            
             });
         }
     }
