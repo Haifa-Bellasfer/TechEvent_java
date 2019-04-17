@@ -22,6 +22,13 @@ public class Saved {
         this.user = user;
     }
 
+    public Saved(Article article, User user) {
+        this.article = article;
+        this.user = user;
+    }
+    
+    
+
     public int getIdSaved() {
         return idSaved;
     }

@@ -35,25 +35,35 @@
                         <VBox prefHeight="100.0" prefWidth="187.5" />
                     </children>
                 </HBox>
-                <HBox prefHeight="100.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;">
+                <HBox prefHeight="550.0" prefWidth="1000.0" style="-fx-background-color: #D9E3DA;">
                     <children>
-                        <AnchorPane prefHeight="100.0" prefWidth="1000.0">
-                            <children>
-                                <JFXTextField fx:id="txtKeyword" layoutX="31.0" layoutY="44.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #FFFFFF;" />
-                                <ChoiceBox fx:id="chDomain" layoutX="293.0" layoutY="44.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" />
-                                <ChoiceBox fx:id="chOrderBy" layoutX="553.0" layoutY="44.0" prefHeight="31.0" prefWidth="250.0" style="-fx-background-color: #ffffff;" />
-                                <JFXButton fx:id="btnSearch" buttonType="RAISED" layoutX="824.0" layoutY="44.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #F6D55C;" text="Search" />
-                                <Label layoutX="31.0" layoutY="14.0" text="Keyword" />
-                                <Label layoutX="293.0" layoutY="14.0" text="Domain" />
-                                <Label layoutX="553.0" layoutY="14.0" text="Order by" />
-                                <JFXButton fx:id="btnReset" buttonType="RAISED" layoutX="912.0" layoutY="44.0" style="-fx-background-color: #ED553B;" text="Reset" />
-                            </children>
+                  <HBox prefHeight="100.0" prefWidth="1000.0">
+                     <children>
+                        <AnchorPane prefHeight="550.0" prefWidth="280.0">
+                           <children>
+                              <JFXTextField fx:id="txtKeyword" layoutX="20.0" layoutY="42.0" prefHeight="30.0" prefWidth="240.0" style="-fx-background-color: #FFFFFF;" />
+                              <ChoiceBox fx:id="chDomain" layoutX="20.0" layoutY="114.0" prefHeight="31.0" prefWidth="240.0" style="-fx-background-color: #ffffff;" />
+                              <ChoiceBox fx:id="chOrderBy" layoutX="20.0" layoutY="190.0" prefHeight="31.0" prefWidth="240.0" style="-fx-background-color: #ffffff;" />
+                              <JFXButton fx:id="btnSearch" buttonType="RAISED" layoutX="186.0" layoutY="244.0" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #F6D55C;" text="Search" />
+                              <Label layoutX="31.0" layoutY="14.0" text="Keyword" />
+                              <Label layoutX="26.0" layoutY="159.0" text="Domain" />
+                              <Label layoutX="22.0" layoutY="85.0" text="Order by" />
+                              <JFXButton fx:id="btnReset" buttonType="RAISED" layoutX="24.0" layoutY="244.0" style="-fx-background-color: #ED553B;" text="Reset" />
+                              <Separator layoutX="40.0" layoutY="292.0" prefWidth="200.0" />
+                              <JFXButton fx:id="btnBookmarks" layoutX="40.0" layoutY="302.0" prefHeight="31.0" prefWidth="206.0" style="-fx-background-color: #8bcbc8;" text="My bookmarks">
+                                 <font>
+                                    <Font name="Serif Regular" size="20.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
                         </AnchorPane>
-                    </children>
-                </HBox>
-                <HBox prefHeight="450.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;">
-                    <children>
-                        <JFXListView fx:id="lv_article" prefHeight="450.0" prefWidth="1000.0" />
+                        <HBox prefHeight="550.0" prefWidth="720.0" style="-fx-background-color: #D9E3DA;">
+                           <children>
+                              <JFXListView fx:id="lv_article" prefHeight="550.0" prefWidth="720.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
                     </children>
                 </HBox>
             </children>

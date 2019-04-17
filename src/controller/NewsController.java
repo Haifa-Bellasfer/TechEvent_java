@@ -13,8 +13,6 @@ import entity.Domain;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,6 +26,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import service.ArticleService;
 import service.DomainService;
+import service.SavedService;
 import utils.Session;
 
 /**
@@ -36,12 +35,11 @@ import utils.Session;
  * @author ihebc_000
  */
 public class NewsController implements Initializable {
+
     @FXML
     private Label label_article;
     @FXML
     private Label label_subscriber;
-    @FXML
-    private JFXButton btn_add;
     @FXML
     private JFXTextField txtKeyword;
     @FXML
@@ -54,13 +52,15 @@ public class NewsController implements Initializable {
     private JFXButton btnReset;
     @FXML
     private JFXListView<Article> lv_article;
+    @FXML
+    private JFXButton btnBookmarks;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         label_article.setOnMouseClicked((MouseEvent e) -> {
+        label_article.setOnMouseClicked((MouseEvent e) -> {
             try {
                 Parent page1 = FXMLLoader.load(getClass().getResource("/view/News.fxml"));
                 Scene scene = new Scene(page1);
@@ -69,12 +69,12 @@ public class NewsController implements Initializable {
                 stage.setResizable(false);
                 stage.show();
             } catch (IOException ex) {
-                Logger.getLogger(ArticleController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("news controller, label artilce action "+ex.getMessage());
             }
         });
         ArticleService as = new ArticleService();
         DomainService ds = new DomainService();
-        
+
         lv_article.getItems().addAll(as.DisplayAll());
         GridPane pane = new GridPane();
         Label title = new Label("Title");
@@ -82,11 +82,10 @@ public class NewsController implements Initializable {
         pane.add(title, 0, 0);
         pane.add(domain, 1, 0);
         lv_article.setCellFactory(p -> new ArticleController.CustomCell());
-        
-        
+
         chDomain.getItems().addAll(ds.DisplayAll());
         chOrderBy.getItems().addAll("View number", "Publish date");
-        
+
         btnSearch.setOnAction(e -> {
             Domain dom = chDomain.getValue();
             String orderBy = chOrderBy.getValue();
@@ -94,7 +93,7 @@ public class NewsController implements Initializable {
             lv_article.getItems().clear();
             lv_article.getItems().addAll(as.FindByDomainKeywordAndOrderBy(dom, keyWord, orderBy));
         });
-        
+
         btnReset.setOnAction(e -> {
             lv_article.getItems().clear();
             lv_article.getItems().addAll(as.DisplayAll());
@@ -102,12 +101,11 @@ public class NewsController implements Initializable {
             chDomain.setValue(null);
             chOrderBy.setValue(null);
         });
-        
-        
+
         lv_article.setOnMouseClicked(e -> {
             if (e.getClickCount() == 2) {
                 Session.selected_article = (Article) lv_article.getSelectionModel().getSelectedItem();
-                int nb = Session.selected_article.getViewsNumber()+1;
+                int nb = Session.selected_article.getViewsNumber() + 1;
                 Session.selected_article.setViewsNumber(nb);
                 as.updateViewNumber(Session.selected_article);
                 try {
@@ -118,10 +116,19 @@ public class NewsController implements Initializable {
                     stage.setResizable(false);
                     stage.show();
                 } catch (IOException ex) {
-                    System.out.println(ex.getMessage());
+                    System.out.println("news controller, double click action "+ex.getMessage());
                 }
             }
         });
-    }    
-    
+        btnBookmarks.setVisible(false);
+        if (Session.current_user != null) {
+            btnBookmarks.setVisible(true);
+            btnBookmarks.setOnAction(e -> {
+                lv_article.getItems().clear();
+                lv_article.setItems(SavedService.getInstance().DisplayByIdUser(Session.current_user.getId()));
+
+            });
+        }
+    }
+
 }

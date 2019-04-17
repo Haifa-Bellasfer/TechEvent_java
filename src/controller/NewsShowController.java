@@ -115,6 +115,20 @@ public class NewsShowController implements Initializable {
                 });
             } else {
                 btnRemoveBook.setVisible(true);
+                btnRemoveBook.setOnAction(e -> {
+                    Saved s = SavedService.getInstance().geSavedByArticleAndUser(Session.selected_article, Session.current_user);
+                    SavedService.getInstance().delete(s);
+                    try {
+                    Parent page = FXMLLoader.load(getClass().getResource("/view/NewsShow.fxml"));
+                    Scene scene = new Scene(page);
+                    Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+                });
             }
 
         }
