@@ -184,10 +184,8 @@ public class ArticleController implements Initializable {
         GridPane pane = new GridPane();
         Label title = new Label("Title");
         Label domain = new Label("Domain");
-        JFXButton btn = new JFXButton("Show");
         pane.add(title, 0, 0);
         pane.add(domain, 1, 0);
-        pane.add(btn, 2, 0);
         lv_article.setCellFactory(p -> new CustomCell());
 
         lv_article.setOnMouseClicked(e -> {

@@ -129,6 +129,7 @@ public class SubscriberController implements Initializable {
             chDomain.getItems().clear();
             chDomain.getItems().addAll(ds.DisplayAll());
             txt_search.setText("");
+            btn_delete.setVisible(false);
         });
 
         lv_subscriber.setOnMouseClicked((MouseEvent event) -> {

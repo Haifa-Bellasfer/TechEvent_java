@@ -73,18 +73,26 @@ public class ArticleService implements InterfaceService<Article> {
     }
     
     public boolean updateNewsletter(Article os) {
-        String req = "update article set domain_id = ? , title_article = ? , content_article = ?, views_number = ? , date_of_publish=?,  image = ?, newsletter_id = ? where id_article = ?";
+        String req = "update article set newsletter_id = ? where id_article = ?";
         int i = 0;
         try {
             PreparedStatement ps = DataSource.getInstance().getCnx().prepareStatement(req);
-            ps.setInt(1, os.getDomain().getIdDomain());
-            ps.setString(2, os.getTitreArticle());
-            ps.setString(3, os.getContentArticle());
-            ps.setInt(4, os.getViewsNumber());
-            ps.setDate(5, os.getDateOfPublish());
-            ps.setString(6, os.getImage());
-            ps.setInt(7, os.getNewsletter().getIdNewsletter());
-            ps.setInt(8, os.getIdArticle());
+            ps.setInt(1, os.getNewsletter().getIdNewsletter());
+            ps.setInt(2, os.getIdArticle());
+            i = ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DomainService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return i != 0;
+    }
+    
+    public boolean updateViewNumber(Article os) {
+        String req = "update article set views_number = ? where id_article = ?";
+        int i = 0;
+        try {
+            PreparedStatement ps = DataSource.getInstance().getCnx().prepareStatement(req);
+            ps.setInt(1, os.getViewsNumber());
+            ps.setInt(2, os.getIdArticle());
             i = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(DomainService.class.getName()).log(Level.SEVERE, null, ex);

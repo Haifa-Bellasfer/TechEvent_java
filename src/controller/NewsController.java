@@ -1,0 +1,127 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package controller;
+
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTextField;
+import entity.Article;
+import entity.Domain;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import service.ArticleService;
+import service.DomainService;
+import utils.Session;
+
+/**
+ * FXML Controller class
+ *
+ * @author ihebc_000
+ */
+public class NewsController implements Initializable {
+    @FXML
+    private Label label_article;
+    @FXML
+    private Label label_subscriber;
+    @FXML
+    private JFXButton btn_add;
+    @FXML
+    private JFXTextField txtKeyword;
+    @FXML
+    private ChoiceBox<Domain> chDomain;
+    @FXML
+    private ChoiceBox<String> chOrderBy;
+    @FXML
+    private JFXButton btnSearch;
+    @FXML
+    private JFXButton btnReset;
+    @FXML
+    private JFXListView<Article> lv_article;
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+         label_article.setOnMouseClicked((MouseEvent e) -> {
+            try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/News.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.setResizable(false);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(ArticleController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        ArticleService as = new ArticleService();
+        DomainService ds = new DomainService();
+        
+        lv_article.getItems().addAll(as.DisplayAll());
+        GridPane pane = new GridPane();
+        Label title = new Label("Title");
+        Label domain = new Label("Domain");
+        pane.add(title, 0, 0);
+        pane.add(domain, 1, 0);
+        lv_article.setCellFactory(p -> new ArticleController.CustomCell());
+        
+        
+        chDomain.getItems().addAll(ds.DisplayAll());
+        chOrderBy.getItems().addAll("View number", "Publish date");
+        
+        btnSearch.setOnAction(e -> {
+            Domain dom = chDomain.getValue();
+            String orderBy = chOrderBy.getValue();
+            String keyWord = txtKeyword.getText();
+            lv_article.getItems().clear();
+            lv_article.getItems().addAll(as.FindByDomainKeywordAndOrderBy(dom, keyWord, orderBy));
+        });
+        
+        btnReset.setOnAction(e -> {
+            lv_article.getItems().clear();
+            lv_article.getItems().addAll(as.DisplayAll());
+            txtKeyword.setText("");
+            chDomain.setValue(null);
+            chOrderBy.setValue(null);
+        });
+        
+        
+        lv_article.setOnMouseClicked(e -> {
+            if (e.getClickCount() == 2) {
+                Session.selected_article = (Article) lv_article.getSelectionModel().getSelectedItem();
+                int nb = Session.selected_article.getViewsNumber()+1;
+                Session.selected_article.setViewsNumber(nb);
+                as.updateViewNumber(Session.selected_article);
+                try {
+                    Parent page = FXMLLoader.load(getClass().getResource("/view/NewsShow.fxml"));
+                    Scene scene = new Scene(page);
+                    Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+        });
+    }    
+    
+}
