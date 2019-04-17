@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package utils;
 
 import java.sql.Connection;
@@ -8,10 +13,10 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Ihèb
+ * @author Dorsaf
  */
 public class DataSource {
-    private String url="jdbc:mysql://127.0.0.1:3306/phoenix_pi";
+    private String url="jdbc:mysql://127.0.0.1:3306/phoenix";
     private String login="root";
     private String pwd="";
     private Connection cnx;
@@ -20,7 +25,8 @@ public class DataSource {
     public Connection getCnx() {
         return cnx;
     }
-       
+    
+    
     private DataSource() {
         try {
             cnx=DriverManager.getConnection(url, login, pwd);
@@ -36,5 +42,6 @@ public class DataSource {
            instance=new DataSource();
        return instance;
    }
-    
+   
+   
 }

@@ -6,51 +6,63 @@
 package controller;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import utils.Session;
 
 /**
- * FXML Controller class
+ * 
  *
- * @author ihebc_000
+ * @author Dalli
  */
-public class HomeController implements Initializable {
+public class HomeController {
     
     @FXML
-    private Label label_news;
-    
-    
+    private Button btnProfile;
+    @FXML
+    private Button btnList;
+     @FXML
+    public void handleButtonAction(MouseEvent event) {
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        //navbar
-        label_news.setOnMouseClicked((MouseEvent e) -> {
-                try {
-                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/Domain.fxml"));
-                    Scene scene = new Scene(page1);
-                    Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                    stage.setScene(scene);
-                    stage.setResizable(false);
-                    stage.show();
-                } catch (IOException ex) {
-                    Logger.getLogger(DomainController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            });
-       
-    }    
-    
+         if (event.getSource() == btnProfile) {
+            
+             try {
+                 Node node = (Node) event.getSource();
+                 Stage stage = (Stage) node.getScene().getWindow();
+                 stage.close();
+                 Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/Profile.fxml")));
+                 stage.setScene(scene);
+                 stage.show();
+             } catch (IOException ex) {
+                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+             }               
 }
+         
+         if (event.getSource() == btnList) {
+            
+             try {
+                 Node node = (Node) event.getSource();
+                 Stage stage = (Stage) node.getScene().getWindow();
+                 stage.close();
+                 Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/UsersList.fxml")));
+                 stage.setScene(scene);
+                 stage.show();
+             } catch (IOException ex) {
+                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+           
+
+                
+}
+    
+    
+    
+    
+    }}

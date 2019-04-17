@@ -1,11 +1,18 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package utils;
 
-import entity.Article;
+import entity.User;
 
 /**
  *
- * @author ihebc_000
+ * @author Dalli
  */
 public class Session {
-    public static Article selected_article = null;
+    public static int current_user=0;
+    public static int searched_user=0;
 }
+
