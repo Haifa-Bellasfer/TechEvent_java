@@ -47,7 +47,7 @@ public class HomeController implements Initializable {
                     stage.setResizable(false);
                     stage.show();
                 } catch (IOException ex) {
-                    Logger.getLogger(DomainController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             });
        
