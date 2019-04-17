@@ -38,6 +38,7 @@ import javax.imageio.ImageIO;
 import org.apache.commons.lang3.RandomStringUtils;
 import service.ArticleService;
 import service.DomainService;
+import utils.Mail;
 
 /**
  * FXML Controller class
@@ -134,14 +135,27 @@ public class ArticleAddController implements Initializable {
                 Logger.getLogger(DomainController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+        label_newsletter.setOnMouseClicked(e -> {
+            if (Mail.getInstance().SendNewsletter()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Newsletter.");
+                alert.setHeaderText(null);
+                alert.setContentText("All new newsletter has been sent.");
+                alert.show();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Newsletter.");
+                alert.setHeaderText(null);
+                alert.setContentText("There is no new newsletter to send.");
+                alert.show();
+            }
+        });
         //domain
         DomainService ds = new DomainService();
         ch_domain.getItems().addAll(ds.DisplayAll());
         ch_domain.getSelectionModel().selectFirst();
-        
 
 //choose file
-
         //add
         btn_add.setOnAction(e -> {
             errorTitle.setText("");

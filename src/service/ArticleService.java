@@ -200,7 +200,7 @@ public class ArticleService implements InterfaceService<Article> {
     
     public ObservableList<Article> getArticleByDomain(Domain d) {
         ObservableList<Article> articles = FXCollections.observableArrayList();
-        String req = "SELECT * FROM article where domain_id='"+d.getIdDomain()+"'";
+        String req = "SELECT * FROM article where domain_id='"+d.getIdDomain()+"'  and newsletter_id is null";
         try {
             PreparedStatement s = DataSource.getInstance().getCnx().prepareStatement(req);
             ResultSet rs = s.executeQuery();

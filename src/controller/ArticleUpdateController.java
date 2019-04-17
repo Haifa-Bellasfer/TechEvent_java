@@ -40,6 +40,7 @@ import javax.imageio.ImageIO;
 import org.apache.commons.lang3.RandomStringUtils;
 import service.ArticleService;
 import service.DomainService;
+import utils.Mail;
 import utils.Session;
 
 /**
@@ -137,7 +138,22 @@ public class ArticleUpdateController implements Initializable {
                 Logger.getLogger(DomainController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-
+        label_newsletter.setOnMouseClicked(e -> {
+            if (Mail.getInstance().SendNewsletter()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Newsletter.");
+                alert.setHeaderText(null);
+                alert.setContentText("All new newsletter has been sent.");
+                alert.show();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Newsletter.");
+                alert.setHeaderText(null);
+                alert.setContentText("There is no new newsletter to send.");
+                alert.show();
+            }
+        });
+        
         txt_title.setText(Session.selected_article.getTitreArticle());
         txt_content.setText(Session.selected_article.getContentArticle());
         DomainService ds = new DomainService();

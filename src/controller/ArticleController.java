@@ -22,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -35,6 +36,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import service.ArticleService;
 import service.DomainService;
+import utils.Mail;
 import utils.Session;
 
 /**
@@ -158,6 +160,21 @@ public class ArticleController implements Initializable {
                 stage.show();
             } catch (IOException ex) {
                 System.out.println("subscriber label - ac");
+            }
+        });
+        label_newsletter.setOnMouseClicked(e -> {
+            if (Mail.getInstance().SendNewsletter()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Newsletter.");
+                alert.setHeaderText(null);
+                alert.setContentText("All new newsletter has been sent.");
+                alert.show();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Newsletter.");
+                alert.setHeaderText(null);
+                alert.setContentText("There is no new newsletter to send.");
+                alert.show();
             }
         });
 

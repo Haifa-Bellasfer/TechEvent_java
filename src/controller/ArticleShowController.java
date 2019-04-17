@@ -28,6 +28,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import service.ArticleService;
+import utils.Mail;
 import utils.Session;
 
 /**
@@ -118,7 +119,21 @@ public class ArticleShowController implements Initializable {
                 Logger.getLogger(DomainController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        
+        label_newsletter.setOnMouseClicked(e -> {
+           if (Mail.getInstance().SendNewsletter()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Newsletter.");
+                alert.setHeaderText(null);
+                alert.setContentText("All new newsletter has been sent.");
+                alert.show();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Newsletter.");
+                alert.setHeaderText(null);
+                alert.setContentText("There is no new newsletter to send.");
+                alert.show();
+            }
+        });
         
         ArticleService as = new ArticleService();
 

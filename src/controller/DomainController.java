@@ -122,7 +122,19 @@ public class DomainController implements Initializable {
             }
         });
         label_newsletter.setOnMouseClicked(e -> {
-            Mail.getInstance().SendNewsletter();
+            if (Mail.getInstance().SendNewsletter()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Newsletter.");
+                alert.setHeaderText(null);
+                alert.setContentText("All new newsletter has been sent.");
+                alert.show();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Newsletter.");
+                alert.setHeaderText(null);
+                alert.setContentText("There is no new newsletter to send.");
+                alert.show();
+            }
         });
         
 
