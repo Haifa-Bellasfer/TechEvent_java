@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ThemeViewController">
+   <children>
+      <Label layoutX="361.0" layoutY="79.0" text="Theme" />
+      <JFXTextField fx:id="Name" focusColor="#40a863" labelFloat="true" layoutX="437.0" layoutY="75.0" promptText="Enter theme name" />
+      <JFXButton fx:id="btn" buttonType="RAISED" layoutX="478.0" layoutY="137.0" prefHeight="25.0" prefWidth="74.0" ripplerFill="#188345" style="-fx-background-color: #188345;" text="Add" />
+      <JFXTreeView fx:id="list" layoutX="27.0" />
+   </children>
+</AnchorPane>

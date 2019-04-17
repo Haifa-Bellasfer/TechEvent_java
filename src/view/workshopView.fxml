@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.WorkshopViewController">
+   <children>
+      <JFXTextField fx:id="title" labelFloat="true" layoutX="128.0" layoutY="99.0" promptText="Title" />
+      <JFXTextField fx:id="loc" labelFloat="true" layoutX="128.0" layoutY="286.0" promptText="Location" />
+      <JFXTextField fx:id="nbr" labelFloat="true" layoutX="392.0" layoutY="99.0" promptText="Nombre de places" />
+      <DatePicker fx:id="date" layoutX="392.0" layoutY="188.0" promptText="Date" />
+      <JFXButton fx:id="add" layoutX="460.0" layoutY="351.0" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #468499;" text="Add" />
+      <JFXTextArea fx:id="desc" labelFloat="true" layoutX="128.0" layoutY="163.0" prefHeight="75.0" prefWidth="216.0" promptText="Description" wrapText="true" />
+      <JFXComboBox fx:id="combo" labelFloat="true" layoutX="392.0" layoutY="268.0" prefHeight="25.0" prefWidth="174.0" promptText="Club" />
+   </children>
+</AnchorPane>

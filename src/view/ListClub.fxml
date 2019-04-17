@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClubListViewController">
+   <children>
+      <TableView fx:id="listV" layoutX="-1.0" onMouseClicked="#showPop" prefHeight="385.0" prefWidth="222.0">
+        <columns>
+          <TableColumn fx:id="nameCol" prefWidth="199.0" text="Club name" />
+        </columns>
+      </TableView>
+      <Pane fx:id="upPop" layoutX="238.0" layoutY="3.0" prefHeight="385.0" prefWidth="350.0">
+         <children>
+            <JFXTextField fx:id="text" labelFloat="true" layoutX="81.0" layoutY="44.0" prefHeight="25.0" prefWidth="190.0" promptText="Name" />
+            <JFXButton fx:id="btnUP" buttonType="RAISED" layoutX="141.0" layoutY="346.0" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #201c43;" text="Update" textFill="#fcf7f7" />
+            <Label alignment="CENTER" layoutX="94.0" layoutY="6.0" prefHeight="31.0" prefWidth="162.0" text="Update" textAlignment="CENTER" textFill="#201c43">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <JFXTextArea fx:id="desc" labelFloat="true" layoutX="80.0" layoutY="93.0" prefHeight="53.0" prefWidth="190.0" promptText="Description" />
+            <JFXTextField fx:id="mail" labelFloat="true" layoutX="80.0" layoutY="168.0" prefHeight="25.0" prefWidth="190.0" promptText="Email" />
+            <JFXTextField fx:id="fb" labelFloat="true" layoutX="81.0" layoutY="225.0" prefHeight="25.0" prefWidth="190.0" promptText="Facebook" />
+            <JFXComboBox fx:id="th" labelFloat="true" layoutX="81.0" layoutY="284.0" prefHeight="25.0" prefWidth="190.0" promptText="Theme" />
+            <TableView fx:id="members" layoutX="2.0" layoutY="-1.0" onMouseClicked="#pop2Show" prefHeight="385.0" prefWidth="350.0">
+              <columns>
+                <TableColumn fx:id="m1" prefWidth="75.0" text="Member" />
+                <TableColumn fx:id="skills" prefWidth="75.0" text="Skills" />
+                  <TableColumn fx:id="why" prefWidth="64.0" text="why" />
+                  <TableColumn fx:id="status" prefWidth="59.0" text="Status" />
+                  <TableColumn fx:id="he" prefWidth="74.0" text="He is a " />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

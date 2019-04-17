@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="table" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ThemeViewController">
+   <children>
+      <Label layoutX="361.0" layoutY="79.0" text="Theme" />
+      <JFXTextField fx:id="Name" focusColor="#40a863" labelFloat="true" layoutX="437.0" layoutY="75.0" promptText="Enter theme name" />
+      <JFXButton fx:id="btn" buttonType="RAISED" layoutX="478.0" layoutY="137.0" prefHeight="25.0" prefWidth="74.0" ripplerFill="#188345" style="-fx-background-color: #188345;" text="Add" textFill="#fcf7f7" />
+      <TableView fx:id="Table" editable="true" layoutX="86.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #188345;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="248.0" text="Theme Name" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="Del" buttonType="RAISED" layoutX="505.0" layoutY="343.0" prefHeight="31.0" prefWidth="65.0" ripplerFill="#d30000" style="-fx-background-color: #d30000;" text="Delete" textFill="#fffbfb" />
+      <JFXButton fx:id="btnUp" buttonType="RAISED" layoutX="413.0" layoutY="343.0" prefHeight="31.0" prefWidth="65.0" ripplerFill="#2d07c5" style="-fx-background-color: #2d07c5;" text="Update" textFill="#fcf8f8" />
+   </children>
+</AnchorPane>

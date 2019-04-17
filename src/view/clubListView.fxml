@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClubListViewController">
+   <children>
+      <JFXButton fx:id="delC" layoutX="69.0" layoutY="336.0" prefHeight="26.0" prefWidth="108.0" style="-fx-background-color: #e72525;" text="Delete" textFill="#f5f0f0" />
+      <TableView fx:id="listV" layoutX="25.0" layoutY="27.0" prefHeight="282.0" prefWidth="196.0">
+        <columns>
+          <TableColumn fx:id="nameCol" prefWidth="199.0" text="Club name" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

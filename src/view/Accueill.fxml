@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccueillController">
+   <children>
+      <JFXButton fx:id="Theme" buttonType="RAISED" layoutX="212.0" layoutY="66.0" prefHeight="41.0" prefWidth="182.0" ripplerFill="#2247ae" style="-fx-background-color: #2247ae;" text="Themes" />
+      <JFXButton fx:id="Club" buttonType="RAISED" layoutX="211.0" layoutY="147.0" prefHeight="41.0" prefWidth="182.0" ripplerFill="#d37b17" style="-fx-background-color: #d37b17;" text="Clubs" />
+      <JFXButton fx:id="Work" buttonType="RAISED" layoutX="212.0" layoutY="233.0" prefHeight="41.0" prefWidth="182.0" ripplerFill="#e74037" style="-fx-background-color: #e74037;" text="Workshop" />
+      <JFXButton fx:id="Admin" layoutX="211.0" layoutY="306.0" prefHeight="41.0" prefWidth="182.0" style="-fx-background-color: #d3149d;" text="Admin" textFill="#f8e1f2" />
+   </children>
+</AnchorPane>
