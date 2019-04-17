@@ -5,6 +5,7 @@
  */
 package controller;
 
+import entity.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import utils.Session;
 
 /**
  * FXML Controller class
@@ -29,6 +31,10 @@ public class HomeController implements Initializable {
     
     @FXML
     private Label label_news;
+    @FXML
+    private Label label_visitor;
+    @FXML
+    private Label label_user;
     
     
 
@@ -41,6 +47,32 @@ public class HomeController implements Initializable {
         label_news.setOnMouseClicked((MouseEvent e) -> {
                 try {
                     Parent page1 = FXMLLoader.load(getClass().getResource("/view/Domain.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+                } catch (IOException ex) {
+                    Logger.getLogger(DomainController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
+        label_visitor.setOnMouseClicked((MouseEvent e) -> {
+                try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/News.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+                } catch (IOException ex) {
+                    Logger.getLogger(DomainController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
+        
+        label_user.setOnMouseClicked((MouseEvent e) -> {
+                try {
+                    Session.current_user = new User(1);
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/News.fxml"));
                     Scene scene = new Scene(page1);
                     Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                     stage.setScene(scene);

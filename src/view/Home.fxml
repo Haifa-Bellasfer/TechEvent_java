@@ -17,7 +17,17 @@
                   <Font name="Cambria Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="label_news" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="News" textAlignment="CENTER" textFill="#dad5d5">
+            <Label fx:id="label_news" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="BackOffice" textAlignment="CENTER" textFill="#dad5d5">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_visitor" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Visitor interface" textAlignment="CENTER" textFill="#dad5d5">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_user" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="User interface" textAlignment="CENTER" textFill="#dad5d5">
                <font>
                   <Font name="Cambria" size="18.0" />
                </font>

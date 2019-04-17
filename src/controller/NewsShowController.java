@@ -6,8 +6,10 @@
 package controller;
 
 import com.jfoenix.controls.JFXButton;
+import entity.Saved;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +26,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import service.ArticleService;
+import service.SavedService;
 import utils.Session;
 
 /**
@@ -34,10 +37,6 @@ import utils.Session;
 public class NewsShowController implements Initializable {
 
     @FXML
-    private Label label_news;
-    @FXML
-    private Label label_domain;
-    @FXML
     private Label label_article;
     @FXML
     private Label label_subscriber;
@@ -46,15 +45,13 @@ public class NewsShowController implements Initializable {
     @FXML
     private ImageView imageV;
     @FXML
-    private Pane paneBtn;
-    @FXML
-    private JFXButton btnUpdate;
-    @FXML
-    private JFXButton btnDelete;
-    @FXML
     private Label txtContent;
     @FXML
     private JFXButton btnBack;
+    @FXML
+    private JFXButton btnAddBook;
+    @FXML
+    private JFXButton btnRemoveBook;
 
     /**
      * Initializes the controller class.
@@ -73,7 +70,8 @@ public class NewsShowController implements Initializable {
                 Logger.getLogger(ArticleController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-
+        btnAddBook.setVisible(false);
+        btnRemoveBook.setVisible(false);
         ArticleService as = new ArticleService();
 
         //showArticle
@@ -94,6 +92,32 @@ public class NewsShowController implements Initializable {
                 Logger.getLogger(ArticleController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+
+        if (Session.current_user != null) {
+            if (!SavedService.getInstance().isSaved(Session.selected_article, Session.current_user)) {
+                btnAddBook.setVisible(true);
+                btnAddBook.setOnAction(e -> {
+                    Saved s = new Saved();
+                    s.setDateSave(new Date(System.currentTimeMillis()));
+                    s.setArticle(Session.selected_article);
+                    s.setUser(Session.current_user);
+                    SavedService.getInstance().insert(s);
+                    try {
+                    Parent page = FXMLLoader.load(getClass().getResource("/view/NewsShow.fxml"));
+                    Scene scene = new Scene(page);
+                    Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+                });
+            } else {
+                btnRemoveBook.setVisible(true);
+            }
+
+        }
     }
 
 }
