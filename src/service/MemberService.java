@@ -7,6 +7,7 @@ package service;
 
 
 import entity.ClubUser;
+import entity.Theme;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -113,5 +114,16 @@ public class MemberService {
             } catch (SQLException ex) {
                 Logger.getLogger(MemberService.class.getName()).log(Level.SEVERE, null, ex);
             }else System.out.println("n'existe pas");
+    }
+    
+    public void insert(ClubUser c) {
+        String req="INSERT INTO `Club_user` (`why`,`you_are`,`skills`,`member_id`,`club_id`,`Club_user_status`) "
+                + "VALUES ( '"+ c.getWhy()+ "', '" + c.getYou_are()+  "', '" + c.getSkills()
+                + "', '"+ c.getMember_id()+ "', '"+ c.getClub_id()+ "', '"+ c.getClub_user_status()+ "')";
+        try {
+            st.executeUpdate(req);
+        } catch (SQLException ex) {
+            Logger.getLogger(ThemeServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

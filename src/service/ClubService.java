@@ -7,6 +7,7 @@ package service;
 
 
 import entity.Club;
+import entity.Theme;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,6 +48,25 @@ private static ClubService instance;
         return instance;
     }
 
+    
+    public boolean Exist(int  id) {
+        int nb=0;
+        String req="select * from club_user where club_id="+id;
+                
+        try {
+           rs= st.executeQuery(req);
+            while(rs.next()){
+                
+                nb++;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ThemeServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nb!=0;
+    }
+    
+    
     @Override
     public void insert(Club c) {
         String req="INSERT INTO `Club` (`club_name`, `club_description`,`Email`,`Facebook`,`theme_id`) VALUES ( '"
@@ -76,7 +96,7 @@ private static ClubService instance;
     @Override
     public ObservableList<Club> DisplayAll()  {
         
-        String req="select * from club ";
+        String req="select * from club where club_status='"+"Accepted"+"'";
         ObservableList<Club> list=FXCollections.observableArrayList();
         
         try {
@@ -191,6 +211,59 @@ public ObservableList<String> DisplayName(int id)  {
     return c;
     }
 
+    public ObservableList<Club> searchClub(String a)  {
+        String sta="Accepted";
+        String req="select * from club where club_status = '"+sta+"'and club_name = '"+a+"'";
+        ObservableList<Club> list=FXCollections.observableArrayList();
+        
+        try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+                Club c = new Club();
+                c.setId_club(rs.getInt("id_club"));   
+                c.setClub_name( rs.getString("club_name"));
+                c.setClub_description(rs.getString("club_description"));
+                c.setLogo(rs.getString("logo"));
+                c.setEmail(rs.getString("email"));
+                c.setClub_status(rs.getString("club_status"));
+                c.setTheme(rs.getInt("theme_id"));
+            list.add(c);
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClubService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
+    
+    public ObservableList<Club> searchByTheme(Theme t)  {
+        String sta="Accepted";
+        String req="select * from club where club_status = '"+sta+"'and theme_id = '"+t.getId_theme()+"'";
+        ObservableList<Club> list=FXCollections.observableArrayList();
+        
+        try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+                Club c = new Club();
+                c.setId_club(rs.getInt("id_club"));   
+                c.setClub_name( rs.getString("club_name"));
+                c.setClub_description(rs.getString("club_description"));
+                c.setLogo(rs.getString("logo"));
+                c.setEmail(rs.getString("email"));
+                c.setClub_status(rs.getString("club_status"));
+                c.setTheme(rs.getInt("theme_id"));
+            list.add(c);
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClubService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
     @Override
     public boolean update(Club e) {
         String qry = "UPDATE club SET club_name='"+e.getClub_name()+"',club_description='"

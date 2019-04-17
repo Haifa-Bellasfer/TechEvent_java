@@ -60,7 +60,7 @@ public class WorkshopServices implements InterfaceService<Workshop>
 
     @Override
     public void delete(Workshop o) {
-        String req="delete from Workshop where id_club="+o.getId_workshop();
+        String req="delete from Workshop where id_workshop="+o.getId_workshop();
         Workshop w=DisplayById(o.getId_workshop());
         
           if(w!=null)
@@ -97,6 +97,26 @@ public class WorkshopServices implements InterfaceService<Workshop>
         }
         return list;
     }
+    public ObservableList<Workshop> DisplayW() {
+        String req="select title,id_workshop from Workshop";
+        ObservableList<Workshop> list=FXCollections.observableArrayList();
+        
+        try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+                Workshop c = new Workshop();
+                c.setId_workshop(rs.getInt("id_workshop"));
+                c.setTitle(rs.getString("title"));
+                
+            list.add(c);
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(WorkshopServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
 
     @Override
     public Workshop DisplayById(int id) {
@@ -112,6 +132,8 @@ public class WorkshopServices implements InterfaceService<Workshop>
                 c.setLocation(rs.getString("location"));
                 c.setNbr_places(rs.getInt("nbr_places"));
                 c.setStart_date(rs.getDate("start_date"));
+                c.setClub_id(rs.getInt("club_id"));
+                
            
              
         } catch (SQLException ex) {
@@ -122,8 +144,8 @@ public class WorkshopServices implements InterfaceService<Workshop>
 
     @Override
     public boolean update(Workshop w) {
-        String qry = "UPDATE workshop SET id_workshop='"+w.getId_workshop()+"',club_id='"+w.getClub_id()+"',title='"+w.getTitle()+"',nbr_places='"+w.getNbr_places()
-                +"',workshop_description='"+w.getWorkshop_description()+"',start_date='"+w.getStart_date()+"',location='"+w.getLocation()+"' WHERE id_workshop='"+w.getId_workshop();
+        String qry = "UPDATE workshop SET id_workshop='"+w.getId_workshop()+"',title='"+w.getTitle()+"',nbr_places='"+w.getNbr_places()
+                +"',workshop_description='"+w.getWorkshop_description()+"',start_date='"+w.getStart_date()+"',location='"+w.getLocation()+"' WHERE id_workshop='"+w.getId_workshop()+"'";
                 
         
         try {

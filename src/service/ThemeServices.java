@@ -45,6 +45,26 @@ public class ThemeServices implements InterfaceService<Theme>
         return instance;
     }
 
+    
+    public boolean Exist(int  id) {
+        int nb=0;
+        String req="select * from club where theme_id="+id;
+                
+        try {
+           rs= st.executeQuery(req);
+            while(rs.next()){
+                
+                nb++;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ThemeServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nb!=0;
+    }
+    
+    
+    
     @Override
     public void insert(Theme t) {
         String req="INSERT INTO `Theme` (`theme_name`) "

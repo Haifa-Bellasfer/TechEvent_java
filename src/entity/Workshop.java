@@ -104,7 +104,22 @@ public class Workshop {
     public String toString() {
         return "Workshop{" + "id_workshop=" + id_workshop + ", title=" + title + ", nbr_places=" + nbr_places + ", workshop_description=" + workshop_description + ", start_date=" + start_date + ", location=" + location + '}';
     }
-    
+    public String affiche() {
+         StringBuilder sb = new StringBuilder();
+         sb.append("Workshop title:    ");
+         sb.append(title).append(System.getProperty("line.separator")); 
+         sb.append("        ").append(System.getProperty("line.separator")); 
+         sb.append("Description:    ");
+         sb.append(workshop_description).append(System.getProperty("line.separator")); 
+         sb.append("Location:    ");
+         sb.append(location).append(System.getProperty("line.separator"));
+         sb.append("Remaining places:    ");
+         sb.append(nbr_places).append(System.getProperty("line.separator"));
+         sb.append("Date:    ");
+         sb.append(start_date).append(System.getProperty("line.separator"));
+        return   sb.toString();
+   
+    }
     
     
 }

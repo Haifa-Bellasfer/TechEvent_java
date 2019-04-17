@@ -69,6 +69,7 @@ public class ThemeViewController implements Initializable {
         ob=TS.DisplayAll();
         colName.setCellValueFactory(new PropertyValueFactory<>("theme_name"));
         Table.setItems(ob); 
+
     }
     
       
@@ -80,6 +81,7 @@ public class ThemeViewController implements Initializable {
         
         
         affT();
+        
         btn.setOnAction(event -> {
             
             Theme p = new Theme(Name.getText());
@@ -99,7 +101,16 @@ public class ThemeViewController implements Initializable {
             int i;
         i = Table.getSelectionModel().getSelectedItem().getId_theme();
         d = TS.DisplayById(i);
-        TS.delete(d);
+             if (TS.Exist(i)) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Be carefull");
+                alert.setHeaderText(null);
+                alert.setContentText("You have to delete the clubs related to this theme first");
+                alert.show();
+             }else {
+             TS.delete(d);
+             } 
+        
         affT();
         });
         

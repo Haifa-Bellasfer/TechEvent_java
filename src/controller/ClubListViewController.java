@@ -262,7 +262,16 @@ public class ClubListViewController implements Initializable {
           
                 int cc = listV.getSelectionModel().getSelectedItem().getId_club();
                 c= CS.DisplayById(cc);
+                if (CS.Exist(cc)) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Be carefull");
+                    alert.setHeaderText(null);
+                    alert.setContentText("You have to delete the members related to this club first");
+                    alert.show();
+             }else {
                 CS.delete(c);
+             } 
+               
                 affC();
                 pop.hide();
             
@@ -311,7 +320,7 @@ public class ClubListViewController implements Initializable {
         
         pop.hide();
         affC();
-      } );
+      });
     }
 
     @FXML

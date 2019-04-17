@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.paint.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
@@ -7,18 +8,49 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="table" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ThemeViewController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ThemeViewController">
    <children>
-      <Label layoutX="361.0" layoutY="79.0" text="Theme" />
-      <JFXTextField fx:id="Name" focusColor="#40a863" labelFloat="true" layoutX="437.0" layoutY="75.0" promptText="Enter theme name" />
-      <JFXButton fx:id="btn" buttonType="RAISED" layoutX="478.0" layoutY="137.0" prefHeight="25.0" prefWidth="74.0" ripplerFill="#188345" style="-fx-background-color: #188345;" text="Add" textFill="#fcf7f7" />
-      <TableView fx:id="Table" editable="true" layoutX="86.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #188345;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="0.0">
-        <columns>
-          <TableColumn fx:id="colName" prefWidth="248.0" text="Theme Name" />
-        </columns>
-      </TableView>
-      <JFXButton fx:id="Del" buttonType="RAISED" layoutX="505.0" layoutY="343.0" prefHeight="31.0" prefWidth="65.0" ripplerFill="#d30000" style="-fx-background-color: #d30000;" text="Delete" textFill="#fffbfb" />
-      <JFXButton fx:id="btnUp" buttonType="RAISED" layoutX="413.0" layoutY="343.0" prefHeight="31.0" prefWidth="65.0" ripplerFill="#2d07c5" style="-fx-background-color: #2d07c5;" text="Update" textFill="#fcf8f8" />
+      <VBox prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #214a48;">
+         <children>
+            <Label alignment="CENTER" prefHeight="100.0" prefWidth="250.0" text="Admin Dashborad" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cambria Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_news" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="News" textAlignment="CENTER" textFill="#dad5d5">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_news1" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Clubs" textAlignment="CENTER" textFill="#dad5d5">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_theme" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Themes" textAlignment="CENTER" textFill="#dad5d5">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="250.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;">
+         <children>
+            <Pane prefHeight="606.0" prefWidth="750.0">
+               <children>
+            <JFXTextField fx:id="Name" focusColor="#101561" labelFloat="true" layoutX="555.0" layoutY="148.0" promptText="Enter theme name" />
+            <JFXButton fx:id="btn" buttonType="RAISED" layoutX="622.0" layoutY="201.0" prefHeight="25.0" prefWidth="74.0" ripplerFill="#188345" style="-fx-background-color: #8bcbc8;" text="Add" textFill="#fcf7f7" />
+            <JFXButton fx:id="Del" buttonType="RAISED" layoutX="214.0" layoutY="469.0" prefHeight="31.0" prefWidth="65.0" ripplerFill="#d30000" style="-fx-background-color: #ED553B;" text="Delete" textFill="#fffbfb" />
+            <TableView fx:id="Table" editable="true" layoutX="14.0" layoutY="33.0" prefHeight="420.0" prefWidth="313.0" style="-fx-border-color: #188345;">
+              <columns>
+                <TableColumn fx:id="colName" prefWidth="311.0" text="Theme Name" />
+              </columns>
+            </TableView>
+            <JFXButton fx:id="btnUp" buttonType="RAISED" layoutX="60.0" layoutY="469.0" prefHeight="31.0" prefWidth="65.0" ripplerFill="#2d07c5" style="-fx-background-color: #F6D55C;" text="Update" />
+               </children>
+            </Pane>
+   </children></VBox>
    </children>
 </AnchorPane>

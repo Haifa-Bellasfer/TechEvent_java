@@ -59,6 +59,20 @@ public class WorkshopViewController implements Initializable {
         combo.setItems(list);
         date.setValue(LocalDate.now());
         add.setOnAction(event -> {
+            String Regex= "\\d+";
+            if ((title.getText().isEmpty())
+                    ||(desc.getText().isEmpty())
+                    ||(loc.getText().isEmpty())
+                    ||(!nbr.getText().matches(Regex)))
+                    
+            {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Info");
+            alert.setHeaderText(null);
+            alert.setContentText("Data invalid ");
+            alert.show();
+            }else{
+            
             
             Workshop p = new Workshop(title.getText(), Integer.parseInt(nbr.getText()), desc.getText(), Date.valueOf(date.getValue()), loc.getText(),combo.getValue().getId_club());
             WS.insert(p);
@@ -73,7 +87,7 @@ public class WorkshopViewController implements Initializable {
             date.setValue(LocalDate.now());
             
 
-        });
+            }});
     }    
     
 }

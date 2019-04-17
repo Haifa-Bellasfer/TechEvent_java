@@ -33,12 +33,13 @@ public class ClubUser {
         this.member_id = member_id;
     }
 
-    public ClubUser(int id_club_user, String why, String you_are, String skills, int member_id) {
-        this.id_club_user = id_club_user;
+    public ClubUser( String why, String you_are, String skills, int member_id, String club_user_status ,int club_id) {
         this.why = why;
         this.you_are = you_are;
         this.skills = skills;
         this.member_id = member_id;
+        this.club_user_status=club_user_status;
+        this.club_id=club_id;
     }
 
     public int getClub_id() {

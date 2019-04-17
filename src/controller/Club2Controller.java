@@ -67,7 +67,19 @@ public class Club2Controller implements Initializable {
         tBox.getItems().addAll(ls);
 
         Submit.setOnAction(event -> {
-
+            String Regex = "^(.+)@(.+)$";
+            if ((!email.getText().matches(Regex))
+                    ||(email.getText().isEmpty())
+                    ||(nameC.getText().isEmpty())
+                    ||(desc.getText().isEmpty())
+                    ||(fb.getText().isEmpty()))
+            {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Info");
+            alert.setHeaderText(null);
+            alert.setContentText("Data invalid");
+            alert.show();
+            }else{
             Club p = new Club(nameC.getText(), desc.getText(), email.getText(), fb.getText(), tBox.getValue().getId_theme());
             System.out.println(p.getTheme());
             CS.insert(p);
@@ -81,6 +93,10 @@ public class Club2Controller implements Initializable {
             email.setText("");
             fb.setText("");
             tBox.setPromptText("Select a theme");
+            }
+            
+            
+            
 
         });
 
