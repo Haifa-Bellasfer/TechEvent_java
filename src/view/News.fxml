@@ -25,7 +25,7 @@
                         </VBox>
                         <VBox prefHeight="100.0" prefWidth="187.5">
                             <children>
-                                <Label fx:id="label_subscriber" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Subscribe">
+                                <Label fx:id="label_subscriber" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="SUBSCRIBE">
                                     <font>
                                         <Font name="Comic Sans MS" size="20.0" />
                                     </font>

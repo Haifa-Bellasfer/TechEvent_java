@@ -23,6 +23,13 @@ public class Subscriber {
         this.domain = domain;
     }
 
+    public Subscriber(String email, Domain domain) {
+        this.email = email;
+        this.domain = domain;
+    }
+    
+    
+
     public int getIdSubscriber() {
         return idSubscriber;
     }
