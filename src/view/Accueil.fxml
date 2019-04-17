@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.19054441260744986" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccueilController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="326.0" prefWidth="158.0" style="-fx-background-color: #214a48;">
+         <children>
+            <ImageView fx:id="addevent" fitHeight="48.0" fitWidth="56.0" layoutX="64.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/perspective.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="43.0" layoutY="140.0" text="New Event" textFill="#d9e3dafa">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="16.0" />
+               </font>
+            </Label>
+            <Separator layoutX="-6.0" layoutY="188.0" opacity="0.44" prefHeight="3.0" prefWidth="200.0" />
+            <Separator layoutX="-2.0" layoutY="395.0" opacity="0.39" prefWidth="200.0" />
+            <ImageView fx:id="myevents" fitHeight="63.0" fitWidth="63.0" layoutX="52.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/clipboard.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Favorit" fitHeight="63.0" fitWidth="64.0" layoutX="61.0" layoutY="451.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/star.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="16.0" layoutY="547.0" style="-fx-alignment: #2A2E37;" text="My Favorit events" textFill="#d9e3dafa">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="26.0" layoutY="346.0" text="My Event List" textFill="#d9e3dafa">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="16.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" onMouseClicked="#AddNewEvent" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #D9E3DA;" stylesheets="@../../../TechEventFinal/src/techeventfinal/dark-theme.css">
+         <children>
+            <ImageView fitHeight="19.0" fitWidth="20.0" layoutX="762.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/search.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="76.0" text="All Events:" textFill="#1e90fffa">
+               <font>
+                  <Font name="Book Antiqua" size="25.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="search" focusColor="#cbcdd3" layoutX="536.0" layoutY="74.0" prefHeight="37.0" prefWidth="213.0" promptText="Search ..." style="-fx-background-color: #fff;" unFocusColor="#c9c5c5" />
+            <ListView fx:id="allevent" layoutX="8.0" layoutY="118.0" onMouseClicked="#affiche" prefHeight="467.0" prefWidth="783.0" />
+            <Pane layoutX="-21.0" layoutY="-4.0" prefHeight="37.0" prefWidth="842.0" style="-fx-background-color: #33726f;">
+               <children>
+                  <Label layoutX="46.0" layoutY="10.0" onMouseClicked="#Clubs" text="CLubs" textFill="#d9e3da">
+                     <font>
+                        <Font name="Cambria Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="397.0" layoutY="9.0" onMouseClicked="#NewsLetter" text="NewsLetter" textFill="#d9e3da">
+                     <font>
+                        <Font name="Cambria Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="32.0" fitWidth="48.0" layoutX="700.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/user%20(2).png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="754.0" layoutY="11.0" onMouseClicked="#Logout" text="Log Out" textFill="#d9e3da">
+                     <font>
+                        <Font name="Cambria Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+         </children></AnchorPane>
+  </items>
+</SplitPane>

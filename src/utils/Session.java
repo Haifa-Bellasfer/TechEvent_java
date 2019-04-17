@@ -1,11 +1,14 @@
 package utils;
 
-import entity.Article;
+
+import entity.event;
 
 /**
  *
  * @author ihebc_000
  */
 public class Session {
-    public static Article selected_article = null;
+   public static event current_event;
+    public static int user=4;
+ 
 }

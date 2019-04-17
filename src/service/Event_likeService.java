@@ -5,7 +5,7 @@
  */
 package service;
 
-import controller.Vars;
+
 import utils.DataSource;
 import entity.event_likes;
 import java.sql.ResultSet;
@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.ObservableList;
+import utils.Session;
 
 /**
  *
@@ -59,7 +60,7 @@ public class Event_likeService implements InterfaceService<event_likes>{
 
     @Override
     public void delete(event_likes o) {
-      String req="delete from event_likes where event_id="+Vars.current_event;
+      String req="delete from event_likes where event_id="+Session.current_event;
         event_likes p=DisplayById(o.getId_like());
         
           if(p!=null)

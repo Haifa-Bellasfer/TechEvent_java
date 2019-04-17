@@ -1,0 +1,11 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+  
+}
+.root{
+    
+    -fx-background-color: bisque;
+}

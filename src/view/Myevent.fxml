@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2A2E37;" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MyeventController">
+   <children>
+      <TableView fx:id="EventList" layoutX="-1.0" layoutY="183.0" prefHeight="177.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="eventName" prefWidth="599.0" text="My Events" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="show" layoutY="360.0" prefHeight="39.0" prefWidth="600.0" text="See More" />
+      <TableView fx:id="listCategory" prefHeight="184.0" prefWidth="176.0">
+        <columns>
+          <TableColumn fx:id="allCategoriesName" prefWidth="175.0" text="ALL Categories" />
+        </columns>
+      </TableView>
+      <TableView fx:id="myCategory" layoutX="393.0" prefHeight="184.0" prefWidth="206.0">
+        <columns>
+          <TableColumn fx:id="myCategoryNames" prefWidth="205.0" text="My Categories" />
+        </columns>
+      </TableView>
+      <ImageView fx:id="move" fitHeight="62.0" fitWidth="52.0" layoutX="259.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/exchange.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
