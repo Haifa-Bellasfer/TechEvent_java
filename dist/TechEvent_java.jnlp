@@ -8,8 +8,9 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="TechEvent_java.jar" size="66671" download="eager" />
+    <jar href="TechEvent_java.jar" size="70152" download="eager" />
     <jar href="lib\commons-lang3-3.7.jar" size="499634" download="eager" />
+    <jar href="lib\javax.mail.jar" size="654100" download="eager" />
     <jar href="lib\jfoenix-8.0.8.jar" size="2708772" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
   </resources>

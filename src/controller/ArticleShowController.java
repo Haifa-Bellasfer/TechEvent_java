@@ -59,6 +59,8 @@ public class ArticleShowController implements Initializable {
     private Pane paneBtn;
     @FXML
     private JFXButton btnBack;
+    @FXML
+    private Label label_newsletter;
 
     /**
      * Initializes the controller class.

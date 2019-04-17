@@ -50,7 +50,6 @@ public class ArticleController implements Initializable {
     private Label label_domain;
     @FXML
     private Label label_article;
-    @FXML
     private Label label_subscriber;
     @FXML
     private JFXListView lv_article;
@@ -66,6 +65,8 @@ public class ArticleController implements Initializable {
     private JFXButton btnSearch;
     @FXML
     private JFXButton btnReset;
+    @FXML
+    private Label label_newsletter;
 
     static class CustomCell extends JFXListCell<Article> {
 

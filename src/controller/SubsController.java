@@ -18,6 +18,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import service.DomainService;
 import service.SubscriberService;
+import utils.Mail;
 
 /**
  * FXML Controller class
@@ -36,6 +37,7 @@ public class SubsController implements Initializable {
     private Label error;
     @FXML
     private Label errorD;
+
 
     /**
      * Initializes the controller class.
@@ -66,12 +68,14 @@ public class SubsController implements Initializable {
                     error.setText("You are already subscribed.");
                 }
             } else {
-                SubscriberService.getInstance().insert(new Subscriber(txtEmail.getText(), chDomain.getSelectionModel().getSelectedItem()));
+                Subscriber s = new Subscriber(txtEmail.getText(), chDomain.getSelectionModel().getSelectedItem());
+                s.setIdSubscriber(SubscriberService.getInstance().create(s));
+                Mail.getInstance().SendWelcomeMail(s);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Subscriber ");
-                    alert.setHeaderText(null);
-                    alert.setContentText("You are now subscribed to our newsletter.");
-                    alert.show();
+                alert.setTitle("Subscriber ");
+                alert.setHeaderText(null);
+                alert.setContentText("You are now subscribed to our newsletter.");
+                alert.show();
             }
 
         });

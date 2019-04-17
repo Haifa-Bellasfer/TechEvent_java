@@ -10,6 +10,7 @@ import entity.Subscriber;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -135,5 +136,22 @@ public class SubscriberService implements InterfaceService<Subscriber> {
             e.printStackTrace();
         }
         return nb != 0;
+    }
+    
+    
+     public int create(Subscriber o) {
+        int id=-1;
+        String req = "insert into subscriber(email_subscriber, 	domain_id) values('"+o.getEmail()+"','"+o.getDomain().getIdDomain()+"')";
+        try {
+            Statement ps = DataSource.getInstance().getCnx().prepareStatement(req);
+            ps.executeUpdate(req, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs = ps.getGeneratedKeys();
+            while(rs != null && rs.next()) {
+                id=rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SubscriberService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       return id;
     }
 }

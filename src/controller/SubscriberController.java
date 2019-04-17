@@ -59,6 +59,8 @@ public class SubscriberController implements Initializable {
     private JFXButton btn_reset;
     @FXML
     private ChoiceBox chDomain;
+    @FXML
+    private Label label_newsletter;
 
     /**
      * Initializes the controller class.

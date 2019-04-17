@@ -76,6 +76,8 @@ public class ArticleAddController implements Initializable {
     private Label errorDomain;
     @FXML
     private ImageView imageV;
+    @FXML
+    private Label label_newsletter;
 
     /**
      * Initializes the controller class.

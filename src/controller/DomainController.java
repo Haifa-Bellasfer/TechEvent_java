@@ -60,6 +60,8 @@ public class DomainController implements Initializable {
     private Label search_error;
     @FXML
     private JFXButton btn_reset;
+    @FXML
+    private Label label_newsletter;
 
     public void showInterface() {
 
