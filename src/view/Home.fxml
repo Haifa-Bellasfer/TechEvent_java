@@ -27,11 +27,6 @@
                   <Font name="Cambria" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label_theme" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Themes" textAlignment="CENTER" textFill="#dad5d5">
-               <font>
-                  <Font name="Cambria" size="18.0" />
-               </font>
-            </Label>
          </children>
       </VBox>
       <VBox layoutX="250.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;">

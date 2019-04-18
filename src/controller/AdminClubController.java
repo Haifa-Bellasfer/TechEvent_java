@@ -11,22 +11,33 @@ import com.jfoenix.controls.JFXPopup;
 import entity.Club;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import service.ClubService;
 import service.ThemeServices;
+import service.UserService;
+import view.mainFx;
 
 /**
  * FXML Controller class
@@ -53,6 +64,14 @@ public class AdminClubController implements Initializable {
      * Initializes the controller class.
      */
     ClubService cs = ClubService.getInstance();
+    @FXML
+    private Label label_news;
+    @FXML
+    private Label label_news1;
+    @FXML
+    private Label themes;
+    @FXML
+    private Label req;
     public void aff(){
             
         ThemeServices ts = ThemeServices.getInstance();
@@ -72,10 +91,41 @@ public class AdminClubController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        
+        themes.setOnMouseClicked(ev->{
+              try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/clubView.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                });
+        req.setOnMouseClicked(ev->{
+              try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/adminClub.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                });
+        
         aff();
         acc.setOnAction(event ->{
             Club cu = new Club();
+            UserService us = UserService.getInstance();
              cu=clubs.getSelectionModel().getSelectedItem();
+             
+            String num= us.DisplayById(clubs.getSelectionModel().getSelectedItem().getOwner()).getPhone();
              if ("Accepted".equals(cu.getClub_status())) {
                 cu.setClub_status("Refused");
                 try {
@@ -83,7 +133,7 @@ public class AdminClubController implements Initializable {
 			String apiKey = "apikey=" + "MVLOno+0VZM-y2GuYuU0QFsk10BeBFvXBoI9vyhI0P";
 			String message = "&message=" + "TechEvent wants to inform you that your club "+cu.getClub_name()+" has been refused";
 			String sender = "&sender=" + "Admin";
-			String numbers = "&numbers=" + "+21626424863";
+			String numbers = "&numbers=" + "+216"+num;
 			
 			// Send data
 			HttpURLConnection conn = (HttpURLConnection) new URL("https://api.txtlocal.com/send/?").openConnection();

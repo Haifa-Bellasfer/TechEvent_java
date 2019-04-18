@@ -31,8 +31,7 @@ public class HomeController implements Initializable {
     private Label label_news;
     @FXML
     private Label label_news1;
-    @FXML
-    private Label label_theme;
+
     
     
 
@@ -64,18 +63,7 @@ public class HomeController implements Initializable {
                     Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             });
-       label_theme.setOnMouseClicked((MouseEvent e) -> {
-                try {
-                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/clubView.fxml"));
-                    Scene scene = new Scene(page1);
-                    Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                    stage.setScene(scene);
-                    stage.setResizable(false);
-                    stage.show();
-                } catch (IOException ex) {
-                    Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            });
+
     }    
     
 }

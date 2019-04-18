@@ -50,6 +50,7 @@ import javax.swing.JOptionPane;
 import service.ClubService;
 import service.MemberService;
 import service.ThemeServices;
+import service.UserService;
 import utils.Session;
 import view.mainFx;
 
@@ -144,15 +145,17 @@ public class ClubListViewController implements Initializable {
         acc.setOnAction(event ->{
             upPop.setVisible(true);
             ClubUser cu = new ClubUser();
+            UserService us = UserService.getInstance();
              cu=members.getSelectionModel().getSelectedItem();
              
-             String num="+216"+Session.current_user.getPhone();
+             
+             String num="+216"+us.DisplayById(members.getSelectionModel().getSelectedItem().getMember_id()).getPhone();
              String msg =CS.DisplayById(cu.getClub_id()).getClub_name();
              if ("Accepted".equals(cu.getClub_user_status())) {
                 cu.setClub_user_status("Refused");
                 try {
 			// Construct data
-			String apiKey = "apikey=" + "MVLOno+0VZM-y2GuYuU0QFsk10BeBFvXBoI9vyhI0P";
+			String apiKey = "apikey=" + "MVLOno+0VZM-jpaVhscxc0tBilKDFJXZa6jVxGuoEd";
 			String message = "&message=" + msg+" wants to inform you that your membership request has been refused";
 			String sender = "&sender=" + "Admin";
 			String numbers = "&numbers=" +num;

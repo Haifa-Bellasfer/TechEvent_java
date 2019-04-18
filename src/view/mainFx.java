@@ -27,7 +27,7 @@ public class mainFx extends Application {
     @Override
     public void start(Stage Stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/WorkshopView.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/ClubAcc.fxml"));
             Scene scene = new Scene(root);
             Stage.setScene(scene);
             Stage.setResizable(false);

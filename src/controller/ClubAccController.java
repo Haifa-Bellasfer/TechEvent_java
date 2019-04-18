@@ -100,6 +100,16 @@ public class ClubAccController implements Initializable {
     ObservableList<String> y =FXCollections.observableArrayList("Student","Organization","pro");
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+            wrk.setVisible(false);
+            My.setVisible(false);
+            create.setVisible(false);
+        if (Session.current_user !=null) {
+            wrk.setVisible(true);
+            home.setVisible(true);
+            My.setVisible(true);
+            create.setVisible(true);
+        }
+        
         
         wrk.setOnMouseClicked(ev->{
               try {

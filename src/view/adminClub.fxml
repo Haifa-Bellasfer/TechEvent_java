@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminClubController">
    <children>
       <VBox prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #214a48;">
@@ -31,16 +30,34 @@
 
          </children>
       </VBox>
-      <VBox layoutX="250.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;" >
+      <VBox layoutX="250.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;">
           <children>
-      <TableView fx:id="clubs" prefHeight="602.0" prefWidth="750.0" onMouseClicked="#popShow">
-        <columns>
-          <TableColumn fx:id="name" prefWidth="117.0" text="Club name" />
-          <TableColumn fx:id="desc" prefWidth="179.0" text="Description" />
-            <TableColumn fx:id="mail" prefWidth="140.0" text="Email" />
-            <TableColumn fx:id="st" prefWidth="163.0" text="Status" />
-        </columns>
-      </TableView>
+            <Pane prefHeight="107.0" prefWidth="750.0" style="-fx-background-color: #33726f;">
+               <children>
+                  <Label fx:id="themes" layoutX="386.0" layoutY="29.0" prefHeight="37.0" prefWidth="112.0" text="Themes" textFill="#fcf5f5">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="req" layoutX="153.0" layoutY="29.0" prefHeight="37.0" prefWidth="133.0" text="Club requests" textFill="#fcf5f5">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="518.0" prefWidth="750.0">
+               <children>
+            <TableView fx:id="clubs" layoutY="60.0" onMouseClicked="#popShow" prefHeight="431.0" prefWidth="750.0">
+              <columns>
+                <TableColumn fx:id="name" prefWidth="165.0" text="Club name" />
+                <TableColumn fx:id="desc" prefWidth="205.0" text="Description" />
+                  <TableColumn fx:id="mail" prefWidth="177.0" text="Email" />
+                  <TableColumn fx:id="st" prefWidth="143.0" text="Status" />
+              </columns>
+            </TableView>
+               </children>
+            </Pane>
           </children>
       </VBox>
    </children>

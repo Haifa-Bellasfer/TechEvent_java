@@ -10,15 +10,22 @@ import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeView;
 import entity.Theme;
+import java.io.IOException;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -32,8 +39,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import service.ThemeServices;
+import view.mainFx;
 
 /**
  * FXML Controller class
@@ -69,12 +78,15 @@ public class ThemeViewController implements Initializable {
     private Label label_news1;
     @FXML
     private Label label_theme;
+    @FXML
+    private Label themes;
+    @FXML
+    private Label req;
          
     public void affT(){
         ob=TS.DisplayAll();
         colName.setCellValueFactory(new PropertyValueFactory<>("theme_name"));
         Table.setItems(ob); 
-
     }
     
       
@@ -83,9 +95,35 @@ public class ThemeViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        
+        themes.setOnMouseClicked(ev->{
+              try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/clubView.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                });
+        req.setOnMouseClicked(ev->{
+              try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/adminClub.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                });
         
         affT();
+        
         
         btn.setOnAction(event -> {
             
