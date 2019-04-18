@@ -59,15 +59,11 @@ public class WorkshopViewController implements Initializable {
     @FXML
     private JFXComboBox<Club> combo;
     @FXML
-    private Label home;
+    private JFXButton home;
     @FXML
-    private ComboBox<?> searchTheme;
+    private JFXButton myWork;
     @FXML
-    private JFXButton subS;
-    @FXML
-    private Label myWork;
-    @FXML
-    private Label createWork;
+    private JFXButton createWork;
     @FXML
     private Label Clubs;
 

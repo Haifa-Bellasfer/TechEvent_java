@@ -43,20 +43,20 @@
             <JFXTextField fx:id="Name" focusColor="#072c0f" labelFloat="true" layoutX="555.0" layoutY="148.0" promptText="Enter theme name" unFocusColor="#0f0d39" />
             <JFXButton fx:id="btn" buttonType="RAISED" layoutX="622.0" layoutY="201.0" prefHeight="25.0" prefWidth="74.0" ripplerFill="#188345" style="-fx-background-color: #8bcbc8;" text="Add" textFill="#fcf7f7" />
             <JFXButton fx:id="Del" buttonType="RAISED" layoutX="252.0" layoutY="552.0" prefHeight="31.0" prefWidth="65.0" ripplerFill="#d30000" style="-fx-background-color: #ED553B;" text="Delete" textFill="#fffbfb" />
-            <TableView fx:id="Table" editable="true" layoutX="52.0" layoutY="116.0" prefHeight="420.0" prefWidth="313.0" style="-fx-border-color: #188345;">
+            <TableView fx:id="Table" editable="true" layoutX="52.0" layoutY="89.0" prefHeight="447.0" prefWidth="313.0" style="-fx-border-color: #188345;">
               <columns>
                 <TableColumn fx:id="colName" prefWidth="311.0" text="Theme Name" />
               </columns>
             </TableView>
             <JFXButton fx:id="btnUp" buttonType="RAISED" layoutX="98.0" layoutY="552.0" prefHeight="31.0" prefWidth="65.0" ripplerFill="#2d07c5" style="-fx-background-color: #F6D55C;" text="Update" />
-                              <Pane prefHeight="107.0" prefWidth="750.0" style="-fx-background-color: #33726f;">
+                              <Pane prefHeight="50.0" prefWidth="750.0" style="-fx-background-color: #33726f;">
                      <children>
-                        <Label fx:id="themes" layoutX="386.0" layoutY="29.0" prefHeight="37.0" prefWidth="112.0" text="Themes" textFill="#fcf5f5">
+                        <Label fx:id="themes" layoutX="382.0" layoutY="7.0" prefHeight="37.0" prefWidth="112.0" text="Themes" textFill="#fcf5f5">
                            <font>
                               <Font size="22.0" />
                            </font>
                         </Label>
-                        <Label fx:id="req" layoutX="153.0" layoutY="29.0" prefHeight="37.0" prefWidth="133.0" text="Club requests" textFill="#fcf5f5">
+                        <Label fx:id="req" layoutX="138.0" layoutY="7.0" prefHeight="37.0" prefWidth="133.0" text="Club requests" textFill="#fcf5f5">
                            <font>
                               <Font size="22.0" />
                            </font>

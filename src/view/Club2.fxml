@@ -35,45 +35,45 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <JFXButton fx:id="Submit" buttonType="RAISED" layoutX="494.0" layoutY="526.0" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: #5555;" text="Submit" />
+      <JFXButton fx:id="Submit" buttonType="RAISED" layoutX="494.0" layoutY="526.0" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: #8bc;" text="Submit" />
       <JFXTextArea fx:id="desc" labelFloat="true" layoutX="641.0" layoutY="129.0" prefHeight="89.0" prefWidth="310.0" promptText="Describe the club" unFocusColor="#0c0936" />
-      <Pane layoutY="75.0" prefHeight="525.0" prefWidth="187.0" style="-fx-background-color: #637e99;">
+      <Pane layoutY="50.0" prefHeight="550.0" prefWidth="187.0" style="-fx-background-color: #D9E3DA;">
          <children>
-            <Label fx:id="create" layoutX="34.0" layoutY="303.0" prefHeight="27.0" prefWidth="120.0" text="Create a club" textAlignment="CENTER" textFill="#eee2e2">
+            <JFXButton fx:id="create" buttonType="RAISED" layoutX="21.0" layoutY="389.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="Create a club">
                <font>
-                  <Font size="18.0" />
+                  <Font size="15.0" />
                </font>
-            </Label>
-            <Label fx:id="My" layoutX="34.0" layoutY="368.0" prefHeight="27.0" prefWidth="120.0" text="My clubs" textAlignment="CENTER" textFill="#eee2e2">
+            </JFXButton>
+            <JFXButton fx:id="My" buttonType="RAISED" layoutX="21.0" layoutY="311.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="My Clubs">
                <font>
-                  <Font size="18.0" />
+                  <Font size="15.0" />
                </font>
-            </Label>
-            <Label fx:id="home" layoutX="34.0" layoutY="230.0" prefHeight="27.0" prefWidth="120.0" text="Club home" textAlignment="CENTER" textFill="#eee2e2">
+            </JFXButton>
+            <JFXButton fx:id="home" buttonType="RAISED" layoutX="21.0" layoutY="234.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="Club home">
                <font>
-                  <Font size="18.0" />
+                  <Font size="15.0" />
                </font>
-            </Label>
-            <Label fx:id="wrk" layoutX="34.0" layoutY="431.0" prefHeight="27.0" prefWidth="120.0" text="Workshops" textAlignment="CENTER" textFill="#eee2e2">
+            </JFXButton>
+            <JFXButton fx:id="wrk" buttonType="RAISED" layoutX="22.0" layoutY="462.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="Workshops">
                <font>
-                  <Font size="18.0" />
+                  <Font size="15.0" />
                </font>
-            </Label>
+            </JFXButton>
          </children>
       </Pane>
-      <Pane prefHeight="76.0" prefWidth="1000.0" style="-fx-background-color: #33726f;">
+      <Pane prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #33726f;">
                <children>
-                  <Label fx:id="Clubs" layoutX="277.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="Clubs" textFill="#d9e3d1">
+                  <Label fx:id="Clubs" layoutX="278.0" layoutY="10.0" prefHeight="25.0" prefWidth="120.0" text="Clubs" textFill="#d9e3d1">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="107.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="Events" textFill="#d9e3d1">
+                  <Label layoutX="99.0" layoutY="10.0" prefHeight="25.0" prefWidth="120.0" text="Events" textFill="#d9e3d1">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="463.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="News" textFill="#d9e3d1">
+                  <Label layoutX="462.0" layoutY="10.0" prefHeight="25.0" prefWidth="120.0" text="News" textFill="#d9e3d1">
                      <font>
                         <Font size="20.0" />
                      </font>

@@ -9,5 +9,5 @@ import entity.User;
  * @author ihebc_000
  */
 public class Session {
-    public static User current_user;
+    public static User current_user=new User();
 }

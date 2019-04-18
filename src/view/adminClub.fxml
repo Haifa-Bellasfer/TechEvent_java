@@ -32,14 +32,14 @@
       </VBox>
       <VBox layoutX="250.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;">
           <children>
-            <Pane prefHeight="107.0" prefWidth="750.0" style="-fx-background-color: #33726f;">
+            <Pane prefHeight="50.0" prefWidth="750.0" style="-fx-background-color: #33726f;">
                <children>
-                  <Label fx:id="themes" layoutX="386.0" layoutY="29.0" prefHeight="37.0" prefWidth="112.0" text="Themes" textFill="#fcf5f5">
+                  <Label fx:id="themes" layoutX="385.0" layoutY="7.0" prefHeight="37.0" prefWidth="112.0" text="Themes" textFill="#fcf5f5">
                      <font>
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <Label fx:id="req" layoutX="153.0" layoutY="29.0" prefHeight="37.0" prefWidth="133.0" text="Club requests" textFill="#fcf5f5">
+                  <Label fx:id="req" layoutX="149.0" layoutY="7.0" prefHeight="37.0" prefWidth="133.0" text="Club requests" textFill="#fcf5f5">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -51,9 +51,9 @@
             <TableView fx:id="clubs" layoutY="60.0" onMouseClicked="#popShow" prefHeight="431.0" prefWidth="750.0">
               <columns>
                 <TableColumn fx:id="name" prefWidth="165.0" text="Club name" />
-                <TableColumn fx:id="desc" prefWidth="205.0" text="Description" />
-                  <TableColumn fx:id="mail" prefWidth="177.0" text="Email" />
-                  <TableColumn fx:id="st" prefWidth="143.0" text="Status" />
+                <TableColumn fx:id="desc" prefWidth="274.0" text="Description" />
+                  <TableColumn fx:id="mail" prefWidth="153.0" text="Email" />
+                  <TableColumn fx:id="st" prefWidth="157.0" text="Status" />
               </columns>
             </TableView>
                </children>

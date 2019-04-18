@@ -10,47 +10,46 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WorkshopAffichController">
    <children>
-      <JFXListView fx:id="listW" layoutX="247.0" layoutY="88.0" onMouseClicked="#showP" prefHeight="368.0" prefWidth="652.0" />
-      <JFXButton fx:id="part" layoutX="535.0" layoutY="538.0" prefHeight="25.0" prefWidth="85.0" text="Participate" />
-      <JFXButton fx:id="cancel" layoutX="506.0" layoutY="538.0" prefHeight="25.0" prefWidth="135.0" text="Cancel participation" />
-   <Pane layoutY="77.0" prefHeight="525.0" prefWidth="187.0" style="-fx-background-color: #637e99;">
+      <JFXListView fx:id="listW" layoutX="186.0" layoutY="49.0" onMouseClicked="#showP" prefHeight="407.0" prefWidth="713.0" />
+      <JFXButton fx:id="part" layoutX="535.0" layoutY="538.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #F6D55C;" text="Participate" />
+      <JFXButton fx:id="cancel" layoutX="506.0" layoutY="538.0" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: #ED553B;" text="Cancel participation" />
+   <Pane layoutY="49.0" prefHeight="553.0" prefWidth="187.0" style="-fx-background-color: #D9E3DA;">
          <children>
-            <Label fx:id="create" layoutX="34.0" layoutY="303.0" prefHeight="27.0" prefWidth="120.0" text="Create a club" textAlignment="CENTER" textFill="#eee2e2">
+            <JFXButton fx:id="wrk" buttonType="RAISED" layoutX="22.0" layoutY="456.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="Workshops">
                <font>
-                  <Font size="18.0" />
+                  <Font size="15.0" />
                </font>
-            </Label>
-            <Label fx:id="My" layoutX="34.0" layoutY="368.0" prefHeight="27.0" prefWidth="120.0" text="My clubs" textAlignment="CENTER" textFill="#eee2e2">
+            </JFXButton>
+            <JFXButton fx:id="home" buttonType="RAISED" layoutX="21.0" layoutY="228.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="Club home">
                <font>
-                  <Font size="18.0" />
+                  <Font size="15.0" />
                </font>
-            </Label>
-            <Label fx:id="home" layoutX="34.0" layoutY="230.0" prefHeight="27.0" prefWidth="120.0" text="Club home" textAlignment="CENTER" textFill="#eee2e2">
+            </JFXButton>
+            <JFXButton fx:id="My" buttonType="RAISED" layoutX="21.0" layoutY="304.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="My Clubs">
                <font>
-                  <Font size="18.0" />
+                  <Font size="15.0" />
                </font>
-            </Label>
-            <Label fx:id="wrk" layoutX="34.0" layoutY="431.0" prefHeight="27.0" prefWidth="120.0" text="Workshops" textAlignment="CENTER" textFill="#eee2e2">
+            </JFXButton>
+            <JFXButton fx:id="create" buttonType="RAISED" layoutX="21.0" layoutY="384.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="Create a club">
                <font>
-                  <Font size="18.0" />
+                  <Font size="15.0" />
                </font>
-            </Label>
-            
+            </JFXButton>
          </children>
       </Pane>
-      <Pane prefHeight="76.0" prefWidth="1000.0" style="-fx-background-color: #33726f;">
+      <Pane prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #33726f;">
                <children>
-                  <Label fx:id="Clubs" layoutX="277.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="Clubs" textFill="#d9e3d1">
+                  <Label fx:id="Clubs" layoutX="280.0" layoutY="10.0" prefHeight="25.0" prefWidth="120.0" text="Clubs" textFill="#d9e3d1">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="107.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="Events" textFill="#d9e3d1">
+                  <Label layoutX="105.0" layoutY="10.0" prefHeight="25.0" prefWidth="120.0" text="Events" textFill="#d9e3d1">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="463.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="News" textFill="#d9e3d1">
+                  <Label layoutX="463.0" layoutY="10.0" prefHeight="25.0" prefWidth="120.0" text="News" textFill="#d9e3d1">
                      <font>
                         <Font size="20.0" />
                      </font>

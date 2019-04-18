@@ -57,13 +57,13 @@ public class Club2Controller implements Initializable {
     private JFXButton Submit;
     private JFXButton liste;
     @FXML
-    private Label create;
+    private JFXButton create;
     @FXML
-    private Label My;
+    private JFXButton My;
     @FXML
-    private Label home;
+    private JFXButton home;
     @FXML
-    private Label wrk;
+    private JFXButton wrk;
     @FXML
     private Label Clubs;
 

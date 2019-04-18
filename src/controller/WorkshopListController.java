@@ -75,15 +75,11 @@ public class WorkshopListController implements Initializable {
     @FXML
     private JFXButton up;
     @FXML
-    private Label myWork;
+    private JFXButton myWork;
     @FXML
-    private Label createWork;
+    private JFXButton createWork;
     @FXML
-    private Label home;
-    @FXML
-    private ComboBox<?> searchTheme;
-    @FXML
-    private JFXButton subS;
+    private JFXButton home;
     @FXML
     private Label Clubs;
     User u = new User();

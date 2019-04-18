@@ -23,16 +23,16 @@ import javafx.stage.Stage;
  * @author mbare
  */
 public class mainFx extends Application {
-    
+
     @Override
     public void start(Stage Stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/ClubAcc.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/ListClub.fxml"));
             Scene scene = new Scene(root);
             Stage.setScene(scene);
             Stage.setResizable(false);
             Stage.show();
-            
+
         } catch (IOException ex) {
             Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -44,5 +44,5 @@ public class mainFx extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

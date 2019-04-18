@@ -5,7 +5,6 @@
  */
 package controller;
 
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
@@ -70,12 +69,12 @@ public class ClubListViewController implements Initializable {
     ClubService CS = ClubService.getInstance();
     Club c;
     int a;
-    
+
     @FXML
     private TableColumn<Club, String> nameCol;
     //private Pane upPan = new Pane();
     @FXML
-    private Pane upPop= new Pane();
+    private Pane upPop = new Pane();
     @FXML
     private JFXTextField text;
     @FXML
@@ -91,7 +90,7 @@ public class ClubListViewController implements Initializable {
     @FXML
     private TableView<ClubUser> members;
     @FXML
-    private TableColumn<ClubUser,String > skills;
+    private TableColumn<ClubUser, String> skills;
     @FXML
     private TableColumn<ClubUser, String> why;
     @FXML
@@ -101,164 +100,159 @@ public class ClubListViewController implements Initializable {
     private Label create;
     private Label My;
     @FXML
-    private Label home;
+    private JFXButton home;
     @FXML
-    private Label myWork;
+    private JFXButton myWork;
     @FXML
-    private Label createWork;
+    private JFXButton createWork;
     @FXML
     private Label Clubs;
-    
-    
-    public void affC(){
-            ObservableList<Club> ls = FXCollections.observableArrayList();
-            int owner=1;
-        ls=CS.DisplayAll(owner);
+
+    public void affC() {
+        ObservableList<Club> ls = FXCollections.observableArrayList();
+        int owner = 1;
+        ls = CS.DisplayAll(owner);
         nameCol.setCellValueFactory(new PropertyValueFactory<>("club_name"));
         listV.setItems(ls);
-        
+
     }
-    
+
     JFXButton b1 = new JFXButton("Update                  ");
     JFXButton b2 = new JFXButton("Close                     ");
     JFXButton b3 = new JFXButton("Show members list");
-    
+
     JFXButton acc = new JFXButton("Change status");
     JFXButton fire = new JFXButton("Fire");
     MemberService m = MemberService.getInstance();
-    VBox pbox = new VBox(b1,b2,b3);
-    VBox pbox2 = new VBox(acc,fire) ;
+    VBox pbox = new VBox(b1, b2, b3);
+    VBox pbox2 = new VBox(acc, fire);
     JFXPopup pop = new JFXPopup(pbox);
     JFXPopup pop2 = new JFXPopup(pbox2);
-    public void initPopup(){
 
-    b1.setPadding(new Insets(10));
-    b2.setPadding(new Insets(10));
-    b3.setPadding(new Insets(10));
-    pop.setPopupContent(pbox);
-    pop2.setPopupContent(pbox2);
-    
-    
+    public void initPopup() {
+
+        b1.setPadding(new Insets(10));
+        b2.setPadding(new Insets(10));
+        b3.setPadding(new Insets(10));
+        pop.setPopupContent(pbox);
+        pop2.setPopupContent(pbox2);
+
     }
-    public void pop2(){
-        
-        acc.setOnAction(event ->{
+
+    public void pop2() {
+
+        acc.setOnAction(event -> {
             upPop.setVisible(true);
             ClubUser cu = new ClubUser();
             UserService us = UserService.getInstance();
-             cu=members.getSelectionModel().getSelectedItem();
-             
-             
-             String num="+216"+us.DisplayById(members.getSelectionModel().getSelectedItem().getMember_id()).getPhone();
-             String msg =CS.DisplayById(cu.getClub_id()).getClub_name();
-             if ("Accepted".equals(cu.getClub_user_status())) {
+            cu = members.getSelectionModel().getSelectedItem();
+
+            String num = "+216" + us.DisplayById(members.getSelectionModel().getSelectedItem().getMember_id()).getPhone();
+            String msg = CS.DisplayById(cu.getClub_id()).getClub_name();
+            if ("Accepted".equals(cu.getClub_user_status())) {
                 cu.setClub_user_status("Refused");
                 try {
-			// Construct data
-			String apiKey = "apikey=" + "MVLOno+0VZM-jpaVhscxc0tBilKDFJXZa6jVxGuoEd";
-			String message = "&message=" + msg+" wants to inform you that your membership request has been refused";
-			String sender = "&sender=" + "Admin";
-			String numbers = "&numbers=" +num;
-			
-			// Send data
-			HttpURLConnection conn = (HttpURLConnection) new URL("https://api.txtlocal.com/send/?").openConnection();
-			String data = apiKey + numbers + message + sender;
-			conn.setDoOutput(true);
-			conn.setRequestMethod("POST");
-			conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
-			conn.getOutputStream().write(data.getBytes("UTF-8"));
-			final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-			final StringBuffer stringBuffer = new StringBuffer();
-			String line;
-			while ((line = rd.readLine()) != null) {
-				//stringBuffer.append(line);
-                                JOptionPane.showMessageDialog(null, message+line);
-			}
-			rd.close();
-			
-			//return stringBuffer.toString();
-		} catch (Exception e) {
-			//System.out.println("Error SMS "+e);
-                        JOptionPane.showMessageDialog(null, e);
-			//return "Error "+e;
-		}
-            }else if ("Refused".equals(cu.getClub_user_status())){
-             cu.setClub_user_status("Accepted");
-             try {
-			// Construct data
-			String apiKey = "apikey=" + "MVLOno+0VZM-y2GuYuU0QFsk10BeBFvXBoI9vyhI0P";
-			String message = "&message=" + msg+" wants to inform you that your membership request has been accepted !! welcome to our team";
-			String sender = "&sender=" + "Admin";
-			String numbers = "&numbers=" + "+21626424863";
-			
-			// Send data
-			HttpURLConnection conn = (HttpURLConnection) new URL("https://api.txtlocal.com/send/?").openConnection();
-			String data = apiKey + numbers + message + sender;
-			conn.setDoOutput(true);
-			conn.setRequestMethod("POST");
-			conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
-			conn.getOutputStream().write(data.getBytes("UTF-8"));
-			final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-			final StringBuffer stringBuffer = new StringBuffer();
-			String line;
-			while ((line = rd.readLine()) != null) {
-				//stringBuffer.append(line);
-                                JOptionPane.showMessageDialog(null, message+line);
-			}
-			rd.close();
-			
-			//return stringBuffer.toString();
-		} catch (Exception e) {
-			//System.out.println("Error SMS "+e);
-                        JOptionPane.showMessageDialog(null, e);
-			//return "Error "+e;
-		}
-             }
-             
-             members.setVisible(true);
+                    // Construct data
+                    String apiKey = "apikey=" + "MVLOno+0VZM-jpaVhscxc0tBilKDFJXZa6jVxGuoEd";
+                    String message = "&message=" + msg + " wants to inform you that your membership request has been refused";
+                    String sender = "&sender=" + "Admin";
+                    String numbers = "&numbers=" + num;
+
+                    // Send data
+                    HttpURLConnection conn = (HttpURLConnection) new URL("https://api.txtlocal.com/send/?").openConnection();
+                    String data = apiKey + numbers + message + sender;
+                    conn.setDoOutput(true);
+                    conn.setRequestMethod("POST");
+                    conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
+                    conn.getOutputStream().write(data.getBytes("UTF-8"));
+                    final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    final StringBuffer stringBuffer = new StringBuffer();
+                    String line;
+                    while ((line = rd.readLine()) != null) {
+                        //stringBuffer.append(line);
+                        JOptionPane.showMessageDialog(null, message + line);
+                    }
+                    rd.close();
+
+                    //return stringBuffer.toString();
+                } catch (Exception e) {
+                    //System.out.println("Error SMS "+e);
+                    JOptionPane.showMessageDialog(null, e);
+                    //return "Error "+e;
+                }
+            } else if ("Refused".equals(cu.getClub_user_status())) {
+                cu.setClub_user_status("Accepted");
+                try {
+                    // Construct data
+                    String apiKey = "apikey=" + "MVLOno+0VZM-y2GuYuU0QFsk10BeBFvXBoI9vyhI0P";
+                    String message = "&message=" + msg + " wants to inform you that your membership request has been accepted !! welcome to our team";
+                    String sender = "&sender=" + "Admin";
+                    String numbers = "&numbers=" + "+21626424863";
+
+                    // Send data
+                    HttpURLConnection conn = (HttpURLConnection) new URL("https://api.txtlocal.com/send/?").openConnection();
+                    String data = apiKey + numbers + message + sender;
+                    conn.setDoOutput(true);
+                    conn.setRequestMethod("POST");
+                    conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
+                    conn.getOutputStream().write(data.getBytes("UTF-8"));
+                    final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    final StringBuffer stringBuffer = new StringBuffer();
+                    String line;
+                    while ((line = rd.readLine()) != null) {
+                        //stringBuffer.append(line);
+                        JOptionPane.showMessageDialog(null, message + line);
+                    }
+                    rd.close();
+
+                    //return stringBuffer.toString();
+                } catch (Exception e) {
+                    //System.out.println("Error SMS "+e);
+                    JOptionPane.showMessageDialog(null, e);
+                    //return "Error "+e;
+                }
+            }
+
+            members.setVisible(true);
             upPop.setVisible(false);
-            
+
             m.update(cu);
             ObservableList<ClubUser> ls = FXCollections.observableArrayList();
-           
-            ls=m.DisplayAll(listV.getSelectionModel().getSelectedItem().getId_club());
+
+            ls = m.DisplayAll(listV.getSelectionModel().getSelectedItem().getId_club());
             pop2.hide();
 
             members.setItems(ls);
-            
+
             pop2.setPopupContent(pbox2);
         });
-        fire.setOnAction(event2 ->{
+        fire.setOnAction(event2 -> {
             ClubUser cu = new ClubUser();
-             cu=members.getSelectionModel().getSelectedItem();
-             m.delete(cu);
+            cu = members.getSelectionModel().getSelectedItem();
+            m.delete(cu);
             members.setVisible(true);
             upPop.setVisible(true);
             ObservableList<ClubUser> ls = FXCollections.observableArrayList();
-            
-            ls=m.DisplayAll(listV.getSelectionModel().getSelectedItem().getId_club());
+
+            ls = m.DisplayAll(listV.getSelectionModel().getSelectedItem().getId_club());
             pop2.hide();
             members.setItems(ls);
             pbox2 = new VBox(acc);
             pop2.setPopupContent(pbox2);
         });
     }
-    
-    
-    public void memberList(){
-       
 
-        b3.setOnAction(event ->{
+    public void memberList() {
+
+        b3.setOnAction(event -> {
             upPop.setVisible(false);
             members.setVisible(true);
-            
-            
-            
+
             ObservableList<ClubUser> ls = FXCollections.observableArrayList();
 
-            ls=m.DisplayAll(listV.getSelectionModel().getSelectedItem().getId_club());
+            ls = m.DisplayAll(listV.getSelectionModel().getSelectedItem().getId_club());
             pop.hide();
-            
+
             why.setCellValueFactory(new PropertyValueFactory<>("why"));
             status.setCellValueFactory(new PropertyValueFactory<>("club_user_status"));
             he.setCellValueFactory(new PropertyValueFactory<>("you_are"));
@@ -266,54 +260,55 @@ public class ClubListViewController implements Initializable {
             members.setItems(ls);
             pop2();
         });
-        
+
     }
     ThemeServices TS = ThemeServices.getInstance();
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        myWork.setOnMouseClicked(ev->{
-              try {
-                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/WorkshopList.fxml"));
-                    Scene scene = new Scene(page1);
-                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
-                    stage.setScene(scene);
-                    stage.setResizable(false);
-                    stage.show();
-            
-        } catch (IOException ex) {
-            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                });
-        
-        createWork.setOnMouseClicked(ev->{
-              try {
-                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/WorkshopView.fxml"));
-                    Scene scene = new Scene(page1);
-                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
-                    stage.setScene(scene);
-                    stage.setResizable(false);
-                    stage.show();
-            
-        } catch (IOException ex) {
-            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                });
-        home.setOnMouseClicked(ev->{
-              try {
-                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/ClubAcc.fxml"));
-                    Scene scene = new Scene(page1);
-                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
-                    stage.setScene(scene);
-                    stage.setResizable(false);
-                    stage.show();
-            
-        } catch (IOException ex) {
-            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                });
+
+        myWork.setOnMouseClicked(ev -> {
+            try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/WorkshopList.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.setResizable(false);
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+
+        createWork.setOnMouseClicked(ev -> {
+            try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/WorkshopView.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.setResizable(false);
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        home.setOnMouseClicked(ev -> {
+            try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/ClubAcc.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.setResizable(false);
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
         ObservableList<Theme> ls = FXCollections.observableArrayList();
-        ls=TS.DisplayAll();
+        ls = TS.DisplayAll();
         th.getItems().addAll(ls);
         members.setVisible(false);
         upPop.setVisible(false);
@@ -323,78 +318,77 @@ public class ClubListViewController implements Initializable {
         pop2();
         initPopup();
         b2.setOnAction(event -> {
-          
-                int cc = listV.getSelectionModel().getSelectedItem().getId_club();
-                c= CS.DisplayById(cc);
-                if (CS.Exist(cc)) {
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Be carefull");
-                    alert.setHeaderText(null);
-                    alert.setContentText("You have to delete the members related to this club first");
-                    alert.show();
-             }else {
+
+            int cc = listV.getSelectionModel().getSelectedItem().getId_club();
+            c = CS.DisplayById(cc);
+            if (CS.Exist(cc)) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Be carefull");
+                alert.setHeaderText(null);
+                alert.setContentText("You have to delete the members related to this club first");
+                alert.show();
+            } else {
                 CS.delete(c);
-             } 
-               
-                affC();
-                pop.hide();
-            
+            }
+
+            affC();
+            pop.hide();
+
         });
-    }    
+    }
 
     @FXML
     private void showPop(MouseEvent event) {
-        pop.show(listV,JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.LEFT, event.getX(), event.getY());
+        pop.show(listV, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.LEFT, event.getX(), event.getY());
     }
 
+    public void upC() {
 
-    public void upC(){
-        
-      b1.setOnAction(event -> {
-           
-           int i;
-           Club d;
-           d = listV.getSelectionModel().getSelectedItem();
-           members.setVisible(false);
-        upPop.setVisible(true);
-        text.setVisible(true);
-        desc.setVisible(true);
-        upPop.setVisible(true);
-        mail.setVisible(true);
-        btnUP.setVisible(true);
-        fb.setVisible(true);
-        text.setText(listV.getSelectionModel().getSelectedItem().getClub_name());
-        desc.setText(listV.getSelectionModel().getSelectedItem().getClub_description());
-        mail.setText(listV.getSelectionModel().getSelectedItem().getEmail());
-        fb.setText(listV.getSelectionModel().getSelectedItem().getFacebook());
-        //i =listV.getSelectionModel().getSelectedItem().getTheme();
-          //System.out.println(i);
-        //th.setValue(TS.DisplayById(i));
-        btnUP.setOnAction(event2 -> {
+        b1.setOnAction(event -> {
 
-        d.setClub_name(text.getText());
-        d.setClub_description(desc.getText());
-        d.setEmail(mail.getText());
-        d.setFacebook(fb.getText());
-            if (!th.getSelectionModel().isEmpty()) {
-                d.setTheme(th.getSelectionModel().getSelectedItem().getId_theme());
-            }else{
-            d.setTheme(d.getTheme());
-            }
-        
-        CS.update(d);
-        //TS.update(os);
-        affC();
+            int i;
+            Club d;
+            d = listV.getSelectionModel().getSelectedItem();
+            members.setVisible(false);
+            upPop.setVisible(true);
+            text.setVisible(true);
+            desc.setVisible(true);
+            upPop.setVisible(true);
+            mail.setVisible(true);
+            btnUP.setVisible(true);
+            fb.setVisible(true);
+            text.setText(listV.getSelectionModel().getSelectedItem().getClub_name());
+            desc.setText(listV.getSelectionModel().getSelectedItem().getClub_description());
+            mail.setText(listV.getSelectionModel().getSelectedItem().getEmail());
+            fb.setText(listV.getSelectionModel().getSelectedItem().getFacebook());
+            //i =listV.getSelectionModel().getSelectedItem().getTheme();
+            //System.out.println(i);
+            //th.setValue(TS.DisplayById(i));
+            btnUP.setOnAction(event2 -> {
+
+                d.setClub_name(text.getText());
+                d.setClub_description(desc.getText());
+                d.setEmail(mail.getText());
+                d.setFacebook(fb.getText());
+                if (!th.getSelectionModel().isEmpty()) {
+                    d.setTheme(th.getSelectionModel().getSelectedItem().getId_theme());
+                } else {
+                    d.setTheme(d.getTheme());
+                }
+
+                CS.update(d);
+                //TS.update(os);
+                affC();
+            });
+
+            pop.hide();
+            affC();
         });
-        
-        pop.hide();
-        affC();
-      });
     }
 
     @FXML
-   private void pop2Show(MouseEvent event) {
-       
-        pop2.show(members,JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.LEFT, event.getX(), event.getY());
-    }}
-    
+    private void pop2Show(MouseEvent event) {
+
+        pop2.show(members, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.LEFT, event.getX(), event.getY());
+    }
+}

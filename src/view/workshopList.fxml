@@ -16,41 +16,39 @@
       <JFXTextArea fx:id="desc" labelFloat="true" layoutX="477.0" layoutY="226.0" prefHeight="91.0" prefWidth="243.0" promptText="Description" />
       <JFXTextField fx:id="loc" labelFloat="true" layoutX="477.0" layoutY="404.0" prefHeight="44.0" prefWidth="203.0" promptText="Location" />
       <DatePicker fx:id="date" layoutX="773.0" layoutY="275.0" prefHeight="44.0" prefWidth="203.0" promptText="Date" />
-      <JFXButton fx:id="up" layoutX="679.0" layoutY="520.0" style="-fx-background-color: #b0e0e6;" text="Update" />
-   <Pane layoutY="77.0" prefHeight="525.0" prefWidth="187.0" style="-fx-background-color: #637e99;">
+      <JFXButton fx:id="up" buttonType="RAISED" layoutX="689.0" layoutY="520.0" prefHeight="36.0" prefWidth="91.0" style="-fx-background-color: #ED553B;" text="Update" />
+   <Pane layoutY="49.0" prefHeight="553.0" prefWidth="187.0" style="-fx-background-color: #D9E3DA;">
          <children>
-            <Label fx:id="myWork" layoutX="29.0" layoutY="345.0" prefHeight="27.0" prefWidth="120.0" text="My workshops" textAlignment="CENTER" textFill="#eee2e2">
+            <JFXButton fx:id="createWork" buttonType="RAISED" layoutX="22.0" layoutY="391.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="Create workshop">
                <font>
-                  <Font size="18.0" />
+                  <Font size="15.0" />
                </font>
-            </Label>
-            <Label fx:id="createWork" layoutX="29.0" layoutY="410.0" prefHeight="27.0" prefWidth="151.0" text="Create a workshop" textAlignment="CENTER" textFill="#eee2e2">
+            </JFXButton>
+            <JFXButton fx:id="myWork" buttonType="RAISED" layoutX="22.0" layoutY="311.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="My workshops">
                <font>
-                  <Font size="18.0" />
+                  <Font size="15.0" />
                </font>
-            </Label>
-            <Label fx:id="home" layoutX="29.0" layoutY="272.0" prefHeight="27.0" prefWidth="120.0" text="Club home" textAlignment="CENTER" textFill="#eee2e2">
+            </JFXButton>
+            <JFXButton fx:id="home" buttonType="RAISED" layoutX="22.0" layoutY="235.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="Club home">
                <font>
-                  <Font size="18.0" />
+                  <Font size="15.0" />
                </font>
-            </Label>
-            <ComboBox fx:id="searchTheme" layoutX="26.0" layoutY="69.0" prefHeight="27.0" prefWidth="135.0" promptText="Select a theme" />
-            <JFXButton fx:id="subS" layoutX="66.0" layoutY="123.0" prefHeight="25.0" prefWidth="54.0" style="-fx-background-color: #a5d2ff;" text="Search" />
+            </JFXButton>
          </children>
       </Pane>
-      <Pane prefHeight="76.0" prefWidth="1000.0" style="-fx-background-color: #33726f;">
+      <Pane prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #33726f;">
                <children>
-                  <Label fx:id="Clubs" layoutX="277.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="Clubs" textFill="#d9e3d1">
+                  <Label fx:id="Clubs" layoutX="278.0" layoutY="10.0" prefHeight="25.0" prefWidth="120.0" text="Clubs" textFill="#d9e3d1">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="107.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="Events" textFill="#d9e3d1">
+                  <Label layoutX="98.0" layoutY="10.0" prefHeight="25.0" prefWidth="120.0" text="Events" textFill="#d9e3d1">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="463.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="News" textFill="#d9e3d1">
+                  <Label layoutX="464.0" layoutY="10.0" prefHeight="25.0" prefWidth="120.0" text="News" textFill="#d9e3d1">
                      <font>
                         <Font size="20.0" />
                      </font>
