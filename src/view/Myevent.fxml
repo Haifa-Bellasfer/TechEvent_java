@@ -11,26 +11,27 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #d9e3da;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MyeventController">
    <children>
-      <TableView fx:id="EventList" prefHeight="564.0" prefWidth="712.0">
+      <TableView fx:id="EventList" prefHeight="454.0" prefWidth="712.0" style="-fx-background-color: #d9e3da;">
         <columns>
           <TableColumn fx:id="eventName" prefWidth="714.0" text="My Events" />
         </columns>
       </TableView>
-      <TableView fx:id="listCategory" layoutX="794.0" layoutY="363.0" prefHeight="237.0" prefWidth="206.0">
+      <TableView fx:id="listCategory" layoutX="794.0" layoutY="363.0" prefHeight="237.0" prefWidth="206.0" style="-fx-background-color: #d9e3da;">
         <columns>
-          <TableColumn fx:id="allCategoriesName" prefWidth="175.0" text="ALL Categories" />
+          <TableColumn fx:id="allCategoriesName" prefWidth="205.0" text="ALL Categories" />
         </columns>
       </TableView>
-      <TableView fx:id="myCategory" layoutX="794.0" prefHeight="212.0" prefWidth="206.0">
+      <TableView fx:id="myCategory" layoutX="794.0" prefHeight="212.0" prefWidth="206.0" style="-fx-background-color: #d9e3da;">
         <columns>
           <TableColumn fx:id="myCategoryNames" prefWidth="205.0" text="My Categories" />
         </columns>
       </TableView>
-      <ImageView fx:id="move" fitHeight="48.0" fitWidth="105.0" layoutX="873.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+      <JFXButton fx:id="show" layoutY="454.0" prefHeight="40.0" prefWidth="712.0" style="-fx-background-color: #f6d55c;" text="View More" />
+      <JFXButton fx:id="Add" layoutX="861.0" layoutY="270.0" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: ed553b;" text="Move" textFill="#f2f2f2" />
+      <ImageView fx:id="back" fitHeight="46.0" fitWidth="46.0" layoutX="14.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/exchange.png" />
+            <Image url="@../img/left-arrow.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="show" layoutY="564.0" prefHeight="40.0" prefWidth="712.0" text="View More" />
    </children>
 </Pane>

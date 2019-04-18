@@ -17,7 +17,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <ImageView fitHeight="38.0" fitWidth="58.0" layoutX="44.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="back" fitHeight="38.0" fitWidth="58.0" layoutX="44.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/left-arrow.png" />
          </image>

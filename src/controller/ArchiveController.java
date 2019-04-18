@@ -3,6 +3,7 @@ package controller;
 import com.jfoenix.controls.JFXListView;
 import entity.event;
 import java.awt.Color;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.DayOfWeek;
@@ -10,17 +11,26 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
+import javafx.stage.Stage;
 import service.EventService;
 
 /**
@@ -35,6 +45,8 @@ public class ArchiveController implements Initializable {
 
     ObservableList<event> list1=FXCollections.observableArrayList();
     EventService es= EventService.getInstance();
+    @FXML
+    private ImageView back;
     
     static class cell extends ListCell<event>{
         HBox box= new HBox(50);
@@ -148,6 +160,28 @@ public class ArchiveController implements Initializable {
         archiveList.setItems(list1);
         archiveList.setCellFactory(s->new cell());
        
+        
+        
+               
+        back.setPickOnBounds(true); 
+        back.setOnMouseClicked((MouseEvent e) -> {
+                try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/Chart.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(ArchiveController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+        });
+        
+        
+        
+        
+        
+        
     }    
     
 }

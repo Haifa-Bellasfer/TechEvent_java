@@ -62,10 +62,14 @@ public class MyeventController implements Initializable {
     private TableView<Category> myCategory;
     @FXML
     private TableColumn<Category, String> myCategoryNames;
-    @FXML
-    private ImageView move;
+    
     private   User_CategoryService uc=User_CategoryService.getInstance();
     int  idCat,idDel;
+    @FXML
+    private JFXButton Add;
+    private JFXButton delete;
+    @FXML
+    private ImageView back;
    
     /**
      * Initializes the controller class.
@@ -79,8 +83,6 @@ public class MyeventController implements Initializable {
        listCategory.setItems(catlist);
        allCategoriesName.setCellValueFactory(new PropertyValueFactory<>("category_name")); 
     
-        
-     
        userlist=uc.DisplayAllUserCategory(Session.user);
        EventService ev=EventService.getInstance();
        for(int i=0;i<userlist.size();i++){
@@ -103,8 +105,8 @@ public class MyeventController implements Initializable {
         listCategory.setOnMouseClicked(event->{
          idDel=catlist.get(listCategory.getSelectionModel().getSelectedIndex()).getId_category();
           });
-         move.setPickOnBounds(true);
-         move.setOnMouseClicked((MouseEvent e) -> {
+         
+         Add.setOnMouseClicked((MouseEvent e) -> {
          list =uc.DisplayAllUserCategory(Session.user);
           for(int i=0;i<list.size();i++){
            if(list.get(i).getCategory_id() == idCat){
@@ -115,13 +117,52 @@ public class MyeventController implements Initializable {
           uc.insert(new user_categorie(1, idDel, Session.user));
            
          
-           
+        try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/Myevent.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            }
            
        
             
             
             
             });
+         
+         
+     
+         
+         
+         
+         
+         
+                
+        back.setPickOnBounds(true); 
+        back.setOnMouseClicked((MouseEvent e) -> {
+                try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/Accueil.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+        });
+        
+         
+         
+         
+         
+         
+         
+         
+         
         
         
         show.setOnMouseClicked((MouseEvent e) -> {

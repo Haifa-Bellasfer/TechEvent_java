@@ -44,7 +44,7 @@
          <font>
             <Font name="Bookman Old Style" size="18.0" />
          </font></Label>
-      <Hyperlink layoutX="894.0" layoutY="563.0" text="View Comment" />
+      <Hyperlink fx:id="comment" layoutX="894.0" layoutY="563.0" text="View Comment" />
       <Label fx:id="startdate" layoutX="113.0" layoutY="343.0" text="start" textFill="#214a48">
          <font>
             <Font name="Bookman Old Style" size="18.0" />

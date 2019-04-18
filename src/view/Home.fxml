@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
@@ -8,22 +9,27 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #d9e3da;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
    <children>
-      <VBox prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #214a48;">
+      <AnchorPane prefHeight="46.0" prefWidth="1000.0" style="-fx-background-color: #214a48;">
          <children>
-            <Label alignment="CENTER" prefHeight="100.0" prefWidth="250.0" text="Admin Dashborad" textAlignment="CENTER" textFill="WHITE">
+            <ImageView fitHeight="36.0" fitWidth="38.0" layoutX="850.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/user%20(2).png" />
+               </image>
+            </ImageView>
+            <Label layoutX="910.0" layoutY="9.0" text="Log In" textFill="#fcf7f7">
                <font>
-                  <Font name="Cambria Bold" size="24.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="label_news" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="News" textAlignment="CENTER" textFill="#dad5d5">
+            <Label fx:id="NewsLetter" layoutX="14.0" layoutY="11.0" text="NewsLetter" textFill="#ffffffc3">
                <font>
-                  <Font name="Cambria" size="18.0" />
+                  <Font name="Arial Bold" size="20.0" />
                </font>
             </Label>
          </children>
-      </VBox>
-      <VBox layoutX="250.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;" />
+      </AnchorPane>
+      <JFXListView fx:id="AllEvent" layoutX="18.0" layoutY="73.0" prefHeight="510.0" prefWidth="968.0" />
    </children>
 </AnchorPane>

@@ -23,6 +23,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -63,6 +64,8 @@ public class DescriptionController implements Initializable {
     private ImageView back;
     @FXML
     private Label address;
+    @FXML
+    private Hyperlink comment;
 
     /**
      * Initializes the controller class.
@@ -94,8 +97,64 @@ public class DescriptionController implements Initializable {
        like.setOnMouseClicked((MouseEvent event) -> {
         
      
+           
+           
+           
+           
+           
              
         });
+       
+       
+       
+       
+      
+        comment.setOnMouseClicked((MouseEvent ev) -> {
+                try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/AfficheComment.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(MyEventListController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+        });
+       
+       
+       
+       
+       
+              
+        back.setPickOnBounds(true); 
+        back.setOnMouseClicked((MouseEvent ev) -> {
+                try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/Accueil.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(MyEventListController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+        });
+        
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
        
 //       like.setPickOnBounds(true); 
 //       like.setOnMouseClicked((MouseEvent l) -> {

@@ -76,6 +76,31 @@ public class User_CategoryService implements InterfaceService<user_categorie>{
     
     
     
+      public void deleteusercat( int id,int id2) {
+          String req="Delete from user_categorie where user_id="+id+"and category_id="+id2;
+         user_categorie p=DisplayByIdd(id2);
+        
+          if(p!=null)
+       try {
+           
+            st.executeUpdate(req);
+             
+        } catch (SQLException ex) {
+            Logger.getLogger(User_CategoryService.class.getName()).log(Level.SEVERE, null, ex);
+        }else System.out.println("n'existe pas");
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
      public user_categorie DisplayByIdd(int id) {
      String req="select * from user_categorie where id="+id;
            user_categorie cat=new user_categorie();

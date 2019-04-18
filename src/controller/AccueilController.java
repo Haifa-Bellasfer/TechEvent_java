@@ -124,7 +124,7 @@ public class AccueilController implements Initializable {
           
         public cell() {
             super();
-            box.getChildren().addAll(eventpicc,lab,lab4,lab5,lab2,lab3,p,btn3);
+            box.getChildren().addAll(eventpicc,lab,lab4,lab5,lab2,lab3,p);
             box.setHgrow(p, Priority.ALWAYS);
         }
          @Override
@@ -215,6 +215,7 @@ public class AccueilController implements Initializable {
         Favorit.setPickOnBounds(true);
         Favorit.setOnMouseClicked((MouseEvent e) -> {
                 try {
+                    
                 Parent page1 = FXMLLoader.load(getClass().getResource("/view/Myevent.fxml"));
                 Scene scene = new Scene(page1);
                 Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();

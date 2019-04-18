@@ -25,7 +25,11 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -36,6 +40,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import org.apache.commons.lang3.RandomStringUtils;
 import service.CategoryService;
@@ -176,7 +181,21 @@ public class AddEventController implements Initializable {
         
    
             
-            
+               
+        back.setPickOnBounds(true); 
+        back.setOnMouseClicked((MouseEvent e) -> {
+                try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/Accueil.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+        });
+        
      
         
         

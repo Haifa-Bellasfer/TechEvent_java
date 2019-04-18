@@ -5,6 +5,7 @@
  */
 package controller;
 
+import com.jfoenix.controls.JFXButton;
 import entity.Category;
 import entity.event;
 import service.EventService;
@@ -31,6 +32,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import service.CategoryService;
@@ -74,6 +76,8 @@ public class MyEventListController implements Initializable {
     private TextField nbp;
     private  CategoryService c=CategoryService.getInstance();
     ObservableList<event>  Local=FXCollections.observableArrayList();
+    @FXML
+    private JFXButton back;
    
     
     
@@ -197,6 +201,24 @@ public class MyEventListController implements Initializable {
         });
 
        
+   
+        
+       
+        back.setOnMouseClicked((MouseEvent e) -> {
+                try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/Accueil.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+        });
+        
+     
+     
         
         
     } }
