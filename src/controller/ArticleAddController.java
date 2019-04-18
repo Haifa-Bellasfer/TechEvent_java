@@ -94,7 +94,7 @@ public class ArticleAddController implements Initializable {
         //navbar
         label_news.setOnMouseClicked((MouseEvent e) -> {
             try {
-                Parent page1 = FXMLLoader.load(getClass().getResource("/view/Domain.fxml"));
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/Home.fxml"));
                 Scene scene = new Scene(page1);
                 Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                 stage.setScene(scene);
