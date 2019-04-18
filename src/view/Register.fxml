@@ -17,7 +17,7 @@
     <children>
       <ImageView fitHeight="6000.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/rsz_sign-up-background.png" />
+            <Image url="@../img/background.jpg" />
          </image>
       </ImageView>
         <Pane layoutX="201.0" layoutY="65.0" prefHeight="535.0" prefWidth="537.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="201.0" AnchorPane.topAnchor="65.0">
@@ -25,14 +25,14 @@
                 <TextField fx:id="txtFirstname" layoutX="76.0" layoutY="70.0" prefHeight="32.0" prefWidth="200.0" promptText="firstname" />
                 <TextField fx:id="txtLastname" layoutX="308.0" layoutY="70.0" prefHeight="32.0" prefWidth="200.0" promptText="lastname" />
                 <TextField fx:id="txtEmail" layoutX="76.0" layoutY="145.0" prefHeight="32.0" prefWidth="200.0" promptText="email" />
-                <Button fx:id="btnSave" layoutX="76.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" prefHeight="32.0" prefWidth="206.0" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="Save and Register" />
+                <Button fx:id="btnSave" layoutX="76.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" prefHeight="32.0" prefWidth="206.0" stylesheets="@../styling/fullpackstyling.css" text="Save and Register" />
             <TextField fx:id="txtUsername" layoutX="308.0" layoutY="145.0" prefHeight="32.0" prefWidth="200.0" promptText="username" />
             <TextField fx:id="txtAddress" layoutX="76.0" layoutY="218.0" prefHeight="32.0" prefWidth="200.0" promptText="address" />
             <TextField fx:id="txtPhone" layoutX="308.0" layoutY="218.0" prefHeight="32.0" prefWidth="200.0" promptText="phone" />
            <PasswordField fx:id="txtPassword" layoutX="76.0" layoutY="296.0" prefHeight="32.0" prefWidth="200.0" promptText="password" />
           <PasswordField fx:id="txtPassword2" layoutX="305.0" layoutY="296.0" prefHeight="32.0" prefWidth="200.0" promptText="confirm password" />
               <Label fx:id="lblStatus" layoutX="189.0" layoutY="428.0" prefHeight="32.0" prefWidth="216.0" />
-            <Button fx:id="btnSignin" layoutX="305.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" prefHeight="32.0" prefWidth="200.0" styleClass="button2" stylesheets="@../styling/fullpackstyling.css" text="Back to Signin" />     <Label alignment="CENTER" layoutX="127.0" layoutY="-41.0" prefHeight="83.0" prefWidth="298.0" text="Register" textFill="#02ccff">
+            <Button fx:id="btnSignin" layoutX="305.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" prefHeight="32.0" prefWidth="200.0" stylesheets="@../styling/fullpackstyling.css" text="Back to Signin" />     <Label alignment="CENTER" layoutX="127.0" layoutY="-41.0" prefHeight="83.0" prefWidth="298.0" text="Register" textFill="#88bbcc">
                     <font>
                         <Font name="Dubai Bold" size="33.0" />
                     </font>

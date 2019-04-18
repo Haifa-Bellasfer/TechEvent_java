@@ -100,14 +100,32 @@ public class UpdateController implements Initializable {
                 txtPassword.setStyle("");
                 txtPassword2.setStyle("");
                 txtUsername.setStyle("");
-            } else {
+            } else { 
+                
 
                 if (change == true) {
 
+                    if (!txtPassword.getText().equals(txtPassword2.getText())) {
+                        lblStatus.setTextFill(Color.TOMATO);
+                        lblStatus.setText("passwords don't match");
+                        txtPassword.setStyle("-fx-border-clor: red; -fx-text-box-border: red ; -fx-focus-color: red ; -fx-text-fill: red; -fx-font-size: 16px;");
+                        txtPassword2.setStyle("-fx-border-clor: red; -fx-text-box-border: red ; -fx-focus-color: red ; -fx-text-fill: red; -fx-font-size: 16px;");
+                        txtPhone.setStyle("");
+                        txtEmail.setStyle("");
+                        txtUsername.setStyle("");
+                    } else if (txtPassword.getText() == "" || txtPassword2.getText() == null) {
+                        lblStatus.setTextFill(Color.TOMATO);
+                        lblStatus.setText("Enter valid passwords");
+                        txtPassword.setStyle("-fx-border-clor: red; -fx-text-box-border: red ; -fx-focus-color: red ; -fx-text-fill: red; -fx-font-size: 16px;");
+                        txtPassword2.setStyle("-fx-border-clor: red; -fx-text-box-border: red ; -fx-focus-color: red ; -fx-text-fill: red; -fx-font-size: 16px;");
+                        txtPhone.setStyle("");
+                        txtEmail.setStyle("");
+                        txtUsername.setStyle("");
+                    } else {
                         pw_hash = MyBCrypt.hashpw(txtPassword.getText(), MyBCrypt.gensalt());
 
                         udao.UpdatePassword(pw_hash, Session.current_user.getId_user());
-                    
+                    }
                 }
                 User user = new User();
                 user.setAddress(txtAddress.getText());
