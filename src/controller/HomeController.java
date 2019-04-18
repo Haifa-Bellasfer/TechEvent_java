@@ -91,7 +91,7 @@ public class HomeController implements Initializable {
 
         label_user.setOnMouseClicked((MouseEvent e) -> {
             try {
-                Session.current_user = new User(1);
+                Session.current_user = new User(2);
                 Parent page1 = FXMLLoader.load(getClass().getResource("/view/News.fxml"));
                 Scene scene = new Scene(page1);
                 Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
