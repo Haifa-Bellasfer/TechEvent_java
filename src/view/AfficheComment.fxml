@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AfficheController">
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AfficheController">
    <children>
       <ListView fx:id="allComent" layoutX="15.0" layoutY="34.0" prefHeight="260.0" prefWidth="599.0" />
-      <TextArea fx:id="myComment" layoutX="15.0" layoutY="315.0" prefHeight="106.0" prefWidth="599.0" />
-      <Button fx:id="add" layoutX="471.0" layoutY="434.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Add" />
+      <TextArea fx:id="myComment" layoutX="18.0" layoutY="302.0" prefHeight="106.0" prefWidth="599.0" />
+      <Button fx:id="add" layoutX="488.0" layoutY="423.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Add" />
+      <Button fx:id="btncom" layoutX="49.0" layoutY="423.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="My Comments" />
    </children>
 </AnchorPane>

@@ -36,7 +36,7 @@ public class Comment {
 
     @Override
     public String toString() {
-        return "Comment{" + "id_comment=" + id_comment + ", event_id=" + event_id + ", user_id=" + user_id + ", content=" + content + ", dateofcomment=" + dateofcomment + ", nbrep=" + nbrep + '}';
+        return content;
     }
 
     public int getId_comment() {

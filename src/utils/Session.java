@@ -1,5 +1,7 @@
 package utils;
 
+import entity.User;
+
 
 
 /**
@@ -7,5 +9,12 @@ package utils;
  * @author ihebc_000
  */
 public class Session {
+    public static User current_user=null;
+    
+   
+            
+    
+
+
     
 }

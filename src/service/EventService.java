@@ -94,8 +94,8 @@ public class EventService implements InterfaceService<event> {
                ev.setEnd_date(rs.getDate("end_date"));
                ev.setArchive(rs.getInt("archive"));
                ev.setPrice_ticket(rs.getDouble("price_ticket"));
-               ev.setNb_like(rs.getInt("nb_like"));
-               ev.setAddress(rs.getString("address"));
+              // ev.setNb_like(rs.getInt("nb_like"));
+               //ev.setAddress(rs.getString("address"));
                list.add(ev);
             }
             

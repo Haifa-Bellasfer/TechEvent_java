@@ -5,7 +5,6 @@
  */
 package controller;
 
-
 import entity.Comment;
 import java.net.URL;
 import java.sql.Date;
@@ -19,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -30,140 +30,67 @@ import service.CommentService;
  *
  * @author khaled
  */
-
-
-
-
 public class CommentController implements Initializable {
 
     @FXML
     private TextArea comment;
+
     @FXML
-    private TableView<Comment> allComment;
+    private Button Delete;
+
     @FXML
-    private Button Add;
-    
-    @FXML
-    private Button Delete ;
-    
-    @FXML
-    private Button Update ;
+    private Button Update;
 
     private ObservableList<Comment> comments;
     @FXML
-    private TableColumn<Comment, String> com;
+    private ListView<Comment> listComment;
 
     /**
      * Initializes the controller class.
      */
-    
-    
-    
-    public void show(){
-    
-      CommentService ed= CommentService.getInstance();
-       comments=FXCollections.observableArrayList();  
-       comments=ed.DisplayAll();
-       allComment.setItems(comments);
-       com.setCellValueFactory(new PropertyValueFactory<>("content"));
-       
-    
-    
-    }
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
-        show();
-       com.setCellValueFactory(new PropertyValueFactory<>("content"));
-       
-        
-       allComment.setOnMouseClicked(event ->{
-        comment.setText(comments.get(allComment.getSelectionModel().getSelectedIndex()).getContent());
-        
-         
-       });
-           
-        
-         Add.setOnAction(event -> {
-             
-            CommentService cd=CommentService.getInstance();
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
-            LocalDateTime now = LocalDateTime.now();  
-            java.sql.Date sqlDate = java.sql.Date.valueOf(now.toLocalDate());
-            Comment o=new Comment(1, 1, 1, comment.getText(),sqlDate , 0);
-            cd.insert(o);
-            show();
-            
-            
-            
-                 
-   CommentService ed= CommentService.getInstance();
-       comments=FXCollections.observableArrayList();  
-       comments=ed.DisplayAll();
-       allComment.setItems(comments);
-       com.setCellValueFactory(new PropertyValueFactory<>("content"));
-       
-        
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Comment");
-            alert.setHeaderText(null);
-            alert.setContentText("your Comment is added!");
-            alert.show();
 
-            });
-       Delete.setOnAction(event -> {
-           CommentService cd=CommentService.getInstance();
-           int i=comments.get(allComment.getSelectionModel().getSelectedIndex()).getId_comment();
-           Comment com=cd.DisplayById(i);
-           cd.delete(com);
-           show();
+        CommentService cs = CommentService.getInstance();
+   ObservableList<Comment> list = FXCollections.observableArrayList();
+   list=(cs.DisplayByIdEventUser(1,1));
+        listComment.setItems(list);
+
+       
+        
+        
+           Delete.setOnAction(event -> {
+             String content = listComment.getSelectionModel().getSelectedItem().getContent().toString();
+             cs.deleteByContent(content);
+             listComment.<String>setItems(null);
+        listComment.setItems(cs.DisplayByIdEventUser(1,1));
+            
 
           
-            
-            
+     
               Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Comment");
             alert.setHeaderText(null);
             alert.setContentText("your Comment is Deleted");
             alert.show();
+            comment.setText("");
 
             });
-       
-       
-          
         
-       
-       Update.setOnAction(event -> {
-    
-          CommentService com1=CommentService.getInstance();
-           int i=comments.get(allComment.getSelectionModel().getSelectedIndex()).getId_comment();
-           Comment c=com1.DisplayById(i);
-           c.setContent(comment.getText());
-           com1.update(c);
-           show();
-           
-     
-          
-    
-    });
         
-       
-       
-       
-       
-       
-       
-      
-           
-    
-           
-           
-       }
-               
-      
+        
+        
+        
+        Update.setOnAction(event -> {
+
+            CommentService com1 = CommentService.getInstance();
+            int i = comments.get(listComment.getSelectionModel().getSelectedIndex()).getId_comment();
+            Comment c = com1.DisplayById(i);
+            c.setContent(comment.getText());
+            com1.update(c);
+
+        });
+
     }
 
-
-
+}

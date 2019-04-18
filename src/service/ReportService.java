@@ -6,6 +6,7 @@
 package service;
 
 
+import entity.Comment;
 import entity.Report;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -58,7 +59,7 @@ public class ReportService implements InterfaceService<Report>{
 
     @Override
     public void delete(Report o) {
-        String req="DELETE FROM report WHERE id_report="+o.getIdreport();
+        String req="DELETE FROM report WHERE comment_id="+o.getCommentid();
            Report rep =DisplayById(o.getIdreport());
         
           if(rep!=null)
@@ -100,7 +101,7 @@ public class ReportService implements InterfaceService<Report>{
 
     @Override
     public Report DisplayById(int id) {
-          String req="select * from Report where id_report="+id;
+          String req="select * from Report where comment_id="+id;
            Report rep =new Report();
         try {
              rs=st.executeQuery(req);
@@ -111,7 +112,7 @@ public class ReportService implements InterfaceService<Report>{
                rep.setNbreportcomment(rs.getInt("nb_report_comment"));
                rep.setNbreportuser(rs.getInt("nb_report_user"));
                rep.setDateofreport(rs.getDate("date_of_report"));
-               rep.setUserid(rs.getInt("userid"));
+               rep.setUserid(rs.getInt("User_id"));
             }
             
         } catch (SQLException ex) {
@@ -119,10 +120,34 @@ public class ReportService implements InterfaceService<Report>{
         }
     return rep;
     }
+    
+    public ObservableList<Report> Display(int id) {
+          String req="select * from Report where comment_id="+id;
+           
+           ObservableList<Report> list=FXCollections.observableArrayList(); 
+        try {
+             rs=st.executeQuery(req);
+            while(rs.next()){
+              Report rep =new Report();
+               rep.setIdreport(rs.getInt("id_report"));
+               rep.setCommentid(rs.getInt("comment_id"));
+               rep.setNbreportcomment(rs.getInt("nb_report_comment"));
+               rep.setNbreportuser(rs.getInt("nb_report_user"));
+               rep.setDateofreport(rs.getDate("date_of_report"));
+               rep.setUserid(rs.getInt("User_id"));
+               list.add(rep);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CommentService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return list;
+    }
+    
 
     @Override
     public boolean update(Report os) {
-        String qry = "UPDATE report SET  id_report='"+os.getIdreport()+"',comment_id='"+os.getCommentid()+"',nb_report_comment='"+os.getNbreportcomment()+"',nb_report_user='"+os.getNbreportuser()+"',date_of_report='"+os.getDateofreport()+"',user_id='"+os.getUserid()+"')";
+        String qry = "UPDATE report SET  nb_report_comment='"+os.getNbreportcomment()+"',nb_report_user='"+os.getNbreportuser()+"',date_of_report='"+os.getDateofreport()+"',user_id='"+os.getUserid()+"' Where id_report="+os.getIdreport();
         
         try {
             if (st.executeUpdate(qry) > 0) {
@@ -136,7 +161,7 @@ public class ReportService implements InterfaceService<Report>{
        }
     
       public int DisplayCountrep(int id) {
-          String req="select Count (*) from Report where comment_id="+id;
+          String req="select Count (comment_id) from Report where comment_id="+id;
             int nb = 0;
         try {
              rs=st.executeQuery(req);
@@ -151,6 +176,29 @@ public class ReportService implements InterfaceService<Report>{
             Logger.getLogger(ReportService.class.getName()).log(Level.SEVERE, null, ex);
         }
     return nb;}
+     
+      
+      
+      public void incrementnbrep (int id) 
+      {
+          
+          Comment c = CommentService.getInstance().DisplayById(id);
+           String qry = "UPDATE comment SET nbrep='"+(c.getNbrep()+1)+"'WHERE id_comment='"+
+                    id+"'";
+     try {
+         st.executeUpdate(qry);
+     } catch (SQLException ex) {
+         Logger.getLogger(ReportService.class.getName()).log(Level.SEVERE, null, ex);
+     }
+          
+          
+          
+      }
+      
+      
+     
+      
+     
         
     
     
