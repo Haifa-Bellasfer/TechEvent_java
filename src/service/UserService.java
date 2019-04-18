@@ -127,6 +127,32 @@ String pw_hash = MyBCrypt.hashpw(user.getPassword(), MyBCrypt.gensalt());
         return id;
     }
     
+    
+    
+    
+     public String getEmail(String username){
+        
+         String email=null;
+                String req ="SELECT email FROM fos_user Where username ='"+username+"'";
+               
+     try {
+         rs=st.executeQuery(req);
+         while(rs.next())
+         {
+             email =  rs.getString(1);
+         }
+         
+         
+     } catch (SQLException ex) {
+         Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+     }
+        
+        return email;
+    }
+    
+    
+    
+    
     public ObservableList<User> DisplayAllUsers() {
     
         ObservableList<User> list=FXCollections.observableArrayList();

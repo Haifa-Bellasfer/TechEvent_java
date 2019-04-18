@@ -25,10 +25,11 @@ import javafx.stage.Stage;
 import controller.MyBCrypt;
 import service.UserService;
 import entity.User;
+import javafx.css.PseudoClass;
+import javafx.scene.layout.Border;
 import org.mindrot.jbcrypt.BCrypt;
 
-public class RegisterController  {
-  
+public class RegisterController {
 
     @FXML
     private TextField txtFirstname;
@@ -53,53 +54,80 @@ public class RegisterController  {
     @FXML
     Label lblStatus;
 
-
-    
     PreparedStatement preparedStatement;
-    Connection con ;
+    Connection con;
 
     public RegisterController() {
         con = (Connection) DataSource.getInstance().getCnx();
     }
+    UserService udao = UserService.getInstance();
+    User u = new User();
 
-    
     @FXML
     private void HandleEvents(MouseEvent event) {
-        if (txtEmail.getText().isEmpty() || txtFirstname.getText().isEmpty() || txtLastname.getText().isEmpty() || txtUsername.getText().isEmpty()|| txtPhone.getText().isEmpty()|| txtAddress.getText().isEmpty()|| txtPassword.getText().isEmpty()) {
+
+        if (txtEmail.getText().isEmpty() || txtFirstname.getText().isEmpty() || txtLastname.getText().isEmpty() || txtUsername.getText().isEmpty() || txtPhone.getText().isEmpty() || txtAddress.getText().isEmpty() || txtPassword.getText().isEmpty()) {
             lblStatus.setTextFill(Color.TOMATO);
             lblStatus.setText("Enter all details");
-        } 
-        else if (txtPassword.getText() == null ? txtPassword2.getText() != null : !txtPassword.getText().equals(txtPassword2.getText())){
-             lblStatus.setTextFill(Color.TOMATO);
-            lblStatus.setText("passwords don't match");
-        }
-         else if (!txtPhone.getText().matches("[0-9]")){
-             lblStatus.setTextFill(Color.TOMATO);
-            lblStatus.setText("Enter valid phone number");
-        }
-         else if (!txtEmail.getText().contains("@"+".")){
-             lblStatus.setTextFill(Color.TOMATO);
+        } else if (udao.getEmail(txtEmail.getText()) != null) {
+            lblStatus.setTextFill(Color.TOMATO);
+            lblStatus.setText("Email already exists");
+            txtEmail.setStyle("-fx-border-clor: red; -fx-text-box-border: red ; -fx-focus-color: red ; -fx-text-fill: red; -fx-font-size: 16px;");
+            txtPhone.setStyle("");
+            txtPassword.setStyle("");
+            txtPassword2.setStyle("");
+            txtUsername.setStyle("");
+        } else if (!txtEmail.getText().contains("@" + ".")) {
+            lblStatus.setTextFill(Color.TOMATO);
             lblStatus.setText("Enter valid Email");
-        }
-        else {
-            
-     UserService udao=UserService.getInstance();
-     User u = new User();
-     u.setFirst_name(txtFirstname.getText());
-     u.setLast_name(txtLastname.getText());
-     u.setEmail(txtEmail.getText());
-     u.setUsername(txtUsername.getText());
-     u.setAddress(txtAddress.getText());
-     u.setPhone(txtPhone.getText());
-     u.setPassword(txtPassword.getText());
-     udao.insert(u);
-            
-             lblStatus.setTextFill(Color.GREEN);
+            txtEmail.setStyle("-fx-border-clor: red; -fx-text-box-border: red ; -fx-focus-color: red ; -fx-text-fill: red; -fx-font-size: 16px;");
+            txtPhone.setStyle("");
+            txtPassword.setStyle("");
+            txtPassword2.setStyle("");
+            txtUsername.setStyle("");
+        } else if (udao.getId(txtUsername.getText()) != 0) {
+            lblStatus.setTextFill(Color.TOMATO);
+            lblStatus.setText("Username already exists");
+            txtUsername.setStyle("-fx-border-clor: red; -fx-text-box-border: red ; -fx-focus-color: red ; -fx-text-fill: red; -fx-font-size: 16px;");
+            txtPhone.setStyle("");
+            txtEmail.setStyle("");
+            txtPassword.setStyle("");
+            txtPassword2.setStyle("");
+        } else if (!txtPhone.getText().matches("[0-9]+")) {
+            lblStatus.setTextFill(Color.TOMATO);
+            lblStatus.setText("Enter valid phone number");
+            txtPhone.setStyle("-fx-border-clor: red; -fx-text-box-border: red ; -fx-focus-color: red ; -fx-text-fill: red; -fx-font-size: 16px;");
+            txtEmail.setStyle("");
+            txtPassword.setStyle("");
+            txtPassword2.setStyle("");
+            txtUsername.setStyle("");
+        } else if (txtPassword.getText() == null ? txtPassword2.getText() != null : !txtPassword.getText().equals(txtPassword2.getText())) {
+            lblStatus.setTextFill(Color.TOMATO);
+            lblStatus.setText("passwords don't match");
+            txtPassword.setStyle("-fx-border-clor: red; -fx-text-box-border: red ; -fx-focus-color: red ; -fx-text-fill: red; -fx-font-size: 16px;");
+            txtPassword2.setStyle("-fx-border-clor: red; -fx-text-box-border: red ; -fx-focus-color: red ; -fx-text-fill: red; -fx-font-size: 16px;");
+            txtPhone.setStyle("");
+            txtEmail.setStyle("");
+            txtUsername.setStyle("");
+        } else {
+
+            u.setFirst_name(txtFirstname.getText());
+            u.setLast_name(txtLastname.getText());
+            u.setEmail(txtEmail.getText());
+            u.setUsername(txtUsername.getText());
+            u.setAddress(txtAddress.getText());
+            u.setPhone(txtPhone.getText());
+            u.setPassword(txtPassword.getText());
+            udao.insert(u);
+            txtPassword.setStyle("");
+            txtPassword2.setStyle("");
+            txtEmail.setStyle("");
+            txtUsername.setStyle("");
+            txtPhone.setStyle("");
+            lblStatus.setTextFill(Color.GREEN);
             lblStatus.setText("registration complete");
-        } 
-         if (event.getSource() == btnSignin) {
-            
-                
+        }
+        if (event.getSource() == btnSignin) {
 
             try {
                 Node node = (Node) event.getSource();
@@ -113,9 +141,6 @@ public class RegisterController  {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-                
-
-            
         }
 
     }
@@ -129,19 +154,7 @@ public class RegisterController  {
         txtPhone.clear();
         txtPassword.clear();
         txtPassword2.clear();
-        
+
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
-   
-
-    
 
 }

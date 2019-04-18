@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -9,16 +10,31 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../styling/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UsersListController">
    <children>
-      <TableView fx:id="table" layoutX="69.0" layoutY="166.0" prefHeight="229.0" prefWidth="709.0">
+      <TableView fx:id="table" layoutX="296.0" layoutY="157.0" prefHeight="420.0" prefWidth="661.0">
         <columns>
-          <TableColumn fx:id="colUsername" prefWidth="99.0" text="Username" />
-          <TableColumn fx:id="colFirstname" prefWidth="100.0" text="Firstname" />
-            <TableColumn fx:id="colLastname" prefWidth="100.0" text="Lastname" />
+          <TableColumn fx:id="colUsername" prefWidth="101.0" text="Username" />
+          <TableColumn fx:id="colFirstname" prefWidth="110.0" text="Firstname" />
+            <TableColumn fx:id="colLastname" prefWidth="88.0" text="Lastname" />
             <TableColumn fx:id="colEmail" prefWidth="100.0" text="Email" />
-            <TableColumn fx:id="colAddress" prefWidth="100.0" text="Address" />
-            <TableColumn fx:id="colPhone" prefWidth="100.0" text="Phone" />
-            <TableColumn fx:id="colStatus" prefWidth="100.0" text="Status" />
+            <TableColumn fx:id="colAddress" prefWidth="126.0" text="Address" />
+            <TableColumn fx:id="colPhone" prefWidth="134.0" text="Phone" />
+            <TableColumn fx:id="colStatus" prefWidth="137.0" text="Status" />
         </columns>
       </TableView>
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #001f3f;">
+         <children>
+            <Label alignment="CENTER" prefHeight="100.0" prefWidth="250.0" text="Admin Dashborad" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Cambria Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_news" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="News" textAlignment="CENTER" textFill="#dad5d5">
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Label layoutX="529.0" layoutY="38.0" text="Members List" />
    </children>
 </AnchorPane>

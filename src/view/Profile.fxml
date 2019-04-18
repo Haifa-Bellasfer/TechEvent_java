@@ -18,19 +18,22 @@
             <Font size="17.0" />
          </font></Button>
       <Button fx:id="btnPublish" layoutX="710.0" layoutY="116.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" prefHeight="34.0" prefWidth="65.0" text="Publish" />
-      <TextField fx:id="txtPublish" layoutX="378.0" layoutY="109.0" prefHeight="54.0" prefWidth="307.0" />
-      <ListView fx:id="listView" layoutX="378.0" layoutY="208.0" prefHeight="157.0" prefWidth="397.0" styleClass="liststories" />
+      <ListView fx:id="listView" layoutX="319.0" layoutY="208.0" prefHeight="157.0" prefWidth="456.0" styleClass="liststories" />
       <ListView fx:id="listProfile" fixedCellSize="0.0" layoutX="80.0" layoutY="275.0" prefHeight="174.0" prefWidth="142.0" styleClass="listprofile" />
       <JFXTextField fx:id="txtSearch" layoutX="843.0" layoutY="23.0" />
       <Label fx:id="lblError" layoutX="685.0" layoutY="27.0" prefHeight="17.0" prefWidth="142.0" text="Search for user" />
-      <JFXListView fx:id="listShared" layoutX="378.0" layoutY="400.0" prefHeight="165.0" prefWidth="397.0" styleClass="liststories" />
+      <JFXListView fx:id="listShared" layoutX="319.0" layoutY="400.0" prefHeight="165.0" prefWidth="456.0" styleClass="liststories" />
       <Label layoutX="25.0" layoutY="307.0" text="FirstName" />
       <Label layoutX="25.0" layoutY="332.0" text="LastName" />
       <Label layoutX="25.0" layoutY="359.0" text="Email" />
       <Label layoutX="25.0" layoutY="383.0" text="Address" />
       <Label layoutX="25.0" layoutY="408.0" text="Phone" />
       <Label layoutX="25.0" layoutY="282.0" text="Username" />
-      <Label layoutX="382.0" layoutY="178.0" styleClass="stories" text="Published Stories :" />
-      <Label layoutX="378.0" layoutY="375.0" styleClass="stories" text="Shared Stories :" />
+      <Label layoutX="321.0" layoutY="182.0" styleClass="stories" text="Published Stories :" />
+      <Label layoutX="319.0" layoutY="374.0" styleClass="stories" text="Shared Stories :">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <TextArea fx:id="txtPublish" layoutX="320.0" layoutY="89.0" prefHeight="82.0" prefWidth="375.0" />
    </children>
 </AnchorPane>
