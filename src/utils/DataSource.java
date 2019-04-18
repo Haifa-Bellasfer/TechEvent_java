@@ -11,9 +11,9 @@ import java.util.logging.Logger;
  * @author Ihèb
  */
 public class DataSource {
-    private String url="jdbc:mysql://127.0.0.1:3306/phoenix_pi";
+    private String url="jdbc:mysql://127.0.0.1:8111/phoenix";
     private String login="root";
-    private String pwd="";
+    private String pwd="root";
     private Connection cnx;
     private static DataSource instance;
 
