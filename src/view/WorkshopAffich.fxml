@@ -11,8 +11,8 @@
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WorkshopAffichController">
    <children>
       <JFXListView fx:id="listW" layoutX="186.0" layoutY="49.0" onMouseClicked="#showP" prefHeight="407.0" prefWidth="713.0" />
-      <JFXButton fx:id="part" layoutX="535.0" layoutY="538.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #F6D55C;" text="Participate" />
-      <JFXButton fx:id="cancel" layoutX="506.0" layoutY="538.0" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: #ED553B;" text="Cancel participation" />
+      <JFXButton fx:id="part" buttonType="RAISED" layoutX="535.0" layoutY="538.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #F6D55C;" text="Participate" />
+      <JFXButton fx:id="cancel" buttonType="RAISED" layoutX="506.0" layoutY="538.0" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: #ED553B;" text="Cancel participation" />
    <Pane layoutY="49.0" prefHeight="553.0" prefWidth="187.0" style="-fx-background-color: #D9E3DA;">
          <children>
             <JFXButton fx:id="wrk" buttonType="RAISED" layoutX="22.0" layoutY="456.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="Workshops">
