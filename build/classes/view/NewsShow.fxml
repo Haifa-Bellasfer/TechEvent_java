@@ -46,10 +46,22 @@
                                     </font>
                                 </Label>
                                 <ImageView fx:id="imageV" fitHeight="373.0" fitWidth="333.0" layoutX="35.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" />
-                                <Label fx:id="txtContent" layoutX="401.0" layoutY="60.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="471.0" prefWidth="577.0" text="content" />
                                 <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="64.0" layoutY="481.0" prefHeight="31.0" prefWidth="63.0" style="-fx-background-color: #8bcbc8;" text="Back" />
                                 <JFXButton fx:id="btnAddBook" buttonType="RAISED" layoutX="175.0" layoutY="481.0" style="-fx-background-color: #F6D55C;" text="Add to bookmark" />
                                 <JFXButton fx:id="btnRemoveBook" buttonType="RAISED" layoutX="175.0" layoutY="481.0" style="-fx-background-color: #ED553B;" text="Remove from bookmark" />
+                        <ScrollPane layoutX="419.0" layoutY="22.0" prefHeight="500.0" prefWidth="560.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="550.0">
+                                 <children>
+                                    <Label fx:id="txtContent" lineSpacing="1.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="550.0" text="content" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="Times New Roman" size="19.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
                             </children>
                         </AnchorPane>
                     </children>

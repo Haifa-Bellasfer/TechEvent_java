@@ -139,7 +139,7 @@ public class NewsController implements Initializable {
                     stage.setResizable(false);
                     stage.show();
                 } catch (IOException ex) {
-                    System.out.println("news controller, double click action " + ex.getMessage());
+                    System.out.println("news controller, double click action " + ex.getMessage() + "" + ex.getStackTrace());
                 }
             }
         });

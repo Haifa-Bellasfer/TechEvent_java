@@ -45,13 +45,13 @@ public class NewsShowController implements Initializable {
     @FXML
     private ImageView imageV;
     @FXML
-    private Label txtContent;
-    @FXML
     private JFXButton btnBack;
     @FXML
     private JFXButton btnAddBook;
     @FXML
     private JFXButton btnRemoveBook;
+    @FXML
+    private Label txtContent;
 
     /**
      * Initializes the controller class.
