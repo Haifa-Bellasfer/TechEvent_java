@@ -37,13 +37,13 @@
             <Label layoutX="48.0" layoutY="238.0" text="Username" />
             <Label layoutX="48.0" layoutY="294.0" text="Address" />
             <Button fx:id="btnChange" layoutX="174.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" text="Change Password too" />
-                <Button fx:id="btnCancel" layoutX="262.0" layoutY="486.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" prefHeight="23.0" prefWidth="114.0" text="Cancel &amp; Return" textFill="#bc4e4e" />
-            <Button fx:id="btnSave" layoutX="92.0" layoutY="486.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" prefHeight="27.0" prefWidth="114.0" text="Save" textFill="#6c8d2e">
+                <Button fx:id="btnCancel" layoutX="262.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" prefHeight="23.0" prefWidth="114.0" text="Cancel &amp; Return" textFill="#bc4e4e" />
+            <Button fx:id="btnSave" layoutX="92.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#HandleEvents" prefHeight="27.0" prefWidth="114.0" text="Save" textFill="#6c8d2e">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </Button>
-              <Label fx:id="lblStatus" layoutX="174.0" layoutY="519.0" prefHeight="32.0" prefWidth="245.0" />
+              <Label fx:id="lblStatus" layoutX="149.0" layoutY="529.0" prefHeight="32.0" prefWidth="245.0" />
                     
             </children>
         </Pane>
