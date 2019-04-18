@@ -107,6 +107,7 @@
                                 <ChoiceBox fx:id="ch_domain" layoutX="150.0" layoutY="363.0" prefHeight="31.0" prefWidth="561.0" style="-fx-background-color: #FFFFFF;" />
                                 <Label fx:id="errorDomain" layoutX="150.0" layoutY="394.0" prefHeight="21.0" prefWidth="561.0" />
                                 <ImageView fx:id="imageV" fitHeight="1.0" fitWidth="1.0" layoutX="158.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="path" layoutX="71.0" layoutY="488.0" />
                             </children>
                         </AnchorPane>
                     </children>

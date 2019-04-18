@@ -39,6 +39,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import service.ArticleService;
 import service.DomainService;
 import utils.Mail;
+import utils.UploadImage;
 
 /**
  * FXML Controller class
@@ -79,12 +80,17 @@ public class ArticleAddController implements Initializable {
     private ImageView imageV;
     @FXML
     private Label label_newsletter;
+    //added
+    @FXML
+    private Label path;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        path.setVisible(false);
+
         //navbar
         label_news.setOnMouseClicked((MouseEvent e) -> {
             try {
@@ -183,13 +189,10 @@ public class ArticleAddController implements Initializable {
                     Date date = new Date(System.currentTimeMillis());
                     a.setDateOfPublish(date);
                     a.setViewsNumber(0);
-                    try {
-                        a.setImage(saveImage(imageV.getImage()));
-                    } catch (IOException ex) {
-                        ex.getMessage();
-                    }
                     a.setDomain(ch_domain.getSelectionModel().getSelectedItem());
-                    System.out.println(a);
+                    String name = String.format("%s.%s", RandomStringUtils.randomAlphanumeric(32), "jpg");
+                    UploadImage.getInstance().upload(path.getText(), name);
+                    a.setImage(name);
                     ArticleService as = new ArticleService();
                     as.insert(a);
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -233,16 +236,8 @@ public class ArticleAddController implements Initializable {
         }
         Image image = new Image(file.toURI().toString());
         imageV.setImage(image);
+        path.setText(file.getAbsolutePath());
         return image;
-    }
-
-    public static String saveImage(Image image) throws IOException {
-        File dir = new File("D:/Study/EasyPHP/data/localweb/TechEvent/web/uploads/images");
-        String name = String.format("%s.%s", RandomStringUtils.randomAlphanumeric(32), "jpg");
-        File outputFile = new File(dir, name);
-        BufferedImage bImage = SwingFXUtils.fromFXImage(image, null);
-        ImageIO.write(bImage, "png", outputFile);
-        return name;
     }
 
 }

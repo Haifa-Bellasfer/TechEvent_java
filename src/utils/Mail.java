@@ -119,7 +119,6 @@ public class Mail {
             // Send message
             Transport.send(message);
 
-            System.out.println("Sent message successfully....");
 
         } catch (MessagingException e) {
             e.printStackTrace();
@@ -144,9 +143,6 @@ public class Mail {
                 for (Subscriber sub : subscribers) {
                     if (sub.getDomain().equals(domain)) {
                         sendNewsletterHtml( sub,  articles,  newsletter);
-                        System.out.println(sub.getEmail());
-                        System.out.println(articles.size());
-                        System.out.println(newsletter.getIdNewsletter());
                         NewsletterSubscriber ns = new NewsletterSubscriber();
                         ns.setNewsletter(newsletter);
                         ns.setSubscriber(sub);
@@ -362,7 +358,6 @@ public class Mail {
             // Send message
             Transport.send(message);
 
-            System.out.println("Sent message successfully....");
 
         } catch (MessagingException e) {
             e.printStackTrace();

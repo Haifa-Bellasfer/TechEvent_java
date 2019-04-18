@@ -8,7 +8,6 @@ package controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-import static controller.ArticleAddController.saveImage;
 import entity.Article;
 import entity.Domain;
 import java.awt.image.BufferedImage;
@@ -42,6 +41,7 @@ import service.ArticleService;
 import service.DomainService;
 import utils.Mail;
 import utils.Session;
+import utils.UploadImage;
 
 /**
  * FXML Controller class
@@ -82,12 +82,15 @@ public class ArticleUpdateController implements Initializable {
     private ImageView imageV;
     @FXML
     private Label label_newsletter;
+    @FXML
+    private Label path;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        path.setVisible(false);
         //navbar
         label_news.setOnMouseClicked((MouseEvent e) -> {
             try {
@@ -153,7 +156,7 @@ public class ArticleUpdateController implements Initializable {
                 alert.show();
             }
         });
-        
+
         txt_title.setText(Session.selected_article.getTitreArticle());
         txt_content.setText(Session.selected_article.getContentArticle());
         DomainService ds = new DomainService();
@@ -188,16 +191,14 @@ public class ArticleUpdateController implements Initializable {
                     a.setContentArticle(txt_content.getText());
                     a.setDateOfPublish(Session.selected_article.getDateOfPublish());
                     a.setViewsNumber(Session.selected_article.getViewsNumber());
+                    a.setDomain(ch_domain.getSelectionModel().getSelectedItem());
                     if (!Session.selected_article.getImage().equals(btn_browse.getText())) {
-                        try {
-                            a.setImage(saveImage(imageV.getImage()));
-                        } catch (IOException ex) {
-                            ex.getMessage();
-                        }
+                        String name = String.format("%s.%s", RandomStringUtils.randomAlphanumeric(32), "jpg");
+                        UploadImage.getInstance().upload(path.getText(), name);
+                        a.setImage(name);
                     } else {
                         a.setImage(Session.selected_article.getImage());
                     }
-                    a.setDomain(ch_domain.getSelectionModel().getSelectedItem());
                     ArticleService as = new ArticleService();
                     Session.selected_article = a;
                     as.update(a);
@@ -242,19 +243,11 @@ public class ArticleUpdateController implements Initializable {
         File file = fileChooser.showOpenDialog((Stage) ((Node) event.getSource()).getScene().getWindow());
         if (file != null) {
             btn_browse.setText(file.getName());
+            path.setText(file.getAbsolutePath());
         }
         Image image = new Image(file.toURI().toString());
         imageV.setImage(image);
         return image;
-    }
-
-    public static String saveImage(Image image) throws IOException {
-        File dir = new File("D:/Study/EasyPHP/data/localweb/TechEvent/web/uploads/images");
-        String name = String.format("%s.%s", RandomStringUtils.randomAlphanumeric(32), "jpg");
-        File outputFile = new File(dir, name);
-        BufferedImage bImage = SwingFXUtils.fromFXImage(image, null);
-        ImageIO.write(bImage, "png", outputFile);
-        return name;
     }
 
 }
