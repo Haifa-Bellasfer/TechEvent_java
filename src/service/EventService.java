@@ -202,6 +202,61 @@ public class EventService implements InterfaceService<event> {
         return list;
     }
     
+        
+        public boolean updateArchive(event p) {
+         String qry = "UPDATE event SET  Archive = 1  WHERE  id_event= "+p.getId_event();
+        
+        try {
+            if (st.executeUpdate(qry) > 0) {
+                return true;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoryService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+        
+           public boolean updateStatus(event p) {
+         String qry = "UPDATE event SET  status = 'ACCEPTED'  WHERE  id_event= "+p.getId_event();
+        
+        try {
+            if (st.executeUpdate(qry) > 0) {
+                return true;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoryService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+        
+        
+        
+        
+        
+    public int DisplayCountrep() {
+          String req="select Count(id_event) from event where status='WAITING'";
+            int nb = 0;
+        try {
+             rs=st.executeQuery(req);
+            while(rs.next()){
+    
+              nb=rs.getInt(1);
+             
+               
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return nb;}
+        
+        
+        
+        
+        
+        
     
     }
     

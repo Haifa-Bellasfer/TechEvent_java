@@ -23,6 +23,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -33,6 +34,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import service.CategoryService;
+import service.Event_likeService;
+import utils.Session;
 
 /**
  * FXML Controller class
@@ -70,21 +73,34 @@ public class MyEventListController implements Initializable {
     @FXML
     private TextField nbp;
     private  CategoryService c=CategoryService.getInstance();
-
-    /**
-     * Initializes the controller class.
-     */
+    ObservableList<event>  Local=FXCollections.observableArrayList();
+   
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     
+        
+        
+       
+        
        EventService ed= EventService.getInstance();
-       Allevent=FXCollections.observableArrayList();  
+ 
        Allevent=ed.DisplayAll();
-       eventtab.setItems(Allevent);
+       for(int i=0;i<Allevent.size();i++){
+           if(Allevent.get(i).getOrganizer_id() == Session.user){
+              Local.add(Allevent.get(i)); 
+           }       }  
+          eventtab.setItems(Local);
        name.setCellValueFactory(new PropertyValueFactory<>("Event_name"));
-     
+        
        
        eventtab.setOnMouseClicked(event->{
+        
+       name.setCellValueFactory(new PropertyValueFactory<>("Event_name"));
+        
+           
         address.setText((Allevent.get(eventtab.getSelectionModel().getSelectedIndex())
                 .getAddress()));
         
@@ -107,8 +123,6 @@ public class MyEventListController implements Initializable {
       
        category.getItems().addAll(catlist);
        
-       
-       
        id=Allevent.get(eventtab.getSelectionModel().getSelectedIndex())
                 .getId_event();
        
@@ -129,9 +143,24 @@ public class MyEventListController implements Initializable {
             e.setStart_date(startdate);
             e.setNb_participant(Integer.parseInt(nbp.getText()));
             e.setPrice_ticket(Double.parseDouble(price.getText()));
-           int cId=catlist.get(category.getSelectionModel().getSelectedIndex()).getId_category();
+           
+           if(!category.getSelectionModel().isEmpty()){
+            int cId=catlist.get(category.getSelectionModel().getSelectedIndex()).getId_category();
            e.setCategory_id(cId);
+           }
            eventdao.update(e);
+       
+          eventtab.getItems().clear();
+          
+           Allevent=ed.DisplayAll();
+          for(int i=0;i<Allevent.size();i++){
+           if(Allevent.get(i).getOrganizer_id() == Session.user){
+              Local.add(Allevent.get(i)); 
+           } }        
+          eventtab.setItems(Local);
+       name.setCellValueFactory(new PropertyValueFactory<>("Event_name"));
+          
+            
           
            
         });
@@ -139,16 +168,37 @@ public class MyEventListController implements Initializable {
      delete.setOnAction(event -> {
            EventService eventdao=EventService.getInstance();
            event e=eventdao.DisplayById(id);
-           eventdao.delete(e);
-           eventtab.setItems(null);
-           Allevent=ed.DisplayAll();
-           eventtab.setItems(Allevent);
+           Event_likeService es=Event_likeService.getInstance();
+           if(es.DisplayById(id) !=null){
+               
+               Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Alert");
+                    alert.setHeaderText(null);
+                    alert.setContentText("First You need to delete All the users Likes");
+                    alert.show();
+            }else{
+                eventdao.delete(e);
+               
+             }  
+           
+           
+     
+             try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/MyEventList.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(AccueilController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+     
            
         });
 
        
         
         
-    } 
+    } }
     
-}
+

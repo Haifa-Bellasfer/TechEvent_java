@@ -22,14 +22,14 @@
       <JFXButton fx:id="add" layoutX="784.0" layoutY="321.0" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #8bcbc8;" text="Add" />
       <JFXButton fx:id="update" layoutX="920.0" layoutY="321.0" style="-fx-background-color: #ed553b;" text="Update" textFill="#362f2f" />
       <JFXTextField fx:id="text" labelFloat="true" layoutX="695.0" layoutY="244.0" prefHeight="25.0" prefWidth="262.0" />
-      <Pane layoutX="531.0" prefHeight="32.0" prefWidth="469.0" style="-fx-background-color: #33726f;">
+      <Pane layoutX="531.0" prefHeight="32.0" prefWidth="527.0" style="-fx-background-color: #33726f;">
          <children>
-            <Label fx:id="Archive" layoutX="34.0" prefHeight="31.0" prefWidth="80.0" text="Archive" textFill="#e4dfdf">
+            <Label fx:id="Archive" layoutX="34.0" onMouseClicked="#archive" prefHeight="31.0" prefWidth="80.0" text="Archive" textFill="#e4dfdf">
                <font>
                   <Font size="21.0" />
                </font>
             </Label>
-            <Label fx:id="events" layoutX="212.0" layoutY="-1.0" text="Events" textFill="#f2f2f2">
+            <Label fx:id="events" layoutX="212.0" layoutY="-1.0" onMouseClicked="#Notify" text="Events" textFill="#f2f2f2">
                <font>
                   <Font size="21.0" />
                </font>

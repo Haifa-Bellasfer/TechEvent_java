@@ -6,6 +6,7 @@
 package service;
 
 
+import entity.event;
 import utils.DataSource;
 import entity.event_likes;
 import java.sql.ResultSet;
@@ -58,10 +59,10 @@ public class Event_likeService implements InterfaceService<event_likes>{
         }
     }
 
-    @Override
-    public void delete(event_likes o) {
-      String req="delete from event_likes where event_id="+Session.current_event;
-        event_likes p=DisplayById(o.getId_like());
+   
+    public void deletelike(event o ,int user) {
+      String req = "select * from  event_likes  Where event_id='"+o.getId_event()+"'And user_id='"+user;
+        event_likes p=DisplayById(o.getId_event());
         
           if(p!=null)
        try {
@@ -102,6 +103,11 @@ public class Event_likeService implements InterfaceService<event_likes>{
 
     @Override
     public ObservableList<event_likes> DisplayAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(event_likes o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

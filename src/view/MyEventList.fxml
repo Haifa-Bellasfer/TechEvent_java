@@ -56,6 +56,6 @@
       <JFXTextField fx:id="nbp" layoutX="427.0" layoutY="413.0" prefHeight="25.0" prefWidth="224.0" />
       <JFXButton fx:id="delete" layoutX="831.0" layoutY="526.0" prefHeight="42.0" prefWidth="120.0" ripplerFill="#3c3c08" style="-fx-background-color: #f6f55c;" text="Delete" textFill="#615d4b" />
       <JFXButton fx:id="update" layoutX="539.0" layoutY="526.0" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: ed553b;" text="Update" textFill="#321f1f" />
-      <JFXButton fx:id="back" layoutX="259.0" layoutY="526.0" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: #8bcbc8;" text="Update" textFill="#321f1f" />
+      <JFXButton fx:id="back" layoutX="259.0" layoutY="526.0" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: #8bcbc8;" text="Back" textFill="#321f1f" />
    </children>
 </AnchorPane>

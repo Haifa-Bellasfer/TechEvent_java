@@ -77,7 +77,8 @@ public class AccueilController implements Initializable {
         if (event.getClickCount()==2) {
             
               try {
-              
+                  Session.current_event= allevent.getSelectionModel().getSelectedItem();
+                  
                 Parent page1 = FXMLLoader.load(getClass().getResource("/view/Description.fxml"));
                 Scene scene = new Scene(page1);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -107,7 +108,7 @@ public class AccueilController implements Initializable {
 
    
    static class cell extends ListCell<event>{
-        HBox box= new HBox();
+        HBox box= new HBox(70);
       
         Label lab=new  Label();
         Label lab1=new Label();
@@ -135,11 +136,12 @@ public class AccueilController implements Initializable {
             if(event != null && !empty){
             Image im=new Image("http://localhost/PIDEV/dorsaf/TechEvent/web/img/"+event.getPhoto());
             eventpicc.setImage(im);
-            eventpicc.setFitWidth(50);
-            eventpicc.setFitHeight(50);
+            eventpicc.setFitWidth(60);
+            eventpicc.setFitHeight(60);
             lab.setText(event.getEvent_name());
             lab5.setText(event.getAddress());
             lab3.setText(event.getStart_date().toString());
+           
             setGraphic(box);
             
             }
@@ -157,10 +159,20 @@ public class AccueilController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        EventService ed= EventService.getInstance();
-       Allevent=FXCollections.observableArrayList();  
+       Allevent=FXCollections.observableArrayList(); 
+       ObservableList<event>  Local=FXCollections.observableArrayList();
        Allevent=ed.DisplayAll();
-        allevent.setItems(Allevent);
-        allevent.setCellFactory(s->new cell());
+       for(int i=1;i<Allevent.size();i++){
+           if(Allevent.get(i).getStatus().equalsIgnoreCase("ACCEPTED")){
+              Local.add(Allevent.get(i)); 
+           }         
+          
+       }
+
+       
+       
+       allevent.setItems(Local);
+       allevent.setCellFactory(s->new cell());
         
         
         
