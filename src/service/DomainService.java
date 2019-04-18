@@ -4,6 +4,9 @@ import entity.Domain;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -127,5 +130,47 @@ public class DomainService implements InterfaceService<Domain> {
             e.printStackTrace();
         }
         return nb != 0;
+    }
+
+    public Map<Integer, String> statDomainByViewNumber(Domain domain) {
+       Map<Integer, String> map = new TreeMap<>();
+        String req = "SELECT d.name_domain, sum(a.views_number) as v "
+                + " FROM domain d "
+                + " join article a"
+                + " where  d.id_domain = a.domain_id"
+                + " and d.id_domain = ?";
+        try {
+            PreparedStatement s = DataSource.getInstance().getCnx().prepareStatement(req);
+            s.setInt(1, domain.getIdDomain());
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                map.put(rs.getInt(2), rs.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return map;
+    }
+    
+    
+    public Map<Integer, String> statDomainBySaved(Domain domain) {
+       Map<Integer, String> map = new TreeMap<>();
+        String req = "SELECT d.name_domain, count(*)  "
+                + " FROM domain d "
+                + " join article a, saved s"
+                + " where a.id_article = s.article_id"
+                + " and  d.id_domain = a.domain_id"
+                + " and d.id_domain = ?";
+        try {
+            PreparedStatement s = DataSource.getInstance().getCnx().prepareStatement(req);
+            s.setInt(1, domain.getIdDomain());
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                map.put(rs.getInt(2), rs.getString(1));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getErrorCode());
+        }
+        return map;
     }
 }

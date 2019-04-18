@@ -12,7 +12,10 @@ import entity.Article;
 import entity.Domain;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.TreeMap;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -65,7 +68,7 @@ public class NewsController implements Initializable {
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) {              
         label_article.setOnMouseClicked((MouseEvent e) -> {
             try {
                 Parent page1 = FXMLLoader.load(getClass().getResource("/view/News.fxml"));
@@ -142,7 +145,7 @@ public class NewsController implements Initializable {
         });
         btnlogout.setVisible(false);
         btnlogin.setOnAction(e -> {
-            
+
         });
         btnBookmarks.setVisible(false);
         if (Session.current_user != null) {
@@ -155,7 +158,7 @@ public class NewsController implements Initializable {
             btnlogin.setVisible(false);
             btnlogout.setVisible(true);
             btnlogout.setOnAction(e -> {
-            
+
             });
         }
     }

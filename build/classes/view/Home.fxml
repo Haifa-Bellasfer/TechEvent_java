@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
@@ -34,6 +35,60 @@
                 </Label>
             </children>
         </VBox>
-        <VBox layoutX="250.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;" />
+        <VBox fx:id="vbox" layoutX="250.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;">
+           <children>
+               <HBox prefHeight="50.0" prefWidth="750.0" style="-fx-background-color: #33726f;">
+                       <children>
+                           <VBox prefHeight="100.0" prefWidth="187.5">
+                               <children>
+                                   <Label fx:id="label_domain" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Domain">
+                                       <font>
+                                           <Font name="Comic Sans MS" size="20.0" />
+                                       </font>
+                                   </Label>
+                               </children>
+                           </VBox>
+                           <VBox prefHeight="100.0" prefWidth="187.5">
+                               <children>
+                                   <Label fx:id="label_article" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Article">
+                                       <font>
+                                           <Font name="Comic Sans MS" size="20.0" />
+                                       </font>
+                                   </Label>
+                               </children>
+                           </VBox>
+                           <VBox prefHeight="100.0" prefWidth="187.5">
+                               <children>
+                                   <Label fx:id="label_subscriber" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Subscribers">
+                                       <font>
+                                           <Font name="Comic Sans MS" size="20.0" />
+                                       </font>
+                                   </Label>
+                               </children>
+                           </VBox>
+                           <VBox prefHeight="100.0" prefWidth="187.5">
+                               <children>
+                                   <Label fx:id="label_newsletter" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Send newsletters">
+                                       <font>
+                                           <Font name="Comic Sans MS" size="20.0" />
+                                       </font>
+                                   </Label>
+                               </children>
+                           </VBox>
+                       </children>
+                   </HBox>
+            <Label alignment="CENTER" prefHeight="53.0" prefWidth="766.0" text="Statistics">
+               <font>
+                  <Font name="Times New Roman" size="30.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+           </children>
+            
+            
+            
+        </VBox>
     </children>
 </AnchorPane>
