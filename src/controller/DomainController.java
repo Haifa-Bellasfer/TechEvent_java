@@ -11,6 +11,7 @@ import com.jfoenix.controls.JFXTextField;
 import entity.Domain;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +22,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -105,7 +107,7 @@ public class DomainController implements Initializable {
                 stage.setResizable(false);
                 stage.show();
             } catch (IOException ex) {
-                System.out.println("article label"+ex.getMessage()+" ");
+                System.out.println("article label" + ex.getMessage() + " ");
                 ex.printStackTrace();
             }
         });
@@ -136,7 +138,6 @@ public class DomainController implements Initializable {
                 alert.show();
             }
         });
-        
 
         DomainService ds = new DomainService();
         btn_update.setVisible(false);
@@ -188,13 +189,20 @@ public class DomainController implements Initializable {
                         alert.setContentText("This domain has articles, it can not be deleted ! Delete his articles before.");
                         alert.show();
                     } else {
-                        ds.delete(d);
-                        Parent page1 = FXMLLoader.load(getClass().getResource("/view/Domain.fxml"));
-                        Scene scene = new Scene(page1);
-                        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                        stage.setScene(scene);
-                        stage.setResizable(false);
-                        stage.show();
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                        alert.setHeaderText("");
+                        alert.setTitle("Delete ?");
+                        alert.setContentText("Are you sure you want to delete this?");
+                        Optional<ButtonType> result = alert.showAndWait();
+                        if (result.get() == ButtonType.OK) {
+                            ds.delete(d);
+                            Parent page1 = FXMLLoader.load(getClass().getResource("/view/Domain.fxml"));
+                            Scene scene = new Scene(page1);
+                            Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                            stage.setScene(scene);
+                            stage.setResizable(false);
+                            stage.show();
+                        }
                     }
                 } catch (IOException ex) {
                     Logger.getLogger(DomainController.class.getName()).log(Level.SEVERE, null, ex);
