@@ -42,10 +42,11 @@ import utils.Session;
  *
  * @author Dalli
  */
-public class ProfileController implements Initializable{
-      PreparedStatement preparedStatement;
+public class ProfileController implements Initializable {
+
+    PreparedStatement preparedStatement;
     Connection connection;
-    
+
     @FXML
     private TextArea txtPublish;
     @FXML
@@ -64,101 +65,89 @@ public class ProfileController implements Initializable{
     private Label lblError;
     @FXML
     private JFXListView<String> listShared;
-   
 
-    
     @FXML
     private void HandleEvents(MouseEvent event) {
-        if (!txtPublish.getText().isEmpty()) {       
-     String ymd="2019-01-01";
-        Date date =Date.valueOf(ymd);
-        Story str = new Story(Session.current_user.getId_user(),txtPublish.getText(),date);
-        StoryService strdao=StoryService.getInstance();
-        strdao.insert(str);
-        txtPublish.clear();
-        listView.<String>setItems(null);
-        listView.<String>setItems(strdao.DisplayAllById(Session.current_user.getId_user()));
+        if (!txtPublish.getText().isEmpty()) {
+            String ymd = "2019-01-01";
+            Date date = Date.valueOf(ymd);
+            Story str = new Story(Session.current_user.getId_user(), txtPublish.getText(), date);
+            StoryService strdao = StoryService.getInstance();
+            strdao.insert(str);
+            txtPublish.clear();
+            listView.<String>setItems(null);
+            listView.<String>setItems(strdao.DisplayAllById(Session.current_user.getId_user()));
         }
-        
-        
-         if (event.getSource() == btnUpdate) {
-            
-             try {
-                 Node node = (Node) event.getSource();
-                 Stage stage = (Stage) node.getScene().getWindow();
-                 stage.close();
-                 Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/Update.fxml")));
-                 stage.setScene(scene);
-                 stage.show();
-             } catch (IOException ex) {
-                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-             }
-           }
-      
-         
-    
-}
-    
-    
+
+        if (event.getSource() == btnUpdate) {
+
+            try {
+                Node node = (Node) event.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                stage.close();
+                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/Update.fxml")));
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    
-     StoryService strdao=StoryService.getInstance();
-     listView.setItems(strdao.DisplayAllById(Session.current_user.getId_user()));
-     
-              Session.searched_user = new User();
-   Session.searched_user.setId_user(0);
-     UserService udao=UserService.getInstance();
-     
-    
-     User user = new User();
-     
-      user = udao.DisplayById(Session.current_user.getId_user());
-     ObservableList<String> list=FXCollections.observableArrayList();
-     
-               list.add(user.getUsername());
-               list.add(user.getFirst_name());
-               list.add(user.getLast_name());
-               list.add(user.getEmail());
-               list.add(user.getAddress());
-               list.add(String.valueOf(user.getPhone()));
-         
-         listProfile.setItems(list);
-     UserStoryService usdao=UserStoryService.getInstance();
-      listShared.setItems(strdao.DisplayByIds(usdao.DisplayByIdUser(Session.current_user.getId_user())));
-      ids=0;
-      
-  txtSearch.setOnKeyPressed(event -> {
-      System.out.println("ooo");
-    if(event.getCode() == KeyCode.ENTER){
-        
-    ids = udao.getIdByUsername(txtSearch.getText());
-  if( ids!=0 && ids!=Session.current_user.getId_user()){
-     
-       
-   Session.searched_user.setId_user(ids);
-   
-       try {
-                 Node node = (Node) event.getSource();
-                 Stage stage = (Stage) node.getScene().getWindow();
-                 stage.close();
-                 Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/ElseProfile.fxml")));
-                 stage.setScene(scene);
-                 stage.show();
-             } catch (IOException ex) {
-                 Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE, null, ex);
-             }
-   
-   }  else {
-            lblError.setTextFill(Color.TOMATO);
-            lblError.setText("enter valid username");
-  }}
 
-}); 
-    
-      
-        
-        
+        StoryService strdao = StoryService.getInstance();
+        listView.setItems(strdao.DisplayAllById(Session.current_user.getId_user()));
+
+        Session.searched_user = new User();
+        Session.searched_user.setId_user(0);
+        UserService udao = UserService.getInstance();
+
+        User user = new User();
+
+        user = udao.DisplayById(Session.current_user.getId_user());
+        ObservableList<String> list = FXCollections.observableArrayList();
+
+        list.add(user.getUsername());
+        list.add(user.getFirst_name());
+        list.add(user.getLast_name());
+        list.add(user.getEmail());
+        list.add(user.getAddress());
+        list.add(String.valueOf(user.getPhone()));
+
+        listProfile.setItems(list);
+        UserStoryService usdao = UserStoryService.getInstance();
+        listShared.setItems(strdao.DisplayByIds(usdao.DisplayByIdUser(Session.current_user.getId_user())));
+        ids = 0;
+
+        txtSearch.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+
+                ids = udao.getIdByUsername(txtSearch.getText());
+                if (ids != 0 && ids != Session.current_user.getId_user()) {
+
+                    Session.searched_user.setId_user(ids);
+
+                    try {
+                        Node node = (Node) event.getSource();
+                        Stage stage = (Stage) node.getScene().getWindow();
+                        stage.close();
+                        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/ElseProfile.fxml")));
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException ex) {
+                        Logger.getLogger(ProfileController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                } else {
+                    lblError.setTextFill(Color.TOMATO);
+                    lblError.setText("enter valid username");
+                }
+            }
+
+        });
+
     }
 }

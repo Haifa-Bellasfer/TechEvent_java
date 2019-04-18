@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import utils.DataSource;
 import service.UserService;
 import entity.User;
+import javafx.scene.layout.StackPane;
 import org.mindrot.jbcrypt.BCrypt;
 import utils.Session;
 
@@ -88,7 +89,6 @@ if(passw!=null){
               id= ud.getId(username);
               Session.current_user = new User();
                 Session.current_user.setId_user(id);
-                System.out.println("yoooo");
                 bool=true;
             }     
             
@@ -149,6 +149,8 @@ if(passw!=null){
                 Stage stage = (Stage) node.getScene().getWindow();
                 stage.close();
                 Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/Register.fxml")));
+                
+                stage.setTitle("Register");
                 stage.setScene(scene);
                 stage.show();
             } catch (IOException ex) {

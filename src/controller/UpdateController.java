@@ -32,7 +32,7 @@ import utils.Session;
  *
  * @author Dalli
  */
-public class UpdateController implements Initializable{
+public class UpdateController implements Initializable {
 
     @FXML
     private TextField txtFirstname;
@@ -57,109 +57,112 @@ public class UpdateController implements Initializable{
     @FXML
     private Label lblStatus;
 
-
-        ObservableList<String> list=FXCollections.observableArrayList();
+    ObservableList<String> list = FXCollections.observableArrayList();
     @FXML
     private Button btnChange;
     @FXML
     private Label lblNew;
     @FXML
     private Label lblConfirm;
-             boolean change=false;
-             String pw_hash ;
+    boolean change = false;
+    String pw_hash;
 
     @FXML
     private void HandleEvents(MouseEvent event) {
-        
-        
-        
-          if (event.getSource() == btnChange){
-         
-         lblNew.setVisible(true);         
-         lblConfirm.setVisible(true);         
-         txtPassword.setVisible(true);         
-         txtPassword2.setVisible(true);
-         btnChange.setVisible(false);
-         change=true;
-     
 
-     }
-        
-             if (event.getSource() == btnSave) {
-            
-           User user = new User();
-            UserService udao=UserService.getInstance();
-            user.setAddress(txtAddress.getText());
-            user.setFirst_name(txtFirstname.getText());
-            user.setLast_name(txtLastname.getText());
-            user.setUsername(txtUsername.getText());
-            user.setPhone(txtPhone.getText());
-            user.setEmail(txtEmail.getText());
-     if (change==true){
-         
-     
- pw_hash = MyBCrypt.hashpw(txtPassword.getText(), MyBCrypt.gensalt());
-            
-     udao.UpdatePassword(pw_hash,Session.current_user.getId_user());
-     }
-     
-     
-   
-           
-           
-            
-     udao.UpdateUser(user,Session.current_user.getId_user());
-       lblStatus.setTextFill(Color.GREEN);
-            lblStatus.setText("Updated Successfully");
-            lblNew.setVisible(false);         
-         lblConfirm.setVisible(false);         
-         txtPassword.setVisible(false); 
-         txtPassword.clear();
-         txtPassword2.setVisible(false);
-         txtPassword2.clear();
-         btnChange.setVisible(true);
-         change=false;
-     
-    }    
-             
-             
-             if (event.getSource() == btnCancel) {
-            
-             try {
-                 Node node = (Node) event.getSource();
-                 Stage stage = (Stage) node.getScene().getWindow();
-                 stage.close();
-                 Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/Profile.fxml")));
-                 stage.setScene(scene);
-                 stage.show();
-             } catch (IOException ex) {
-                 Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-             }
-           
+        UserService udao = UserService.getInstance();
+        User u = new User();
+        if (event.getSource() == btnChange) {
 
-                
-}
+            lblNew.setVisible(true);
+            lblConfirm.setVisible(true);
+            txtPassword.setVisible(true);
+            txtPassword2.setVisible(true);
+            btnChange.setVisible(false);
+            change = true;
+
+        }
+
+        if (event.getSource() == btnSave) {
+            if (!txtEmail.getText().contains("@" + ".")) {
+                lblStatus.setTextFill(Color.TOMATO);
+                lblStatus.setText("Enter valid Email");
+                txtEmail.setStyle("-fx-border-clor: red; -fx-text-box-border: red ; -fx-focus-color: red ; -fx-text-fill: red; -fx-font-size: 16px;");
+                txtPhone.setStyle("");
+                txtPassword.setStyle("");
+                txtPassword2.setStyle("");
+                txtUsername.setStyle("");
+            } else if (!txtPhone.getText().matches("[0-9]+")) {
+                lblStatus.setTextFill(Color.TOMATO);
+                lblStatus.setText("Enter valid phone number");
+                txtPhone.setStyle("-fx-border-clor: red; -fx-text-box-border: red ; -fx-focus-color: red ; -fx-text-fill: red; -fx-font-size: 16px;");
+                txtEmail.setStyle("");
+                txtPassword.setStyle("");
+                txtPassword2.setStyle("");
+                txtUsername.setStyle("");
+            } else {
+
+                if (change == true) {
+
+                        pw_hash = MyBCrypt.hashpw(txtPassword.getText(), MyBCrypt.gensalt());
+
+                        udao.UpdatePassword(pw_hash, Session.current_user.getId_user());
+                    
+                }
+                User user = new User();
+                user.setAddress(txtAddress.getText());
+                user.setFirst_name(txtFirstname.getText());
+                user.setLast_name(txtLastname.getText());
+                user.setUsername(txtUsername.getText());
+                user.setPhone(txtPhone.getText());
+                user.setEmail(txtEmail.getText());
+
+                udao.UpdateUser(user, Session.current_user.getId_user());
+                lblStatus.setTextFill(Color.GREEN);
+                lblStatus.setText("Updated Successfully");
+                lblNew.setVisible(false);
+                lblConfirm.setVisible(false);
+                txtPassword.setVisible(false);
+                txtPassword.clear();
+                txtPassword2.setVisible(false);
+                txtPassword2.clear();
+                btnChange.setVisible(true);
+                change = false;
+
+            }
+        }
+
+        if (event.getSource() == btnCancel) {
+
+            try {
+                Node node = (Node) event.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                stage.close();
+                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/Profile.fxml")));
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
-    
-     UserService udao=UserService.getInstance();
+
+        UserService udao = UserService.getInstance();
         User user = new User();
-        
-     user=udao.DisplayById(Session.current_user.getId_user());
-            
-     txtUsername.setText(user.getUsername());
-     txtFirstname.setText(user.getFirst_name());
-     txtLastname.setText(user.getLast_name());
-     txtEmail.setText(user.getEmail());
-     txtAddress.setText(user.getAddress());
-     txtPhone.setText(user.getPhone());
-     
-     
-     
-     
+
+        user = udao.DisplayById(Session.current_user.getId_user());
+
+        txtUsername.setText(user.getUsername());
+        txtFirstname.setText(user.getFirst_name());
+        txtLastname.setText(user.getLast_name());
+        txtEmail.setText(user.getEmail());
+        txtAddress.setText(user.getAddress());
+        txtPhone.setText(user.getPhone());
+
     }
-    
+
 }

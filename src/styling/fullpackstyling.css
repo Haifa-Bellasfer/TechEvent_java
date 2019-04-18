@@ -131,8 +131,8 @@
     -fx-font-size: 18px;
     -fx-border-color: #D9E3DA;
     -fx-background-color: #D9E3DA;
-    -fx-border-color: #8AECF7;
-    -fx-border-style: dotted  ;
+    -fx-border-color: black;
+    -fx-border-style: solid ;
     
 }
 
@@ -155,4 +155,9 @@
 .text-field.error {
   -fx-text-box-border: red ;
   -fx-focus-color: red ;
+}
+
+.vbox {
+    -fx-border-color: black;
+    -fx-border-style: solid ;
 }
