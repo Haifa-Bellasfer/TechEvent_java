@@ -22,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.SortEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -61,9 +62,13 @@ public class ThemeViewController implements Initializable {
     @FXML
     private JFXButton Del;
     @FXML
-    private AnchorPane table;
-    @FXML
     private JFXButton btnUp;
+    @FXML
+    private Label label_news;
+    @FXML
+    private Label label_news1;
+    @FXML
+    private Label label_theme;
          
     public void affT(){
         ob=TS.DisplayAll();

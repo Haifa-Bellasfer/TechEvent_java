@@ -38,7 +38,7 @@ public class Club {
         this.owner = owner;
     }
 
-    public Club( String club_name, String club_description, String email, String facebook,int theme) {
+    public Club( String club_name, String club_description, String email, String facebook,int theme,int owner) {
         
         this.club_name = club_name;
         this.club_description = club_description;
@@ -46,6 +46,7 @@ public class Club {
         this.facebook = facebook;
         this.club_status="Waiting";
         this.theme = theme;
+        this.owner = owner;
         
     }
     

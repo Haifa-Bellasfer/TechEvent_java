@@ -18,18 +18,26 @@ import entity.Theme;
 
 import java.awt.Panel;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -37,10 +45,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import service.ClubService;
 import service.MemberService;
 import service.ThemeServices;
+import utils.Session;
+import view.mainFx;
 
 /**
  * FXML Controller class
@@ -79,8 +90,6 @@ public class ClubListViewController implements Initializable {
     @FXML
     private TableView<ClubUser> members;
     @FXML
-    private TableColumn<ClubUser, String> m1;
-    @FXML
     private TableColumn<ClubUser,String > skills;
     @FXML
     private TableColumn<ClubUser, String> why;
@@ -88,6 +97,16 @@ public class ClubListViewController implements Initializable {
     private TableColumn<ClubUser, String> status;
     @FXML
     private TableColumn<ClubUser, String> he;
+    private Label create;
+    private Label My;
+    @FXML
+    private Label home;
+    @FXML
+    private Label myWork;
+    @FXML
+    private Label createWork;
+    @FXML
+    private Label Clubs;
     
     
     public void affC(){
@@ -123,8 +142,11 @@ public class ClubListViewController implements Initializable {
     public void pop2(){
         
         acc.setOnAction(event ->{
+            upPop.setVisible(true);
             ClubUser cu = new ClubUser();
              cu=members.getSelectionModel().getSelectedItem();
+             
+             String num="+216"+Session.current_user.getPhone();
              String msg =CS.DisplayById(cu.getClub_id()).getClub_name();
              if ("Accepted".equals(cu.getClub_user_status())) {
                 cu.setClub_user_status("Refused");
@@ -133,7 +155,7 @@ public class ClubListViewController implements Initializable {
 			String apiKey = "apikey=" + "MVLOno+0VZM-y2GuYuU0QFsk10BeBFvXBoI9vyhI0P";
 			String message = "&message=" + msg+" wants to inform you that your membership request has been refused";
 			String sender = "&sender=" + "Admin";
-			String numbers = "&numbers=" + "+21626424863";
+			String numbers = "&numbers=" +num;
 			
 			// Send data
 			HttpURLConnection conn = (HttpURLConnection) new URL("https://api.txtlocal.com/send/?").openConnection();
@@ -191,12 +213,12 @@ public class ClubListViewController implements Initializable {
              }
              
              members.setVisible(true);
-            upPop.setVisible(true);
+            upPop.setVisible(false);
             
             m.update(cu);
             ObservableList<ClubUser> ls = FXCollections.observableArrayList();
-            int id=9;
-            ls=m.DisplayAll(id);
+           
+            ls=m.DisplayAll(listV.getSelectionModel().getSelectedItem().getId_club());
             pop2.hide();
 
             members.setItems(ls);
@@ -210,8 +232,8 @@ public class ClubListViewController implements Initializable {
             members.setVisible(true);
             upPop.setVisible(true);
             ObservableList<ClubUser> ls = FXCollections.observableArrayList();
-            int id=9;
-            ls=m.DisplayAll(id);
+            
+            ls=m.DisplayAll(listV.getSelectionModel().getSelectedItem().getId_club());
             pop2.hide();
             members.setItems(ls);
             pbox2 = new VBox(acc);
@@ -224,14 +246,14 @@ public class ClubListViewController implements Initializable {
        
 
         b3.setOnAction(event ->{
-            
+            upPop.setVisible(false);
             members.setVisible(true);
-            upPop.setVisible(true);
+            
             
             
             ObservableList<ClubUser> ls = FXCollections.observableArrayList();
-            int id=9;
-            ls=m.DisplayAll(id);
+
+            ls=m.DisplayAll(listV.getSelectionModel().getSelectedItem().getId_club());
             pop.hide();
             
             why.setCellValueFactory(new PropertyValueFactory<>("why"));
@@ -247,11 +269,50 @@ public class ClubListViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        myWork.setOnMouseClicked(ev->{
+              try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/WorkshopList.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                });
         
+        createWork.setOnMouseClicked(ev->{
+              try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/WorkshopView.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                });
+        home.setOnMouseClicked(ev->{
+              try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/ClubAcc.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                });
         ObservableList<Theme> ls = FXCollections.observableArrayList();
         ls=TS.DisplayAll();
         th.getItems().addAll(ls);
-        
+        members.setVisible(false);
         upPop.setVisible(false);
         affC();
         upC();
@@ -312,7 +373,12 @@ public class ClubListViewController implements Initializable {
         d.setClub_description(desc.getText());
         d.setEmail(mail.getText());
         d.setFacebook(fb.getText());
-        d.setTheme(th.getSelectionModel().getSelectedItem().getId_theme());
+            if (!th.getSelectionModel().isEmpty()) {
+                d.setTheme(th.getSelectionModel().getSelectedItem().getId_theme());
+            }else{
+            d.setTheme(d.getTheme());
+            }
+        
         CS.update(d);
         //TS.update(os);
         affC();

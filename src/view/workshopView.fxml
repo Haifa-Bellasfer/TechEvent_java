@@ -6,15 +6,56 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WorkshopViewController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WorkshopViewController">
    <children>
-      <JFXTextField fx:id="title" labelFloat="true" layoutX="128.0" layoutY="99.0" promptText="Title" />
-      <JFXTextField fx:id="loc" labelFloat="true" layoutX="128.0" layoutY="286.0" promptText="Location" />
-      <JFXTextField fx:id="nbr" labelFloat="true" layoutX="392.0" layoutY="99.0" promptText="Number of places" />
-      <DatePicker fx:id="date" layoutX="392.0" layoutY="188.0" promptText="Date" />
-      <JFXButton fx:id="add" layoutX="460.0" layoutY="351.0" prefHeight="25.0" prefWidth="87.0" style="-fx-background-color: #468499;" text="Add" />
-      <JFXTextArea fx:id="desc" labelFloat="true" layoutX="128.0" layoutY="163.0" prefHeight="75.0" prefWidth="216.0" promptText="Description" wrapText="true" />
-      <JFXComboBox fx:id="combo" labelFloat="true" layoutX="392.0" layoutY="268.0" prefHeight="25.0" prefWidth="174.0" promptText="Club" />
+      <JFXTextField fx:id="title" labelFloat="true" layoutX="312.0" layoutY="102.0" prefHeight="49.0" prefWidth="187.0" promptText="Title" />
+      <JFXTextField fx:id="loc" labelFloat="true" layoutX="312.0" layoutY="340.0" prefHeight="49.0" prefWidth="187.0" promptText="Location" />
+      <JFXTextField fx:id="nbr" labelFloat="true" layoutX="683.0" layoutY="106.0" prefHeight="42.0" prefWidth="187.0" promptText="Number of places" />
+      <DatePicker fx:id="date" layoutX="683.0" layoutY="265.0" prefHeight="36.0" prefWidth="187.0" promptText="Date" />
+      <JFXButton fx:id="add" layoutX="548.0" layoutY="497.0" prefHeight="42.0" prefWidth="135.0" style="-fx-background-color: #468499;" text="Add" />
+      <JFXTextArea fx:id="desc" labelFloat="true" layoutX="312.0" layoutY="177.0" prefHeight="122.0" prefWidth="279.0" promptText="Description" wrapText="true" />
+      <JFXComboBox fx:id="combo" labelFloat="true" layoutX="689.0" layoutY="353.0" prefHeight="36.0" prefWidth="187.0" promptText="Club" />
+   <Pane layoutY="77.0" prefHeight="525.0" prefWidth="187.0" style="-fx-background-color: #637e99;">
+         <children>
+            <Label fx:id="myWork" layoutX="29.0" layoutY="345.0" prefHeight="27.0" prefWidth="120.0" text="My workshops" textAlignment="CENTER" textFill="#eee2e2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="createWork" layoutX="29.0" layoutY="410.0" prefHeight="27.0" prefWidth="151.0" text="Create a workshop" textAlignment="CENTER" textFill="#eee2e2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="home" layoutX="29.0" layoutY="272.0" prefHeight="27.0" prefWidth="120.0" text="Club home" textAlignment="CENTER" textFill="#eee2e2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="searchTheme" layoutX="26.0" layoutY="69.0" prefHeight="27.0" prefWidth="135.0" promptText="Select a theme" />
+            <JFXButton fx:id="subS" layoutX="66.0" layoutY="123.0" prefHeight="25.0" prefWidth="54.0" style="-fx-background-color: #a5d2ff;" text="Search" />
+         </children>
+      </Pane>
+      <Pane layoutX="-1.0" prefHeight="76.0" prefWidth="1000.0" style="-fx-background-color: #33726f;">
+               <children>
+                  <Label fx:id="Clubs" layoutX="277.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="Clubs" textFill="#d9e3d1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="107.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="Events" textFill="#d9e3d1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="463.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="News" textFill="#d9e3d1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
    </children>
 </AnchorPane>

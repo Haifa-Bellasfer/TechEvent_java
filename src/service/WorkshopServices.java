@@ -97,6 +97,32 @@ public class WorkshopServices implements InterfaceService<Workshop>
         }
         return list;
     }
+    
+    public ObservableList<Workshop> DisplayWork(int id) {
+        String req="select * from Workshop where club_id="+id;
+        ObservableList<Workshop> list=FXCollections.observableArrayList();
+        
+        try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+                Workshop c = new Workshop();
+                c.setId_workshop(rs.getInt("id_workshop"));   
+                c.setTitle(rs.getString("title"));
+                c.setLocation(rs.getString("location"));
+                c.setNbr_places(rs.getInt("nbr_places"));
+                c.setStart_date(rs.getDate("start_date"));
+                c.setClub_id(rs.getInt("club_id"));
+            list.add(c);
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(WorkshopServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
+    
     public ObservableList<Workshop> DisplayW() {
         String req="select title,id_workshop from Workshop";
         ObservableList<Workshop> list=FXCollections.observableArrayList();

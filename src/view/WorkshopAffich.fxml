@@ -6,12 +6,56 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.WorkshopAffichController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WorkshopAffichController">
    <children>
-      <JFXListView fx:id="listW" layoutX="119.0" layoutY="80.0" onMouseClicked="#showP" prefHeight="278.0" prefWidth="481.0" />
-      <JFXButton fx:id="part" layoutX="309.0" layoutY="361.0" prefHeight="25.0" prefWidth="85.0" text="Participate" />
-      <JFXButton fx:id="cancel" layoutX="280.0" layoutY="361.0" prefHeight="25.0" prefWidth="135.0" text="Cancel participation" />
+      <JFXListView fx:id="listW" layoutX="247.0" layoutY="88.0" onMouseClicked="#showP" prefHeight="368.0" prefWidth="652.0" />
+      <JFXButton fx:id="part" layoutX="535.0" layoutY="538.0" prefHeight="25.0" prefWidth="85.0" text="Participate" />
+      <JFXButton fx:id="cancel" layoutX="506.0" layoutY="538.0" prefHeight="25.0" prefWidth="135.0" text="Cancel participation" />
+   <Pane layoutY="77.0" prefHeight="525.0" prefWidth="187.0" style="-fx-background-color: #637e99;">
+         <children>
+            <Label fx:id="create" layoutX="34.0" layoutY="303.0" prefHeight="27.0" prefWidth="120.0" text="Create a club" textAlignment="CENTER" textFill="#eee2e2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="My" layoutX="34.0" layoutY="368.0" prefHeight="27.0" prefWidth="120.0" text="My clubs" textAlignment="CENTER" textFill="#eee2e2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="home" layoutX="34.0" layoutY="230.0" prefHeight="27.0" prefWidth="120.0" text="Club home" textAlignment="CENTER" textFill="#eee2e2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="wrk" layoutX="34.0" layoutY="431.0" prefHeight="27.0" prefWidth="120.0" text="Workshops" textAlignment="CENTER" textFill="#eee2e2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            
+         </children>
+      </Pane>
+      <Pane prefHeight="76.0" prefWidth="1000.0" style="-fx-background-color: #33726f;">
+               <children>
+                  <Label fx:id="Clubs" layoutX="277.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="Clubs" textFill="#d9e3d1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="107.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="Events" textFill="#d9e3d1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="463.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="News" textFill="#d9e3d1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
    </children>
 </AnchorPane>

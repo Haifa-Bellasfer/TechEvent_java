@@ -28,9 +28,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import service.ClubService;
 import service.ThemeServices;
+import utils.Session;
+import view.mainFx;
 
 /**
  * FXML Controller class
@@ -51,8 +55,17 @@ public class Club2Controller implements Initializable {
     private JFXTextField fb;
     @FXML
     private JFXButton Submit;
-    @FXML
     private JFXButton liste;
+    @FXML
+    private Label create;
+    @FXML
+    private Label My;
+    @FXML
+    private Label home;
+    @FXML
+    private Label wrk;
+    @FXML
+    private Label Clubs;
 
     /**
      * Initializes the controller class.
@@ -60,6 +73,61 @@ public class Club2Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        
+        wrk.setOnMouseClicked(ev->{
+              try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/WorkshopAffich.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                });
+        
+        create.setOnMouseClicked(ev->{
+              try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/Club2.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                });
+        
+        My.setOnMouseClicked(ev->{
+              try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/ListClub.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                });
+        home.setOnMouseClicked(ev->{
+              try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/ClubAcc.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                });
         ThemeServices TS = ThemeServices.getInstance();
         ClubService CS = ClubService.getInstance();
         ObservableList<Theme> ls = FXCollections.observableArrayList();
@@ -80,7 +148,7 @@ public class Club2Controller implements Initializable {
             alert.setContentText("Data invalid");
             alert.show();
             }else{
-            Club p = new Club(nameC.getText(), desc.getText(), email.getText(), fb.getText(), tBox.getValue().getId_theme());
+            Club p = new Club(nameC.getText(), desc.getText(), email.getText(), fb.getText(), tBox.getValue().getId_theme(),Session.current_user.getId_user());
             System.out.println(p.getTheme());
             CS.insert(p);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -100,20 +168,7 @@ public class Club2Controller implements Initializable {
 
         });
 
-        liste.setOnAction(event -> {
-            try {
-                Parent lPage = FXMLLoader.load(getClass().getResource("/views/clubListView.fxml"));
-                Scene scene2 = new Scene(lPage);
-                Stage stage2 = (Stage) ((Node) event.getSource())
-                        .getScene()
-                        .getWindow();
-                stage2.setScene(scene2);
-                stage2.show();
-            } catch (IOException ex) {
-                Logger.getLogger(Club2Controller.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        });
+        
 
     }
 }

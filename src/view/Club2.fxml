@@ -9,30 +9,76 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Club2Controller">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Club2Controller">
    <children>
-      <JFXTextField fx:id="nameC" labelFloat="true" layoutX="141.0" layoutY="87.0" promptText="Enter the club name" style="-jfx-focus-color: #11643d;" unFocusColor="#11643d" />
-      <JFXTextField fx:id="email" labelFloat="true" layoutX="141.0" layoutY="242.0" promptText="Enter Email" style="-jfx-focus-color: #11643d;" unFocusColor="#11643d" />
-      <JFXTextField fx:id="fb" focusColor="#11643d" labelFloat="true" layoutX="141.0" layoutY="327.0" promptText="Facebook account" style="-jfx-focus-color: #11643d;" unFocusColor="#11643d" />
-      <Label layoutX="31.0" layoutY="99.0" text="Name" />
-      <Label layoutX="31.0" layoutY="173.0" text="Description" />
-      <Label layoutX="31.0" layoutY="254.0" text="Email" />
-      <Label layoutX="31.0" layoutY="339.0" text="Facebook" />
-      <JFXComboBox fx:id="tBox" focusColor="#4bd0f8" layoutX="439.0" layoutY="87.0" promptText="Select a theme" style="-jfx-focus-color: #11643d; -jfx-label-float: #11643d; -jfx-disable-animation: #11643d; -jfx-unfocus-color: #11643d;" />
-      <Label layoutX="344.0" layoutY="99.0" text="Theme" />
-      <JFXButton fx:id="Submit" buttonType="RAISED" layoutX="479.0" layoutY="329.0" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #5555;" text="Submit" />
-      <Label alignment="CENTER" contentDisplay="TOP" graphicTextGap="6.0" layoutX="124.0" layoutY="20.0" prefHeight="43.0" prefWidth="353.0" text="Create your Club" textAlignment="CENTER" textFill="#135411" textOverrun="WORD_ELLIPSIS" wrapText="true">
+      <JFXTextField fx:id="nameC" labelFloat="true" layoutX="333.0" layoutY="194.0" promptText="Enter the club name" style="-jfx-focus-color: #11643d;" unFocusColor="#10083c" />
+      <JFXTextField fx:id="email" labelFloat="true" layoutX="333.0" layoutY="300.0" promptText="Enter Email" style="-jfx-focus-color: #11643d;" unFocusColor="#10083c" />
+      <JFXTextField fx:id="fb" focusColor="#11643d" labelFloat="true" layoutX="333.0" layoutY="390.0" promptText="Facebook account" style="-jfx-focus-color: #11643d;" unFocusColor="#10083c" />
+      <Label layoutX="198.0" layoutY="196.0" text="Name">
          <font>
-            <Font size="24.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="NONE" />
-         </cursor>
-         <effect>
-            <Blend />
-         </effect>
-      </Label>
-      <JFXButton fx:id="liste" buttonType="RAISED" layoutX="352.0" layoutY="329.0" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #987;" text="list" />
-      <JFXTextArea fx:id="desc" labelFloat="true" layoutX="141.0" layoutY="141.0" prefHeight="65.0" prefWidth="193.0" promptText="Describe the club" unFocusColor="#11643d" />
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="512.0" layoutY="195.0" text="Description">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="198.0" layoutY="301.0" text="Email">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="198.0" layoutY="391.0" text="Facebook">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <JFXComboBox fx:id="tBox" focusColor="#4bd0f8" layoutX="641.0" layoutY="299.0" promptText="Select a theme" style="-jfx-focus-color: #11643d; -jfx-label-float: #11643d; -jfx-disable-animation: #11643d; -jfx-unfocus-color: #11643d;" unFocusColor="#0b0843" />
+      <Label layoutX="512.0" layoutY="300.0" text="Theme">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <JFXButton fx:id="Submit" buttonType="RAISED" layoutX="494.0" layoutY="526.0" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: #5555;" text="Submit" />
+      <JFXTextArea fx:id="desc" labelFloat="true" layoutX="641.0" layoutY="129.0" prefHeight="89.0" prefWidth="310.0" promptText="Describe the club" unFocusColor="#0c0936" />
+      <Pane layoutY="75.0" prefHeight="525.0" prefWidth="187.0" style="-fx-background-color: #637e99;">
+         <children>
+            <Label fx:id="create" layoutX="34.0" layoutY="303.0" prefHeight="27.0" prefWidth="120.0" text="Create a club" textAlignment="CENTER" textFill="#eee2e2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="My" layoutX="34.0" layoutY="368.0" prefHeight="27.0" prefWidth="120.0" text="My clubs" textAlignment="CENTER" textFill="#eee2e2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="home" layoutX="34.0" layoutY="230.0" prefHeight="27.0" prefWidth="120.0" text="Club home" textAlignment="CENTER" textFill="#eee2e2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="wrk" layoutX="34.0" layoutY="431.0" prefHeight="27.0" prefWidth="120.0" text="Workshops" textAlignment="CENTER" textFill="#eee2e2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="76.0" prefWidth="1000.0" style="-fx-background-color: #33726f;">
+               <children>
+                  <Label fx:id="Clubs" layoutX="277.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="Clubs" textFill="#d9e3d1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="107.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="Events" textFill="#d9e3d1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="463.0" layoutY="23.0" prefHeight="25.0" prefWidth="120.0" text="News" textFill="#d9e3d1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
    </children>
 </AnchorPane>

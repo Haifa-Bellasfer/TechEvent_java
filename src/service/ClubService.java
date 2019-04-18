@@ -69,9 +69,9 @@ private static ClubService instance;
     
     @Override
     public void insert(Club c) {
-        String req="INSERT INTO `Club` (`club_name`, `club_description`,`Email`,`Facebook`,`theme_id`) VALUES ( '"
+        String req="INSERT INTO `Club` (`club_name`, `club_description`,`Email`,`Facebook`,`theme_id`,`owner_id`,`Club_status`) VALUES ( '"
                 + c.getClub_name() + "', '" + c.getClub_description() + "', '" + c.getEmail() + "'"
-                + ", '" + c.getFacebook() + "', '" + c.getTheme()+ "') ";
+                + ", '" + c.getFacebook() + "', '" + c.getTheme()+ "', '" + c.getOwner()+ "', '" + c.getClub_status()+ "') ";
         try {
             st.executeUpdate(req);
         } catch (SQLException ex) {
@@ -158,6 +158,7 @@ private static ClubService instance;
                 c.setClub_description(rs.getString("club_description"));
                 c.setLogo(rs.getString("logo"));
                 c.setEmail(rs.getString("email"));
+                c.setTheme(rs.getInt("theme_id"));
       
             list.add(c);
             }

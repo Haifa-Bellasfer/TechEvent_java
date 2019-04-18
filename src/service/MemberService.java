@@ -89,6 +89,32 @@ public class MemberService {
         }
     return c;
     }
+    
+    public ObservableList<ClubUser> DisplayMember(int id) {
+        String req="select * from Club_User where member_id="+id;
+        ObservableList<ClubUser> list=FXCollections.observableArrayList();
+           
+        try {
+            rs=st.executeQuery(req);
+            
+            while(rs.next()){
+            ClubUser c=new ClubUser();
+            c.setId_club_user(rs.getInt("id_club_user"));
+            c.setClub_id(rs.getInt("club_id"));
+               c.setMember_id(rs.getInt("member_id")); 
+               c.setSkills(rs.getString("skills"));   
+                c.setWhy(rs.getString("why"));
+                c.setYou_are(rs.getString("you_are"));
+                list.add(c);
+                //c.setClub_user_status(rs.getString("club_user_status"));
+           
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MemberService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return list;
+    }
+    
     public boolean update(ClubUser e) {
     String qry = "UPDATE Club_User SET club_user_status='"+e.getClub_user_status()+ "'WHERE id_club_user="+e.getId_club_user();
                 

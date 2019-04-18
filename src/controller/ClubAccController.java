@@ -14,13 +14,20 @@ import entity.ClubUser;
 import entity.Theme;
 
 import java.awt.Color;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -32,9 +39,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import service.ClubService;
 import service.MemberService;
 import service.ThemeServices;
+import utils.Session;
+import view.mainFx;
 
 /**
  * FXML Controller class
@@ -60,12 +70,24 @@ public class ClubAccController implements Initializable {
     private JFXComboBox<String> you ;
     @FXML
     private JFXButton submit;
-    @FXML
     private TextField search;
-    @FXML
     private JFXButton ser;
-    @FXML
     private ComboBox<Theme> seC;
+    @FXML
+    private Label create;
+    @FXML
+    private Label My;
+    @FXML
+    private Label home;
+    //private ComboBox<Theme> searchT;
+    @FXML
+    private JFXButton subS;
+    @FXML
+    private ComboBox<Theme> searchTheme;
+    @FXML
+    private Label wrk;
+    @FXML
+    private Label Clubs;
 
     @FXML
     private void join(MouseEvent event) {
@@ -79,8 +101,63 @@ public class ClubAccController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        wrk.setOnMouseClicked(ev->{
+              try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/WorkshopAffich.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                });
+        
+        create.setOnMouseClicked(ev->{
+              try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/Club2.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                });
+        
+        My.setOnMouseClicked(ev->{
+              try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/ListClub.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                });
+        home.setOnMouseClicked(ev->{
+              try {
+                    Parent page1 = FXMLLoader.load(getClass().getResource("/view/ClubAcc.fxml"));
+                    Scene scene = new Scene(page1);
+                    Stage stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(mainFx.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                });
+        
         th = TS.DisplayAll();
-        seC.getItems().addAll(th);
+        searchTheme.getItems().addAll(th);
         
         bt.setVisible(false);
         why.setVisible(false);
@@ -118,10 +195,8 @@ public class ClubAccController implements Initializable {
             alert.setContentText("Data invalid");
             alert.show();
             }else{
-                
-                
-                
-                ClubUser cu = new ClubUser(why.getText(),you.getValue(),skills.getText(),3,"Waiting",ls.get(list.getSelectionModel().getSelectedIndex()).getId_club());
+                    
+                ClubUser cu = new ClubUser(why.getText(),you.getValue(),skills.getText(),Session.current_user.getId_user(),"Waiting",ls.get(list.getSelectionModel().getSelectedIndex()).getId_club());
                 cc.insert(cu);
                 bt.setVisible(false);
                 list.setVisible(true);
@@ -140,23 +215,20 @@ public class ClubAccController implements Initializable {
             
                 
         });
-            ser.setOnAction(e-> {
-                ObservableList<Club> searchl = FXCollections.observableArrayList();
+            subS.setOnAction(e-> {
+               
                 ObservableList<Club> searchT = FXCollections.observableArrayList();
-                searchl = cs.searchClub(search.getText());
+                searchT= cs.searchByTheme( searchTheme.getValue());
+                //System.out.println(searchT);
                 list.getItems().clear();
-                for (int i = 0; i < searchl.size(); i++) {
-                    String s =searchl.get(i).affiche();
-                    ss.add(s);
-                    list.setItems(ss);
-               }
-                searchT= cs.searchByTheme( seC.getValue());
                 for (int i = 0; i < searchT.size(); i++) {
                     String s =searchT.get(i).affiche();
                     ss.add(s);
+                    
                     list.setItems(ss);
                }
             });
+            
                 
         
     }
