@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccueilController">
+    <children>
+        <VBox prefHeight="600.0" prefWidth="1000.0">
+            <children>
+                <HBox prefHeight="50.0" prefWidth="750.0" style="-fx-background-color: #33726f;">
+                    <children>
+                        <VBox prefHeight="100.0" prefWidth="187.5">
+                            <children>
+                                <Label fx:id="label_article" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Articles">
+                                    <font>
+                                        <Font name="Comic Sans MS" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="100.0" prefWidth="187.5">
+                            <children>
+                                <Label fx:id="label_event" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Events">
+                                    <font>
+                                        <Font name="Comic Sans MS" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="100.0" prefWidth="187.5">
+                     <children>
+                        <Label fx:id="label_club" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Clubs">
+                           <font>
+                              <Font name="Comic Sans MS" size="20.0" />
+                           </font>
+                        </Label>
+                     </children></VBox>
+                  <VBox prefHeight="100.0" prefWidth="187.5">
+                     <children>
+                        <Label fx:id="label_subscriber" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="SUBSCRIBE">
+                           <font>
+                              <Font name="Comic Sans MS" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="100.0" prefWidth="187.5">
+                     <children>
+                        <Label fx:id="label_profile" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="My profile">
+                           <font>
+                              <Font name="Comic Sans MS" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="50.0" prefWidth="106.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton fx:id="btnlogout" layoutX="13.0" layoutY="1.0" prefHeight="46.0" prefWidth="41.0" text=" ">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="36.0" fitWidth="41.0">
+                                       <image>
+                                          <Image url="@../img/logout.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="btnlogin" layoutX="13.0" layoutY="1.0" prefHeight="48.0" prefWidth="0.0" text=" ">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="38.0" fitWidth="44.0">
+                                       <image>
+                                          <Image url="@../img/login.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                    </children>
+                </HBox>
+                <HBox prefHeight="550.0" prefWidth="1000.0" style="-fx-background-color: #D9E3DA;">
+                    <children>
+                        <HBox prefHeight="100.0" prefWidth="1000.0">
+                            <children>
+                                <AnchorPane prefHeight="550.0" prefWidth="280.0">
+                                    <children>
+                                        <Separator layoutX="33.0" layoutY="376.0" prefWidth="200.0" />
+                              <Separator layoutX="40.0" layoutY="171.0" prefWidth="200.0" />
+                              <ImageView fx:id="addevent" fitHeight="63.0" fitWidth="74.0" layoutX="97.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/add.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="83.0" layoutY="128.0" text="New Event" textFill="#6ba6fffa">
+                                 <font>
+                                    <Font name="Bookman Old Style Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="myevents" fitHeight="63.0" fitWidth="63.0" layoutX="98.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/clipboard.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="Favorit" fitHeight="63.0" fitWidth="64.0" layoutX="104.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../img/star.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="68.0" layoutY="497.0" style="-fx-alignment: #2A2E37;" text="My Favorit events" textFill="#e1dc46fa">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="70.0" layoutY="316.0" text="My Event List" textFill="#e8684bfa">
+                                 <font>
+                                    <Font name="Bookman Old Style Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                                    </children>
+                                </AnchorPane>
+                                <HBox prefHeight="550.0" prefWidth="720.0" style="-fx-background-color: #D9E3DA;">
+                                    <children>
+                              <AnchorPane prefHeight="550.0" prefWidth="721.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="All Events:" textFill="#1e90fffa">
+                                       <font>
+                                          <Font name="Book Antiqua" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <ListView fx:id="allevent" layoutX="7.0" layoutY="56.0" onMouseClicked="#affiche" prefHeight="479.0" prefWidth="702.0" />
+                                 </children>
+                              </AnchorPane>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

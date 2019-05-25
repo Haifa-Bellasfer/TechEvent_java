@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PieChartViewController">
+   <children>
+      <PieChart fx:id="pieChart" layoutX="250.0" layoutY="121.0" prefHeight="440.0" prefWidth="874.0" />
+      <VBox layoutX="282.0" layoutY="87.0" prefHeight="470.0" prefWidth="837.0" />
+       <VBox prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #214a48;">
+            <children>
+                <VBox prefHeight="450.0" prefWidth="250.0" style="-fx-background-color: #214a48;">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="100.0" prefWidth="250.0" text="Admin Dashborad" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="Cambria Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label_news" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="News" textAlignment="CENTER" textFill="#dad5d5">
+                            <font>
+                                <Font name="Cambria" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label_users" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Users" textAlignment="CENTER" textFill="#dad5d5">
+                            <font>
+                                <Font name="Cambria" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label_clubs" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Clubs" textAlignment="CENTER" textFill="#dad5d5">
+                            <font>
+                                <Font name="Cambria" size="18.0" />
+                            </font>
+                        </Label>
+                  <Label fx:id="event" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Events" textAlignment="CENTER" textFill="#dad5d5">
+                     <font>
+                        <Font name="Cambria" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Report" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Report" textAlignment="CENTER" textFill="#dad5d5">
+                     <font>
+                        <Font name="Cambria" size="18.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </VBox>
+                <VBox prefHeight="150.0" prefWidth="250.0">
+                    <children>
+                        <Pane prefHeight="150.0" prefWidth="250.0">
+                            <children>
+                                <JFXButton fx:id="btnlogout" layoutX="78.0" layoutY="75.0" prefHeight="31.0" prefWidth="95.0" text=" " textFill="#dad5d5">
+                                    <font>
+                                        <Font name="Cambria" size="18.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="48.0" fitWidth="50.0">
+                                            <image>
+                                                <Image url="@../img/logout.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </JFXButton>
+                            </children>
+                        </Pane>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+      <HBox layoutX="250.0" layoutY="-5.0" prefHeight="67.0" prefWidth="893.0" style="-fx-background-color: #33726f;">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="113.0" prefWidth="287.0" text="Statistics" textFill="#f7bd00" translateX="310.0">
+               <font>
+                  <Font name="Bodoni MT Black" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

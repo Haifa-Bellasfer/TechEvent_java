@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #D9E3DA;" stylesheets="@../styling/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UsersListController">
+    <children>
+        <HBox layoutX="250.0" prefHeight="50.0" prefWidth="750.0" style="-fx-background-color: #33726f;">
+            <children>
+                <VBox prefHeight="100.0" prefWidth="187.5">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="107.0" prefWidth="196.0">
+                            <font>
+                                <Font name="Comic Sans MS" size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+                <VBox prefHeight="100.0" prefWidth="187.5">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="107.0" prefWidth="196.0">
+                            <font>
+                                <Font name="Comic Sans MS" size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+                <VBox prefHeight="100.0" prefWidth="187.5">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="107.0" prefWidth="196.0">
+                            <font>
+                                <Font name="Comic Sans MS" size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+                <VBox prefHeight="100.0" prefWidth="187.5">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="107.0" prefWidth="196.0">
+                            <font>
+                                <Font name="Comic Sans MS" size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <TableView fx:id="table" layoutX="273.0" layoutY="138.0" prefHeight="438.0" prefWidth="709.0">
+            <columns>
+                <TableColumn fx:id="colUsername" prefWidth="101.0" text="Username" />
+                <TableColumn fx:id="colFirstname" prefWidth="110.0" text="Firstname" />
+                <TableColumn fx:id="colLastname" prefWidth="88.0" text="Lastname" />
+                <TableColumn fx:id="colEmail" prefWidth="100.0" text="Email" />
+                <TableColumn fx:id="colAddress" prefWidth="126.0" text="Address" />
+                <TableColumn fx:id="colPhone" prefWidth="111.0" text="Phone" />
+                <TableColumn fx:id="colStatus" prefWidth="160.0" text="Status" />
+            </columns>
+        </TableView>
+        <VBox prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #214a48;">
+            <children>
+                <VBox prefHeight="450.0" prefWidth="250.0" style="-fx-background-color: #214a48;">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="100.0" prefWidth="250.0" text="Admin Dashborad" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="Cambria Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label_news" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="News" textAlignment="CENTER" textFill="#dad5d5">
+                            <font>
+                                <Font name="Cambria" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label_users" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Users" textAlignment="CENTER" textFill="#dad5d5">
+                            <font>
+                                <Font name="Cambria" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label_clubs" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Clubs" textAlignment="CENTER" textFill="#dad5d5">
+                            <font>
+                                <Font name="Cambria" size="18.0" />
+                            </font>
+                        </Label>
+                  <Label fx:id="event" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Events" textAlignment="CENTER" textFill="#dad5d5">
+                     <font>
+                        <Font name="Cambria" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Report" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Report" textAlignment="CENTER" textFill="#dad5d5">
+                     <font>
+                        <Font name="Cambria" size="18.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </VBox>
+                <VBox prefHeight="150.0" prefWidth="250.0">
+                    <children>
+                        <Pane prefHeight="150.0" prefWidth="250.0">
+                            <children>
+                                <JFXButton fx:id="btnlogout" layoutX="78.0" layoutY="75.0" prefHeight="31.0" prefWidth="95.0" style="-fx-background-color: #214a48;" text=" " textFill="#dad5d5">
+                                    <font>
+                                        <Font name="Cambria" size="18.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="48.0" fitWidth="50.0">
+                                            <image>
+                                                <Image url="@../img/logout.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </JFXButton>
+                            </children>
+                        </Pane>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+        <Label layoutX="549.0" layoutY="87.0" text="Members List">
+            <font>
+                <Font name="Times New Roman" size="28.0" />
+            </font>
+            <effect>
+                <Glow />
+            </effect>
+        </Label>
+    </children>
+</AnchorPane>

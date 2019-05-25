@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClubAccController">
+    <children>
+        <JFXListView fx:id="list" layoutX="187.0" layoutY="48.0" onMouseClicked="#join" prefHeight="489.0" prefWidth="813.0" />
+        <JFXButton fx:id="bt" buttonType="RAISED" layoutX="536.0" layoutY="545.0" prefHeight="33.0" prefWidth="73.0" style="-fx-background-color: #8bc;" text="Join us" />
+        <JFXTextArea fx:id="why" labelFloat="true" layoutX="252.0" layoutY="125.0" prefHeight="127.0" prefWidth="300.0" promptText="Why you want to join us" wrapText="true" />
+        <JFXTextArea fx:id="skills" labelFloat="true" layoutX="607.0" layoutY="125.0" prefHeight="127.0" prefWidth="300.0" promptText="What are your skills" wrapText="true" />
+        <JFXComboBox fx:id="you" labelFloat="true" layoutX="475.0" layoutY="287.0" prefHeight="52.0" prefWidth="172.0" promptText="You are a: " />
+        <JFXButton fx:id="submit" buttonType="RAISED" layoutX="521.0" layoutY="421.0" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #a5a5ff;" text="Submit" />
+        <Pane layoutY="50.0" prefHeight="552.0" prefWidth="187.0" style="-fx-background-color: #D9E3DA;">
+            <children>
+                <ComboBox fx:id="searchTheme" layoutX="19.0" layoutY="69.0" prefHeight="33.0" prefWidth="153.0" promptText="Select a theme" />
+                <JFXButton fx:id="subS" buttonType="RAISED" layoutX="54.0" layoutY="127.0" prefHeight="31.0" prefWidth="73.0" style="-fx-background-color: #F6D55C;" text="Search" />
+                <JFXButton fx:id="create" buttonType="RAISED" layoutX="22.0" layoutY="373.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="Create a club">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="My" buttonType="RAISED" layoutX="22.0" layoutY="293.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="My Clubs">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="home" buttonType="RAISED" layoutX="22.0" layoutY="217.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="Club home">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="wrk" buttonType="RAISED" layoutX="23.0" layoutY="443.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="Workshops">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </JFXButton>
+            </children>
+        </Pane>
+           <HBox prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #33726f;">
+                    <children>
+                        <VBox prefHeight="100.0" prefWidth="187.5">
+                            <children>
+                                <Label fx:id="label_article" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Articles">
+                                    <font>
+                                        <Font name="Comic Sans MS" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="100.0" prefWidth="187.5">
+                            <children>
+                                <Label fx:id="label_event" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Events">
+                                    <font>
+                                        <Font name="Comic Sans MS" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="100.0" prefWidth="187.5">
+                     <children>
+                        <Label fx:id="label_club" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Clubs">
+                           <font>
+                              <Font name="Comic Sans MS" size="20.0" />
+                           </font>
+                        </Label>
+                     </children></VBox>
+                  <VBox prefHeight="100.0" prefWidth="187.5">
+                     <children>
+                        <Label fx:id="label_subscriber" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="SUBSCRIBE">
+                           <font>
+                              <Font name="Comic Sans MS" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="100.0" prefWidth="187.5">
+                     <children>
+                        <Label fx:id="label_profile" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="My profile">
+                           <font>
+                              <Font name="Comic Sans MS" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="50.0" prefWidth="106.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton fx:id="btnlogout" layoutX="13.0" layoutY="1.0" prefHeight="46.0" prefWidth="41.0" text=" ">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="36.0" fitWidth="41.0">
+                                       <image>
+                                          <Image url="@../img/logout.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="btnlogin" layoutX="13.0" layoutY="1.0" prefHeight="48.0" prefWidth="0.0" text=" ">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="38.0" fitWidth="44.0">
+                                       <image>
+                                          <Image url="@../img/login.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                    </children>
+                </HBox>
+    </children>
+</AnchorPane>

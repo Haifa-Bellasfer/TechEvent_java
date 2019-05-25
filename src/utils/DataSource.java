@@ -24,7 +24,7 @@ public class DataSource {
     private DataSource() {
         try {
             cnx=DriverManager.getConnection(url, login, pwd);
-            System.out.println("connx etablie");
+
         } catch (SQLException ex) {
             Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
         }

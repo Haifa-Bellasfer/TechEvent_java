@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Club2Controller">
+   <children>
+      <JFXTextField fx:id="nameC" labelFloat="true" layoutX="333.0" layoutY="194.0" promptText="Enter the club name" style="-jfx-focus-color: #11643d;" unFocusColor="#10083c" />
+      <JFXTextField fx:id="email" labelFloat="true" layoutX="333.0" layoutY="300.0" promptText="Enter Email" style="-jfx-focus-color: #11643d;" unFocusColor="#10083c" />
+      <JFXTextField fx:id="fb" focusColor="#11643d" labelFloat="true" layoutX="333.0" layoutY="390.0" promptText="Facebook account" style="-jfx-focus-color: #11643d;" unFocusColor="#10083c" />
+      <Label layoutX="198.0" layoutY="196.0" text="Name">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="512.0" layoutY="195.0" text="Description">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="198.0" layoutY="301.0" text="Email">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="198.0" layoutY="391.0" text="Facebook">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <JFXComboBox fx:id="tBox" focusColor="#4bd0f8" layoutX="641.0" layoutY="299.0" promptText="Select a theme" style="-jfx-focus-color: #11643d; -jfx-label-float: #11643d; -jfx-disable-animation: #11643d; -jfx-unfocus-color: #11643d;" unFocusColor="#0b0843" />
+      <Label layoutX="512.0" layoutY="300.0" text="Theme">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <JFXButton fx:id="Submit" buttonType="RAISED" layoutX="494.0" layoutY="526.0" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: #8bc;" text="Submit" />
+      <JFXTextArea fx:id="desc" labelFloat="true" layoutX="641.0" layoutY="129.0" prefHeight="89.0" prefWidth="310.0" promptText="Describe the club" unFocusColor="#0c0936" />
+      <Pane layoutY="50.0" prefHeight="550.0" prefWidth="187.0" style="-fx-background-color: #D9E3DA;">
+         <children>
+            <JFXButton fx:id="create" buttonType="RAISED" layoutX="21.0" layoutY="389.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="Create a club">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="My" buttonType="RAISED" layoutX="21.0" layoutY="311.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="My Clubs">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="home" buttonType="RAISED" layoutX="21.0" layoutY="234.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="Club home">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="wrk" buttonType="RAISED" layoutX="22.0" layoutY="462.0" prefHeight="43.0" prefWidth="144.0" style="-fx-background-color: #8bcbc8;" text="Workshops">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <HBox prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: #33726f;">
+                    <children>
+                        <VBox prefHeight="100.0" prefWidth="187.5">
+                            <children>
+                                <Label fx:id="label_article" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Articles">
+                                    <font>
+                                        <Font name="Comic Sans MS" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="100.0" prefWidth="187.5">
+                            <children>
+                                <Label fx:id="label_event" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Events">
+                                    <font>
+                                        <Font name="Comic Sans MS" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="100.0" prefWidth="187.5">
+                     <children>
+                        <Label fx:id="label_club" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="Clubs">
+                           <font>
+                              <Font name="Comic Sans MS" size="20.0" />
+                           </font>
+                        </Label>
+                     </children></VBox>
+                  <VBox prefHeight="100.0" prefWidth="187.5">
+                     <children>
+                        <Label fx:id="label_subscriber" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="SUBSCRIBE">
+                           <font>
+                              <Font name="Comic Sans MS" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="100.0" prefWidth="187.5">
+                     <children>
+                        <Label fx:id="label_profile" alignment="CENTER" prefHeight="107.0" prefWidth="196.0" text="My profile">
+                           <font>
+                              <Font name="Comic Sans MS" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="50.0" prefWidth="106.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton fx:id="btnlogout" layoutX="13.0" layoutY="1.0" prefHeight="46.0" prefWidth="41.0" text=" ">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="36.0" fitWidth="41.0">
+                                       <image>
+                                          <Image url="@../img/logout.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="btnlogin" layoutX="13.0" layoutY="1.0" prefHeight="48.0" prefWidth="0.0" text=" ">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="38.0" fitWidth="44.0">
+                                       <image>
+                                          <Image url="@../img/login.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                    </children>
+                </HBox>
+   </children>
+</AnchorPane>

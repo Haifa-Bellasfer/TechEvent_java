@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ThemeViewController">
+    <children>
+        <VBox prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #214a48;">
+            <children>
+              <VBox prefHeight="450.0" prefWidth="250.0" style="-fx-background-color: #214a48;">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="100.0" prefWidth="250.0" text="Admin Dashborad" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="Cambria Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label_news" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="News" textAlignment="CENTER" textFill="#dad5d5">
+                            <font>
+                                <Font name="Cambria" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label_users" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Users" textAlignment="CENTER" textFill="#dad5d5">
+                            <font>
+                                <Font name="Cambria" size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label_clubs" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Clubs" textAlignment="CENTER" textFill="#dad5d5">
+                            <font>
+                                <Font name="Cambria" size="18.0" />
+                            </font>
+                        </Label>
+                  <Label fx:id="event" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Events" textAlignment="CENTER" textFill="#dad5d5">
+                     <font>
+                        <Font name="Cambria" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Report" alignment="CENTER" prefHeight="37.0" prefWidth="255.0" text="Report" textAlignment="CENTER" textFill="#dad5d5">
+                     <font>
+                        <Font name="Cambria" size="18.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </VBox>
+                <VBox prefHeight="150.0" prefWidth="250.0">
+                    <children>
+                        <Pane prefHeight="150.0" prefWidth="250.0">
+                            <children>
+                                <JFXButton fx:id="btnlogout" layoutX="78.0" layoutY="75.0" prefHeight="31.0" prefWidth="95.0" text=" " textFill="#dad5d5">
+                                    <font>
+                                        <Font name="Cambria" size="18.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="48.0" fitWidth="50.0">
+                                            <image>
+                                                <Image url="@../img/logout.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </JFXButton>
+                            </children>
+                        </Pane>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+        <VBox layoutX="250.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #D9E3DA;">
+            <children>
+                <Pane prefHeight="606.0" prefWidth="750.0">
+                    <children>
+                        <JFXTextField fx:id="Name" focusColor="#072c0f" labelFloat="true" layoutX="555.0" layoutY="148.0" promptText="Enter theme name" unFocusColor="#0f0d39" />
+                        <JFXButton fx:id="btn" buttonType="RAISED" layoutX="622.0" layoutY="201.0" prefHeight="25.0" prefWidth="74.0" ripplerFill="#188345" style="-fx-background-color: #8bcbc8;" text="Add" textFill="#fcf7f7" />
+                        <JFXButton fx:id="Del" buttonType="RAISED" layoutX="252.0" layoutY="552.0" prefHeight="31.0" prefWidth="65.0" ripplerFill="#d30000" style="-fx-background-color: #ED553B;" text="Delete" textFill="#fffbfb" />
+                        <TableView fx:id="Table" editable="true" layoutX="52.0" layoutY="89.0" prefHeight="447.0" prefWidth="313.0" style="-fx-border-color: #188345;">
+                            <columns>
+                                <TableColumn fx:id="colName" prefWidth="311.0" text="Theme Name" />
+                            </columns>
+                        </TableView>
+                        <JFXButton fx:id="btnUp" buttonType="RAISED" layoutX="98.0" layoutY="552.0" prefHeight="31.0" prefWidth="74.0" ripplerFill="#2d07c5" style="-fx-background-color: #F6D55C;" text="Update" />
+                        <Pane prefHeight="50.0" prefWidth="750.0" style="-fx-background-color: #33726f;">
+                            <children>
+                                <Label fx:id="themes" layoutX="382.0" layoutY="7.0" prefHeight="37.0" prefWidth="112.0" text="Themes" textFill="#fcf5f5">
+                                    <font>
+                                        <Font size="22.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="req" layoutX="138.0" layoutY="7.0" prefHeight="37.0" prefWidth="133.0" text="Club requests" textFill="#fcf5f5">
+                                    <font>
+                                        <Font size="22.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Pane>
+                    </children>
+                </Pane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

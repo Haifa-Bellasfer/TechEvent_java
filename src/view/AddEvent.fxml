@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="400.0" maxWidth="400.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #F5F5F5;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddEventController">
+   <children>
+      <Label layoutX="12.0" layoutY="43.0" prefHeight="17.0" prefWidth="81.0" text="Event Name :" textFill="#1e1e04">
+         <font>
+            <Font name="Book Antiqua Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="12.0" layoutY="94.0" text="Address :" textFill="#1e1e04">
+         <font>
+            <Font name="Book Antiqua Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="13.0" layoutY="163.0" text="Start Date :" textFill="#1e1e04">
+         <font>
+            <Font name="Book Antiqua Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="16.0" layoutY="240.0" text="End Date :" textFill="#1e1e04">
+         <font>
+            <Font name="Book Antiqua Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="21.0" layoutY="332.0" text="Price :" textFill="#1e1e04">
+         <font>
+            <Font name="Book Antiqua Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="13.0" layoutY="421.0" prefHeight="25.0" prefWidth="132.0" text="Participant Number :" textFill="#1e1e04">
+         <font>
+            <Font name="Book Antiqua Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="350.0" layoutY="300.0" text="Description :" textFill="#1e1e04">
+         <font>
+            <Font name="Book Antiqua Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="358.0" layoutY="133.0" text="Photo :" textFill="#1e1e04">
+         <font>
+            <Font name="Book Antiqua Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="356.0" layoutY="65.0" text="Category :" textFill="#1e1e04">
+         <font>
+            <Font name="Book Antiqua Bold" size="13.0" />
+         </font></Label>
+      <DatePicker fx:id="EndDate" layoutX="123.0" layoutY="236.0" prefHeight="25.0" prefWidth="187.0" style="-fx-background-color: #D3D3D3;" />
+      <DatePicker fx:id="StartDate" layoutX="123.0" layoutY="159.0" prefHeight="25.0" prefWidth="187.0" style="-fx-background-color: #D3D3D3;" />
+      <ImageView fx:id="img" fitHeight="187.0" fitWidth="301.0" layoutX="552.0" layoutY="111.0" onMouseClicked="#addimage" pickOnBounds="true" preserveRatio="true" />
+      <JFXTextField fx:id="Name" layoutX="117.0" layoutY="39.0" prefHeight="25.0" prefWidth="187.0" />
+      <JFXTextField fx:id="Address" layoutX="117.0" layoutY="82.0" prefHeight="25.0" prefWidth="187.0" />
+      <JFXTextField fx:id="Price" layoutX="101.0" layoutY="328.0" prefHeight="25.0" prefWidth="201.0" />
+      <JFXTextField fx:id="Nbp" layoutX="123.0" layoutY="464.0" prefHeight="25.0" prefWidth="187.0" />
+      <JFXComboBox fx:id="Category" labelFloat="true" layoutX="568.0" layoutY="53.0" prefHeight="25.0" prefWidth="269.0" promptText="Choose Category" />
+      <JFXButton fx:id="AddButton" layoutX="837.0" layoutY="536.0" prefHeight="37.0" prefWidth="132.0" style="-fx-background-color: #1E90FF;" text="Add" />
+      <TextArea fx:id="Description" layoutX="350.0" layoutY="332.0" opacity="0.71" prefHeight="177.0" prefWidth="626.0" style="-fx-background-color: #D3D3D3;" />
+      <Label fx:id="addphoto" layoutX="673.0" layoutY="184.0" text="Choose file" />
+      <ImageView fx:id="back" fitHeight="37.0" fitWidth="56.0" layoutX="21.0" layoutY="548.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/left-arrow.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

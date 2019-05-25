@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="240.0" prefWidth="783.0" style="-fx-background-color: #D9E3DA;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SubsController">
+    <children>
+        <Label layoutX="90.0" layoutY="38.0" text="SUBSCRIBE TO OUR NEWSLETTER">
+            <font>
+                <Font name="System Bold" size="38.0" />
+            </font>
+        </Label>
+        <JFXTextField fx:id="txtEmail" layoutX="33.0" layoutY="114.0" prefHeight="55.0" prefWidth="271.0" promptText="Enter your email" style="-fx-background-color: #FFF;" />
+        <ChoiceBox fx:id="chDomain" layoutX="323.0" layoutY="114.0" prefHeight="55.0" prefWidth="256.0" style="-fx-background-color: #fff;" />
+        <JFXButton fx:id="btnSubscribe" buttonType="RAISED" layoutX="599.0" layoutY="114.0" prefHeight="55.0" prefWidth="152.0" style="-fx-background-color: #8bcbc8;" text="Subscribe NOW">
+            <font>
+                <Font name="Tahoma Bold" size="14.0" />
+            </font>
+        </JFXButton>
+        <Label fx:id="error" layoutX="33.0" layoutY="179.0" textFill="RED">
+            <font>
+                <Font name="Calibri Bold Italic" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="errorD" layoutX="323.0" layoutY="179.0" textFill="RED">
+            <font>
+                <Font name="Calibri Bold Italic" size="20.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

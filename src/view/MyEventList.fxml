@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: d9e3da;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MyEventListController">
+   <children>
+      <Pane fx:id="space" layoutX="14.0" layoutY="45.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <TableView fx:id="eventtab" layoutY="-22.0" prefHeight="551.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="name" prefWidth="199.0" style="-fx-border-color: #b8860b;" text="event_Name" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Label layoutX="221.0" layoutY="49.0" prefHeight="17.0" prefWidth="82.0" text="event Name :" textFill="#2c2c10">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="224.0" layoutY="90.0" text="event address:" textFill="#2c2c10">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="224.0" layoutY="137.0" text="categories :" textFill="#2c2c10">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="228.0" layoutY="205.0" text="Start Date :" textFill="#2c2c10">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="235.0" layoutY="278.0" prefHeight="17.0" prefWidth="67.0" text="End Date :" textFill="#2c2c10">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="231.0" layoutY="355.0" text="Price :" textFill="#2c2c10">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="231.0" layoutY="415.0" prefHeight="20.0" prefWidth="150.0" text="Participant number :" textFill="#2c2c10">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <JFXTextField fx:id="eventName" layoutX="425.0" layoutY="37.0" prefHeight="25.0" prefWidth="213.0" />
+      <JFXTextField fx:id="address" layoutX="422.0" layoutY="78.0" prefHeight="25.0" prefWidth="213.0" />
+      <JFXComboBox fx:id="category" layoutX="421.0" layoutY="145.0" prefHeight="25.0" prefWidth="224.0" />
+      <DatePicker fx:id="startdate" layoutX="421.0" layoutY="213.0" opacity="0.5" prefHeight="25.0" prefWidth="224.0" />
+      <DatePicker fx:id="enddate" layoutX="424.0" layoutY="275.0" opacity="0.5" prefHeight="25.0" prefWidth="224.0" />
+      <JFXTextField fx:id="price" layoutX="424.0" layoutY="353.0" prefHeight="25.0" prefWidth="224.0" />
+      <JFXTextField fx:id="nbp" layoutX="427.0" layoutY="413.0" prefHeight="25.0" prefWidth="224.0" />
+      <JFXButton fx:id="delete" layoutX="831.0" layoutY="526.0" prefHeight="42.0" prefWidth="120.0" ripplerFill="#3c3c08" style="-fx-background-color: #f6f55c;" text="Delete" textFill="#615d4b" />
+      <JFXButton fx:id="update" layoutX="539.0" layoutY="526.0" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: ed553b;" text="Update" textFill="#321f1f" />
+      <JFXButton fx:id="back" layoutX="259.0" layoutY="526.0" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: #8bcbc8;" text="Back" textFill="#321f1f" />
+   </children>
+</AnchorPane>
